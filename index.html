@@ -226,6 +226,8 @@ img { max-width: 100%; display: block; }
 .hero-inner {
   max-width: 680px;
   text-align: left;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .hero-eyebrow {
@@ -365,7 +367,7 @@ img { max-width: 100%; display: block; }
    ISO CERTIFICATIONS
 ══════════════════════════════════ */
 .iso-section { padding: 100px 0; background: var(--white); }
-.iso-head { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+.iso-head { text-align: left; max-width: 680px; margin: 0 0 56px; }
 .iso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .iso-card { background: var(--white); border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 28px 22px; text-align: center; cursor: pointer; transition: var(--transition); position: relative; overflow: hidden; box-shadow: var(--shadow-sm); }
 .iso-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); opacity: 0; transition: opacity var(--transition); border-radius: inherit; }
@@ -434,7 +436,7 @@ img { max-width: 100%; display: block; }
    SERVICES
 ══════════════════════════════════ */
 .services-section { padding: 100px 0; background: var(--white); }
-.services-head { text-align: center; max-width: 600px; margin: 0 auto 56px; }
+.services-head { text-align: left; max-width: 600px; margin: 0 0 56px; }
 .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .srv-card { background: var(--white); border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 36px; transition: var(--transition); box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
 .srv-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--navy), var(--blue-lt)); transform: scaleX(0); transform-origin: left; transition: transform var(--transition); }
@@ -471,7 +473,7 @@ img { max-width: 100%; display: block; }
    WHY US
 ══════════════════════════════════ */
 .why-section { padding: 100px 0; background: var(--off-white); }
-.why-head { text-align: center; max-width: 600px; margin: 0 auto 56px; }
+.why-head { text-align: left; max-width: 600px; margin: 0 0 56px; }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .why-card { background: #fff; border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 32px; text-align: center; transition: var(--transition); box-shadow: var(--shadow-sm); }
 .why-card:hover { border-color: var(--navy); transform: translateY(-4px); box-shadow: var(--shadow-md); }
@@ -485,8 +487,8 @@ img { max-width: 100%; display: block; }
 .clients-section { padding: 100px 0; background: #fff; position: relative; overflow: hidden; }
 .clients-section::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(11,31,78,0.03) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(200,150,12,0.04) 0%, transparent 50%); pointer-events: none; }
 .clients-section-separator { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gray-200), rgba(200,150,12,0.4), var(--gray-200), transparent); }
-.clients-head { text-align: center; max-width: 640px; margin: 0 auto 64px; position: relative; z-index: 1; }
-.clients-head .section-sub { margin: 0 auto; }
+.clients-head { text-align: left; max-width: 640px; margin: 0 0 64px; position: relative; z-index: 1; }
+.clients-head .section-sub { margin: 0; }
 .clients-marquee-wrapper { position: relative; overflow: hidden; margin-bottom: 12px; }
 .clients-marquee-wrapper::before, .clients-marquee-wrapper::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
 .clients-marquee-wrapper::before { left: 0; background: linear-gradient(90deg, #fff 0%, transparent 100%); }
@@ -497,9 +499,9 @@ img { max-width: 100%; display: block; }
 .clients-marquee-track.reverse { animation: marquee-scroll-reverse 42s linear infinite; }
 .clients-marquee-track.reverse:hover { animation-play-state: paused; }
 @keyframes marquee-scroll-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-.client-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-width: 180px; height: 100px; background: #fff; border: 1.5px solid var(--gray-100); border-radius: 16px; padding: 18px 24px; cursor: default; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease, filter 0.35s ease; filter: grayscale(1) opacity(0.55); box-shadow: var(--shadow-sm); user-select: none; }
+.client-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-width: 220px; height: 140px; background: #fff; border: 1.5px solid var(--gray-100); border-radius: 16px; padding: 20px 28px; cursor: default; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease, filter 0.35s ease; filter: grayscale(1) opacity(0.55); box-shadow: var(--shadow-sm); user-select: none; }
 .client-logo-card:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 12px 36px rgba(11,31,78,0.12); border-color: rgba(200,150,12,0.35); filter: grayscale(0) opacity(1); z-index: 5; }
-.clc-icon { width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+.clc-icon { width: 65px; height: 65px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
 .clc-name { font-family: var(--font); font-size: 0.72rem; font-weight: 800; color: var(--text); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; line-height: 1.2; white-space: nowrap; }
 .clc-sector { font-size: 0.62rem; color: var(--text-muted); font-weight: 500; text-align: center; white-space: nowrap; }
 .clients-trust-bar { display: flex; align-items: center; justify-content: center; gap: 0; margin-top: 60px; border: 1.5px solid var(--gray-100); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); position: relative; z-index: 1; }
@@ -530,7 +532,7 @@ img { max-width: 100%; display: block; }
    TESTIMONIALS
 ══════════════════════════════════ */
 .testimonials-section { padding: 100px 0; background: var(--off-white); }
-.testi-head { text-align: center; max-width: 600px; margin: 0 auto 52px; }
+.testi-head { text-align: left; max-width: 600px; margin: 0 0 52px; }
 .testi-slider { position: relative; overflow: hidden; }
 .testi-track { display: flex; gap: 24px; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
 .testi-card { min-width: calc(50% - 12px); background: #fff; border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm); transition: var(--transition); flex-shrink: 0; }
@@ -637,7 +639,7 @@ img { max-width: 100%; display: block; }
   .partner-logo-card.main { grid-column: auto; }
   .hero-trust { flex-wrap: wrap; gap: 14px; }
   .clients-marquee-wrapper::before, .clients-marquee-wrapper::after { width: 60px; }
-  .client-logo-card { min-width: 150px; height: 88px; padding: 14px 16px; }
+  .client-logo-card { min-width: 170px; height: 120px; padding: 14px 18px; }
   .clients-trust-bar { flex-direction: column; }
   .ctb-item { border-right: none; border-bottom: 1px solid var(--gray-100); width: 100%; }
   .ctb-item:last-child { border-bottom: none; }
@@ -796,10 +798,17 @@ img { max-width: 100%; display: block; }
     <div class="about-inner">
       <div class="about-img-block reveal">
         <div class="about-img-main">
-          <div class="about-img-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <p>Cabinet OCG Consulting<br/>Casablanca</p>
-          </div>
+          <!--
+            ════════════════════════════════════════
+            PHOTO DE VOTRE CABINET — À REMPLACER
+            Décommentez la ligne <img> ci-dessous et
+            mettez le chemin vers votre vraie photo :
+            ════════════════════════════════════════
+          -->
+          <img src="cabinet-ocg.jpg" alt="Cabinet OCG Consulting – Casablanca" /> 
+
+          <!-- Placeholder affiché tant que la photo n'est pas insérée -->
+         
         </div>
         <div class="about-badge">
           <strong>2007</strong>
@@ -1230,15 +1239,8 @@ img { max-width: 100%; display: block; }
     <div class="footer-inner">
       <div class="ft-brand">
         <div class="footer-logo-mark">
-          <svg width="46" height="46" viewBox="0 0 56 56" fill="none">
-            <circle cx="28" cy="28" r="26" stroke="#C8960C" stroke-width="2"/>
-            <circle cx="28" cy="28" r="17" stroke="#2563EB" stroke-width="1.5" fill="rgba(37,99,235,0.1)"/>
-            <text x="28" y="35" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="900" font-size="20" fill="#C8960C">G</text>
-          </svg>
-          <div>
-            <strong>OCG</strong>
-            <span>CONSULTING</span>
-          </div>
+          <img src="ocg_logo.png" alt="OCG Consulting" style="height:52px; width:auto; filter:brightness(0) invert(1);" />
+          
         </div>
         <p>Votre partenaire de confiance pour la performance, la conformité internationale et la croissance durable au Maroc.</p>
         <div class="footer-socials">
@@ -1541,26 +1543,83 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ── CLIENTS MARQUEE (section existante) ──
 const clientsData = [
-  { name: 'Maroc Telecom',    sector: 'Télécommunications', color: '#0066CC', bg: '#E8F0FA', icon: '📡' },
-  { name: 'OCP Group',        sector: 'Mines & Chimie',      color: '#1A6B3A', bg: '#E6F4EC', icon: '⚗️' },
-  { name: 'Centrale Danone',  sector: 'Agroalimentaire',    color: '#E2001A', bg: '#FDEAEC', icon: '🥛' },
-  { name: 'CIH Bank',         sector: 'Finance & Banque',    color: '#004C97', bg: '#E6EEF8', icon: '🏦' },
-  { name: 'Label Vie',        sector: 'Grande Distribution', color: '#E8501F', bg: '#FDF0EB', icon: '🛒' },
-  { name: 'BMCE Bank',        sector: 'Finance & Banque',    color: '#006B3F', bg: '#E6F2EC', icon: '💼' },
-  { name: 'Saham Assurance',  sector: 'Assurance',           color: '#C4161C', bg: '#FDEAEA', icon: '🛡️' },
-  { name: 'LafargeHolcim MA', sector: 'Construction',        color: '#004B8D', bg: '#E6EDF8', icon: '🏗️' },
-  { name: 'Attijariwafa',     sector: 'Banque',              color: '#CC2200', bg: '#FDECEA', icon: '🏛️' },
-  { name: 'Groupe Managem',   sector: 'Mines & Métaux',      color: '#005496', bg: '#E6EEF8', icon: '⛏️' },
-  { name: 'Marjane Group',    sector: 'Distribution',        color: '#EF7D00', bg: '#FEF3E6', icon: '🏪' },
-  { name: 'Auto Nejma',       sector: 'Automobile',          color: '#003087', bg: '#E6EBF8', icon: '🚗' },
-  { name: 'Cosumar',          sector: 'Agroalimentaire',     color: '#E31837', bg: '#FDEAEC', icon: '🍬' },
-  { name: 'Oncf',             sector: 'Transport',           color: '#005EB8', bg: '#E6EFF8', icon: '🚆' },
-  { name: 'Lydec',            sector: 'Énergie & Eau',       color: '#0099CC', bg: '#E6F4FA', icon: '💧' },
-  { name: 'BMCI Groupe',      sector: 'Finance',             color: '#003D7C', bg: '#E6EBF8', icon: '📊' },
-  { name: 'Société Générale', sector: 'Banque',              color: '#E2001A', bg: '#FDEAEC', icon: '🏦' },
-  { name: 'Nexans Maroc',     sector: 'Industrie',           color: '#00A651', bg: '#E6F5EC', icon: '⚡' },
-  { name: 'Lesieur Cristal',  sector: 'Agroalimentaire',     color: '#F7941D', bg: '#FEF3E6', icon: '🫙' },
-  { name: 'Palmeraie Group',  sector: 'Immobilier',          color: '#8B4513', bg: '#F5EDE6', icon: '🏘️' }
+  //
+  // ══════════════════════════════════════════════════════════════════
+  // INSTRUCTIONS POUR INSÉRER LES LOGOS RÉELS (.png)
+  // ──────────────────────────────────────────────────────────────────
+  // Pour chaque entreprise, ajoutez le chemin de votre logo dans
+  // le champ  logo: 'chemin/vers/logo.png'
+  //
+  // Exemple :
+  //   { name: 'Maroc Telecom', ..., logo: 'logos/maroc-telecom.png' }
+  //
+  // Si logo est absent ou vide → l'icône emoji s'affiche à la place.
+  // Format recommandé : PNG transparent, largeur min 120px.
+  // ══════════════════════════════════════════════════════════════════
+  //
+  { name: 'Colaimo',    sector: 'Agroalimentaire', color: '#02A428', bg: '#E8F0FA', icon: '',
+    logo:  'colaimo_logo.png'  },
+
+  { name: 'Copa maroc',        sector: 'Agroalimentaire',      color:' #B23B034A', bg: '#E6F4EC', icon: '',
+    logo: 'copamaroc_logo.png' },
+
+  { name: 'AlHamd Logistique ',  sector: 'Logistique',    color: '#007ABC', bg: '#FDEAEC', icon: '',
+    logo:  'Alhamd_logo.png' },
+
+  { name: 'Attandence',         sector: 'Destination Management',    color: '#009751', bg: '#E6EEF8', icon: '',
+    logo: 'attandence_logo.png'  },
+
+  { name: 'MFP ',        sector: 'Agroalimentaire', color: '#F0FC03', bg: '#FDF0EB', icon: '',
+    logo: 'MFP_LOGO.png'  },
+
+  { name: 'ERI SER',        sector: 'Irrigation',    color: '#03458F', bg: '#E6F2EC', icon: '',
+    logo: 'ERISER_LOGO.png' },
+
+  { name: 'FOOD+',  sector: 'Assurance',           color: '#C4161C', bg: '#FDEAEA', icon: '',
+    logo: 'FOOD+.png'},
+
+  { name: 'Margafrique', sector: 'Agroalimentaire',        color: '#138D00', bg: '#E6EDF8', icon: '🏗️',
+    logo: 'Margafrique.png'  },
+
+  { name: 'Le Palais dAménagement ',     sector: 'bâtiment et des travaux publics',              color: '#CCCC00', bg: '#FDECEA', icon: '🏛️',
+    logo: 'LEPALAIS_LOGO.png'  },
+
+  { name: 'ARWA MEDIC',   sector: 'Activité & Produits',      color: '#005496', bg: '#E6EEF8', icon: '⛏️',
+    logo: 'ARWAMEDIC_LOGO.png' },
+
+  { name: 'BIO & ECO SOLUTIONS',    sector: 'conception & distribution',        color: '#00EF38', bg: '#FEF3E6', icon: '🏪',
+    logo: 'ECO&bio_logo.png' },
+
+  { name: 'Corderies Koutoubia ',       sector: 'Fabrication',          color: '#003087', bg: '#E6EBF8', icon: '',
+    logo: 'KOUTOUBIA_LOGO.png' },
+
+  { name: 'Euromedic',          sector: 'promotion & distribution',     color: '#E31837', bg: '#FDEAEC', icon: '',
+    logo: 'EUROMEDIC_LOGO.png' /* logo: 'logos/cosumar.png'  */ },
+
+  { name: 'Germanetti Maroc',             sector: 'Transport & Logistique',           color: '#005EB8', bg: '#E6EFF8', icon: '',
+    logo: 'ermantti_logo.png'  },
+
+  { name: 'Medic Pro',            sector: 'Appareillage orthopédique',       color: '#63CC00', bg: '#E6F4FA', icon: '💧',
+    logo: 'MEDICPRO_LOGO.png' /* logo: 'logos/lydec.png' */ },
+
+  { name: 'Nakhla Plastique',      sector: 'Plastiques ',             color: '#162D45', bg: '#E6EBF8', icon: '📊',
+    logo: 'NAKHLAPLASTIQUE_LOGO.png'  },
+
+  { name: 'Clean Dyser', sector: 'Banque',              color: '#000000', bg: '#FDEAEC', icon: '🏦',
+    logo: 'CLEAN-DYSER_LOGO.png' /* logo: 'logos/sg.png' */ },
+
+  { name: 'MNAHEL EL BEKRI',     sector: 'Apiculture ',           color: '#A68A00', bg: '#E6F5EC', icon: '⚡',
+    logo: 'MANAHEL_LBEKRI_LOGO.png' },
+
+  { name: 'LAgro-pôle Olivier ',  sector: 'Agroalimentaire',     color: '#025200', bg: '#FEF3E6', icon: '🫙',
+    logo: 'AGRO-POLEOLIVIER_LOGO.png'  },
+
+  { name: 'Hygatex ',  sector: 'Fabrication',          color: '#070565', bg: '#F5EDE6', icon: '🏘️',
+    logo: 'HYGATEX_LOGO.png'  },
+     { name: 'Dar LGzzar  ',  sector: 'Fabrication',          color: '#070565', bg: '#F5EDE6', icon: '🏘️',
+    logo: 'DARELGEZAR_LOGO.png' },
+    { name: 'DAMA',  sector: 'Recrutement',          color: '#570909', bg: '#F5EDE6', icon: '🏘️',
+    logo: 'DAMA_LOGO.png' }
 ];
 
 const row1Data = clientsData.filter((_, i) => i % 2 === 0);
@@ -1570,9 +1629,21 @@ function buildLogoCard(client) {
   const card = document.createElement('div');
   card.className = 'client-logo-card';
   card.setAttribute('aria-label', `${client.name} – ${client.sector}`);
+
+  // logoSize : taille du conteneur icone en px (defaut 44)
+  // Usage : logoSize: 70
+  const size = client.logoSize || 65;
+
+  const iconContent = client.logo
+    ? `<img src="${client.logo}" alt="${client.name}" style="width:100%;height:100%;object-fit:contain;border-radius:4px;" />`
+    : client.icon;
+
+  const iconBg = client.logo ? '#fff' : client.bg;
+
   card.innerHTML = `
-    <div class="clc-icon" style="background:${client.bg}; color:${client.color}; font-size:1.3rem;">
-      ${client.icon}
+    <div class="clc-icon" style="background:${iconBg}; color:${client.color}; font-size:1.3rem;
+      width:${size}px; height:${size}px; padding:${client.logo ? '4px' : '0'};">
+      ${iconContent}
     </div>
     <div class="clc-name" style="color:${client.color}">${client.name}</div>
     <div class="clc-sector">${client.sector}</div>
