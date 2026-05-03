@@ -129,7 +129,7 @@ img { max-width: 100%; display: block; }
 .rd5 { transition-delay: 0.5s; }
 
 /* ══════════════════════════════════
-   HERO — LEFT-ALIGNED, IMAGE POSITION LEFT
+   HERO
 ══════════════════════════════════ */
 .hero {
   min-height: 96vh;
@@ -141,32 +141,25 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   padding: 100px 0 80px 0;
 }
-
-/* Background image anchored LEFT so the subject appears on the right */
 .hero-bg-image {
   position: absolute;
   inset: 0;
   background-image: url('hero-bg.png');
   background-size: cover;
-  background-position: right center; /* ← image aligns right so left side stays dark for text */
+  background-position: right center;
   background-repeat: no-repeat;
   z-index: 0;
   animation: hero-zoom 14s ease-out forwards;
 }
-
 @keyframes hero-zoom {
   from { transform: scale(1.04); }
   to   { transform: scale(1); }
 }
-
-/* Uniform dark overlay — no directional shadow */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  
 }
-
 .hero-overlay::after {
   content: '';
   position: absolute;
@@ -176,7 +169,6 @@ img { max-width: 100%; display: block; }
   opacity: 0.35;
   pointer-events: none;
 }
-
 .hero-glow-gold {
   position: absolute;
   bottom: -80px;
@@ -187,7 +179,6 @@ img { max-width: 100%; display: block; }
   z-index: 2;
   pointer-events: none;
 }
-
 .hero-glow-blue {
   position: absolute;
   top: -60px;
@@ -198,8 +189,6 @@ img { max-width: 100%; display: block; }
   z-index: 2;
   pointer-events: none;
 }
-
-/* Gold accent line — left edge */
 .hero-line-left {
   position: absolute;
   left: 0;
@@ -210,8 +199,6 @@ img { max-width: 100%; display: block; }
   opacity: 0.6;
   z-index: 3;
 }
-
-/* ── HERO MAIN CONTENT AREA — text pushed to left half ── */
 .hero-content-area {
   position: relative;
   z-index: 4;
@@ -224,15 +211,12 @@ img { max-width: 100%; display: block; }
   padding-left: 64px;
   padding-right: 64px;
 }
-
-/* ── HERO INNER: max-width limits text to left side ── */
 .hero-inner {
   max-width: 600px;
   text-align: left;
   margin-left: 0;
   margin-right: auto;
 }
-
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -251,7 +235,6 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-
 .hero-eyebrow span {
   width: 7px;
   height: 7px;
@@ -261,12 +244,10 @@ img { max-width: 100%; display: block; }
   animation: pulse 2s infinite;
   flex-shrink: 0;
 }
-
 @keyframes pulse {
   0%,100% { box-shadow: 0 0 0 3px rgba(245,158,11,0.25); }
   50%      { box-shadow: 0 0 0 6px rgba(245,158,11,0.1); }
 }
-
 .hero-title {
   font-family: var(--font);
   font-size: clamp(2rem, 4vw, 3.4rem);
@@ -277,13 +258,11 @@ img { max-width: 100%; display: block; }
   margin-bottom: 16px;
   text-align: left;
 }
-
 .hero-title .hl {
   color: var(--gold-lt);
   position: relative;
   display: inline-block;
 }
-
 .hero-title .hl::after {
   content: '';
   position: absolute;
@@ -295,7 +274,6 @@ img { max-width: 100%; display: block; }
   border-radius: 2px;
   opacity: 0.7;
 }
-
 .hero-subtitle {
   font-size: 1rem;
   line-height: 1.75;
@@ -305,7 +283,6 @@ img { max-width: 100%; display: block; }
   font-weight: 400;
   text-align: left;
 }
-
 .hero-ctas {
   display: flex;
   justify-content: flex-start;
@@ -313,7 +290,6 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
   margin-bottom: 32px;
 }
-
 .hero-trust {
   display: flex;
   align-items: center;
@@ -323,9 +299,7 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid rgba(255,255,255,0.12);
   flex-wrap: wrap;
 }
-
 .hero-trust-item { text-align: left; }
-
 .hero-trust-num {
   font-family: var(--font);
   font-size: 1.5rem;
@@ -334,7 +308,6 @@ img { max-width: 100%; display: block; }
   line-height: 1;
   text-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
-
 .hero-trust-lbl {
   font-size: 0.68rem;
   color: rgba(255,255,255,0.5);
@@ -344,24 +317,10 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   font-family: var(--font);
 }
-
 .hero-trust-div {
   width: 1px;
   height: 40px;
   background: rgba(255,255,255,0.15);
-}
-
-/* ── RESPONSIVE HERO (mobile) ── */
-@media (max-width: 768px) {
-  .hero { padding-top: 90px; }
-  .hero-bg-image { background-position: center center; }
-  .hero-content-area { padding-bottom: 60px; padding-left: 20px; padding-right: 20px; }
-  .hero-inner { max-width: 100%; }
-  .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
-  .hero-subtitle { font-size: 0.95rem; max-width: 100%; }
-  .hero-ctas { gap: 12px; }
-  .hero-trust { gap: 14px; }
-  .hero-trust-num { font-size: 1.2rem; }
 }
 
 /* ══════════════════════════════════
@@ -372,9 +331,6 @@ img { max-width: 100%; display: block; }
 .about-img-block { position: relative; }
 .about-img-main { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); border-radius: var(--radius-lg); overflow: hidden; position: relative; box-shadow: var(--shadow-lg); display: flex; align-items: center; justify-content: center; }
 .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
-.about-img-placeholder { text-align: center; color: rgba(255,255,255,0.4); padding: 40px; }
-.about-img-placeholder svg { width: 64px; height: 64px; margin: 0 auto 16px; }
-.about-img-placeholder p { font-size: 0.85rem; }
 .about-badge { position: absolute; bottom: -20px; right: -20px; background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: #fff; border-radius: 16px; padding: 18px 22px; box-shadow: 0 12px 32px rgba(200,150,12,0.35); z-index: 10; }
 .about-badge strong { display: block; font-family: var(--font); font-size: 2rem; font-weight: 900; line-height: 1; }
 .about-badge span { font-size: 0.72rem; font-weight: 600; opacity: 0.9; letter-spacing: 0.04em; }
@@ -458,9 +414,6 @@ img { max-width: 100%; display: block; }
 .partner-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
 .partner-text .section-title-white { margin-bottom: 16px; }
 .partner-text p { color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.95rem; margin-bottom: 24px; }
-.partner-accred { display: flex; gap: 12px; margin-top: 28px; }
-.accred-badge { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 18px; }
-.accred-badge span { font-family: var(--font); font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.85); letter-spacing: 0.05em; }
 .partner-logos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .partner-logo-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; backdrop-filter: blur(10px); transition: var(--transition); }
 .partner-logo-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
@@ -489,7 +442,6 @@ img { max-width: 100%; display: block; }
 .clients-section::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(11,31,78,0.03) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(200,150,12,0.04) 0%, transparent 50%); pointer-events: none; }
 .clients-section-separator { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gray-200), rgba(200,150,12,0.4), var(--gray-200), transparent); }
 .clients-head { text-align: left; max-width: 640px; margin: 0 0 64px; position: relative; z-index: 1; }
-.clients-head .section-sub { margin: 0; }
 .clients-marquee-wrapper { position: relative; overflow: hidden; margin-bottom: 12px; }
 .clients-marquee-wrapper::before, .clients-marquee-wrapper::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
 .clients-marquee-wrapper::before { left: 0; background: linear-gradient(90deg, #fff 0%, transparent 100%); }
@@ -500,7 +452,7 @@ img { max-width: 100%; display: block; }
 .clients-marquee-track.reverse { animation: marquee-scroll-reverse 42s linear infinite; }
 .clients-marquee-track.reverse:hover { animation-play-state: paused; }
 @keyframes marquee-scroll-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-.client-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-width: 220px; height: 140px; background: #fff; border: 1.5px solid var(--gray-100); border-radius: 16px; padding: 20px 28px; cursor: default; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease; filter: none; box-shadow: var(--shadow-sm); user-select: none; }
+.client-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-width: 220px; height: 140px; background: #fff; border: 1.5px solid var(--gray-100); border-radius: 16px; padding: 20px 28px; cursor: default; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease; box-shadow: var(--shadow-sm); user-select: none; }
 .client-logo-card:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 12px 36px rgba(11,31,78,0.12); border-color: rgba(200,150,12,0.35); z-index: 5; }
 .clc-icon { width: 65px; height: 65px; border-radius: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
 .clc-name { font-family: var(--font); font-size: 0.72rem; font-weight: 800; color: var(--text); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; line-height: 1.2; white-space: nowrap; }
@@ -530,27 +482,21 @@ img { max-width: 100%; display: block; }
 .stat-lbl { font-family: var(--font); font-size: 0.78rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; transition: color var(--transition); }
 
 /* ══════════════════════════════════
-   TESTIMONIALS
+   TESTIMONIALS — GRILLE RÉELLE
 ══════════════════════════════════ */
 .testimonials-section { padding: 100px 0; background: var(--off-white); }
-.testi-head { text-align: left; max-width: 600px; margin: 0 0 52px; }
-.testi-slider { position: relative; overflow: hidden; }
-.testi-track { display: flex; gap: 24px; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
-.testi-card { min-width: calc(50% - 12px); background: #fff; border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-sm); transition: var(--transition); flex-shrink: 0; }
-.testi-card:hover { box-shadow: var(--shadow-md); border-color: rgba(11,31,78,0.12); }
-.testi-stars { display: flex; gap: 4px; margin-bottom: 18px; }
-.testi-stars span { width: 16px; height: 16px; background: var(--gold-lt); border-radius: 4px; }
-.testi-quote { font-size: 0.95rem; color: var(--text-body); line-height: 1.8; margin-bottom: 20px; font-style: italic; }
-.testi-author { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--gray-100); }
-.testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--blue-lt)); display: flex; align-items: center; justify-content: center; font-family: var(--font); font-weight: 800; color: #fff; font-size: 1rem; flex-shrink: 0; }
-.testi-author-text strong { display: block; font-family: var(--font); font-size: 0.88rem; font-weight: 700; color: var(--text); }
-.testi-author-text span { font-size: 0.78rem; color: var(--text-muted); }
-.testi-controls { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 32px; }
-.testi-btn { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--gray-200); background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition); }
-.testi-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--gray-50); }
-.testi-dots { display: flex; gap: 8px; }
-.testi-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-200); cursor: pointer; transition: var(--transition); }
-.testi-dot.active { background: var(--navy); width: 24px; border-radius: 4px; }
+.testi-head { text-align: left; max-width: 600px; margin: 0 0 48px; }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.testi-card { background: #fff; border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 22px 24px; box-shadow: var(--shadow-sm); transition: var(--transition); display: flex; flex-direction: column; gap: 10px; }
+.testi-card:hover { box-shadow: var(--shadow-md); border-color: rgba(11,31,78,0.12); transform: translateY(-3px); }
+.testi-cat { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); background: var(--gray-50); padding: 3px 10px; border-radius: 20px; display: inline-block; }
+.testi-stars { display: flex; gap: 3px; }
+.testi-stars span { width: 12px; height: 12px; background: var(--gold-lt); border-radius: 3px; display: block; }
+.testi-quote { font-size: 0.85rem; color: var(--text-body); line-height: 1.7; font-style: italic; flex: 1; }
+.testi-author { display: flex; align-items: center; gap: 10px; padding-top: 12px; border-top: 1px solid var(--gray-100); }
+.testi-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--blue-lt)); display: flex; align-items: center; justify-content: center; font-family: var(--font); font-weight: 800; color: #fff; font-size: 0.7rem; flex-shrink: 0; }
+.testi-author-text strong { display: block; font-family: var(--font); font-size: 0.82rem; font-weight: 700; color: var(--text); }
+.testi-author-text span { font-size: 0.72rem; color: var(--text-muted); }
 
 /* ══════════════════════════════════
    CONTACT
@@ -562,10 +508,7 @@ img { max-width: 100%; display: block; }
 .ci-icon { width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(11,31,78,0.06), rgba(37,99,235,0.08)); border: 1.5px solid rgba(37,99,235,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--navy); }
 .ci-text strong { display: block; font-family: var(--font); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
 .ci-text p { font-size: 0.9rem; color: var(--text-body); line-height: 1.6; }
-.map-embed { margin-top: 28px; border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid var(--gray-100); box-shadow: var(--shadow-sm); height: 200px; background: var(--gray-50); display: flex; align-items: center; justify-content: center; }
-.map-placeholder { text-align: center; color: var(--text-muted); }
-.map-placeholder svg { width: 36px; height: 36px; margin: 0 auto 8px; }
-.map-placeholder p { font-size: 0.82rem; }
+.map-embed { margin-top: 28px; border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid var(--gray-100); box-shadow: var(--shadow-sm); height: 200px; }
 .contact-form { background: var(--off-white); border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow); }
 .contact-form h3 { font-family: var(--font); font-size: 1.4rem; font-weight: 800; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
 .contact-form > p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 28px; }
@@ -599,9 +542,8 @@ img { max-width: 100%; display: block; }
 .footer-logo-mark { display: flex; align-items: center; gap: 10px; }
 .footer-logo-mark img { height: 52px; width: auto; filter: brightness(0) invert(1); }
 .footer-logo-mark strong { font-family: var(--font); font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: 0.06em; }
-.footer-logo-mark span { font-family: var(--font); font-size: 0.5rem; font-weight: 700; color: var(--gold-lt); letter-spacing: 0.2em; text-transform: uppercase; display: block; }
 
-/* ── RESPONSIVE GLOBAL ── */
+/* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .iso-grid { grid-template-columns: repeat(4, 1fr); }
   .services-grid { grid-template-columns: 1fr 1fr; }
@@ -623,7 +565,7 @@ img { max-width: 100%; display: block; }
   .services-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: 1fr 1fr; }
-  .testi-card { min-width: calc(100%); }
+  .testi-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .container { padding: 0 20px; }
@@ -631,7 +573,8 @@ img { max-width: 100%; display: block; }
   .modal-advantages { grid-template-columns: 1fr; }
   .partner-logos { grid-template-columns: 1fr; }
   .partner-logo-card.main { grid-column: auto; }
-  .hero-trust { flex-wrap: wrap; gap: 14px; }
+  .hero-content-area { padding-left: 20px; padding-right: 20px; }
+  .hero-inner { max-width: 100%; }
   .clients-marquee-wrapper::before, .clients-marquee-wrapper::after { width: 60px; }
   .client-logo-card { min-width: 170px; height: 120px; padding: 14px 18px; }
   .clients-trust-bar { flex-direction: column; }
@@ -668,13 +611,13 @@ img { max-width: 100%; display: block; }
       </span>
     </div>
     <div class="topbar-right">
-      <a href="https://www.instagram.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+      <a href="https://www.instagram.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
       </a>
-      <a href="https://www.facebook.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+      <a href="https://www.facebook.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Facebook">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
-      <a href="mailto:ocgconsultingmaroc@gmail.com" aria-label="Email" title="Email">
+      <a href="mailto:ocgconsultingmaroc@gmail.com" aria-label="Email">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
@@ -705,39 +648,30 @@ img { max-width: 100%; display: block; }
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════
-     HERO — LEFT-ALIGNED TEXT + IMAGE ANCHORED RIGHT
-═══════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero" id="accueil">
-
   <div class="hero-bg-image" role="presentation" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-glow-gold" aria-hidden="true"></div>
-  <div class="hero-glow-blue"  aria-hidden="true"></div>
+  <div class="hero-glow-blue" aria-hidden="true"></div>
   <div class="hero-line-left" aria-hidden="true"></div>
-
   <div class="hero-content-area">
     <div class="hero-inner">
-
       <div class="hero-eyebrow reveal">
         <span></span>
         Cabinet de référence · Fondé en 2007
       </div>
-
       <h1 class="hero-title reveal rd1">
         OCG Consulting<br/>
         <span class="hl">Excellence &amp;<br/>Certification ISO</span>
       </h1>
-
       <p class="hero-subtitle reveal rd2">
         Nous accompagnons les entreprises vers la performance durable, la conformité internationale et l'excellence opérationnelle depuis plus de 16 ans.
       </p>
-
       <div class="hero-ctas reveal rd3">
         <a href="#contact" class="btn-gold">Demander un devis →</a>
         <a href="#contact" class="btn-secondary">Nous contacter</a>
       </div>
-
       <div class="hero-trust reveal rd4">
         <div class="hero-trust-item">
           <div class="hero-trust-num">+100</div>
@@ -759,13 +693,11 @@ img { max-width: 100%; display: block; }
           <div class="hero-trust-lbl">Années</div>
         </div>
       </div>
-
     </div>
   </div>
-
 </section>
 
-<!-- ═══════════ ABOUT — maintenant AVANT ISO ═══════════ -->
+<!-- ABOUT -->
 <section class="about-section" id="about">
   <div class="container">
     <div class="about-inner">
@@ -820,7 +752,7 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════ ISO CERTIFICATIONS — maintenant APRÈS About ═══════════ -->
+<!-- ISO CERTIFICATIONS -->
 <section class="iso-section" id="iso">
   <div class="container">
     <div class="iso-head reveal">
@@ -831,7 +763,7 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════ SERVICES ═══════════ -->
+<!-- SERVICES -->
 <section class="services-section" id="services">
   <div class="container">
     <div class="services-head reveal">
@@ -896,7 +828,7 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════ PARTENARIAT ═══════════ -->
+<!-- PARTENARIAT -->
 <section class="partner-section">
   <div class="container">
     <div class="partner-inner">
@@ -926,7 +858,7 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════ WHY US ═══════════ -->
+<!-- WHY US -->
 <section class="why-section">
   <div class="container">
     <div class="why-head reveal">
@@ -969,65 +901,39 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     ILS NOUS FONT CONFIANCE
-═══════════════════════════════════════════ -->
+<!-- CLIENTS -->
 <section class="clients-section" id="clients">
   <div class="clients-section-separator"></div>
   <div class="container">
     <div class="clients-head reveal">
       <div class="section-tag">Références Clients</div>
       <h2 class="section-title">Ils nous font confiance</h2>
-      <p class="section-sub">
-        Des entreprises de référence nous ont confié leurs projets de certification,
-        d'audit et d'amélioration continue. Plus de <strong>100 entreprises</strong> nous ont
-        déjà accordé leur confiance au Maroc.
-      </p>
+      <p class="section-sub">Des entreprises de référence nous ont confié leurs projets de certification, d'audit et d'amélioration continue. Plus de <strong>100 entreprises</strong> nous ont déjà accordé leur confiance au Maroc.</p>
     </div>
     <div class="clients-marquee-wrapper reveal rd1" id="marqueeRow1"></div>
     <div class="clients-marquee-wrapper reveal rd2" id="marqueeRow2" style="margin-top:0;"></div>
     <div class="clients-trust-bar reveal rd3">
       <div class="ctb-item">
-        <div class="ctb-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div class="ctb-text">
-          <strong>+100</strong>
-          <span>Entreprises accompagnées</span>
-        </div>
+        <div class="ctb-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="ctb-text"><strong>+100</strong><span>Entreprises accompagnées</span></div>
       </div>
       <div class="ctb-item">
-        <div class="ctb-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <div class="ctb-text">
-          <strong>95%</strong>
-          <span>Taux de satisfaction</span>
-        </div>
+        <div class="ctb-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="ctb-text"><strong>95%</strong><span>Taux de satisfaction</span></div>
       </div>
       <div class="ctb-item">
-        <div class="ctb-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <div class="ctb-text">
-          <strong>8</strong>
-          <span>Normes ISO maîtrisées</span>
-        </div>
+        <div class="ctb-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="ctb-text"><strong>8</strong><span>Normes ISO maîtrisées</span></div>
       </div>
       <div class="ctb-item">
-        <div class="ctb-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="ctb-text">
-          <strong>16+</strong>
-          <span>Années d'expertise</span>
-        </div>
+        <div class="ctb-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="ctb-text"><strong>16+</strong><span>Années d'expertise</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ STATS ═══════════ -->
+<!-- STATS -->
 <section class="stats-section">
   <div class="container">
     <div class="stats-inner reveal">
@@ -1055,74 +961,135 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════ TESTIMONIALS ═══════════ -->
+<!-- ═══════════ TESTIMONIALS — VRAIES CITATIONS EN GRILLE ═══════════ -->
 <section class="testimonials-section">
   <div class="container">
     <div class="testi-head reveal">
       <div class="section-tag">Témoignages</div>
       <h2 class="section-title">Ce que disent<br/>nos clients</h2>
     </div>
-    <div class="testi-slider reveal">
-      <div class="testi-track" id="testiTrack">
-        <div class="testi-card">
-          <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
-          <p class="testi-quote">"OCG Consulting nous a accompagnés tout au long du processus de certification ISO 9001. Leur professionnalisme et leur expertise ont été déterminants pour l'obtention de notre certification dans les délais prévus."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">DG</div>
-            <div class="testi-author-text">
-              <strong>Directeur Général</strong>
-              <span>Entreprise industrielle – Casablanca</span>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
-          <p class="testi-quote">"Grâce à l'accompagnement d'OCG Consulting, nous avons obtenu la certification ISO 22000 en moins de 8 mois. Une équipe réactive, compétente et à l'écoute de nos besoins."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RA</div>
-            <div class="testi-author-text">
-              <strong>Responsable Qualité</strong>
-              <span>Industrie agro-alimentaire – Rabat</span>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
-          <p class="testi-quote">"Le cabinet OCG a complètement transformé notre approche de la gestion de la qualité. Leurs formations sont pratiques, leurs consultants expérimentés et les résultats au rendez-vous."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">MC</div>
-            <div class="testi-author-text">
-              <strong>Directeur des Opérations</strong>
-              <span>Groupe pharmaceutique – Casablanca</span>
-            </div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
-          <p class="testi-quote">"Un partenaire de confiance depuis 3 ans. OCG Consulting a joué un rôle clé dans notre développement stratégique et notre certification ISO 45001. Je les recommande vivement."</p>
-          <div class="testi-author">
-            <div class="testi-avatar">KE</div>
-            <div class="testi-author-text">
-              <strong>PDG</strong>
-              <span>Société de BTP – Marrakech</span>
-            </div>
-          </div>
+
+    <div class="testi-grid reveal rd1">
+
+      <!-- Qualité de prestation -->
+      <div class="testi-card">
+        <span class="testi-cat">Qualité de prestation</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Une prestation de très haute qualité, parfaitement adaptée à nos besoins spécifiques."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DG</div>
+          <div class="testi-author-text"><strong>Directeur Général</strong><span>Accompagnement sur mesure</span></div>
         </div>
       </div>
-    </div>
-    <div class="testi-controls reveal">
-      <button class="testi-btn" id="testiPrev">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-      <div class="testi-dots" id="testiDots"></div>
-      <button class="testi-btn" id="testiNext">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
+
+      <div class="testi-card">
+        <span class="testi-cat">Qualité de prestation</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"OCG Consulting nous a fourni un accompagnement sur mesure avec des résultats concrets."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RA</div>
+          <div class="testi-author-text"><strong>Responsable Administratif</strong><span>Résultats concrets</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-cat">Qualité de prestation</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Le cabinet se distingue par son professionnalisme et la qualité de ses livrables."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RQ</div>
+          <div class="testi-author-text"><strong>Responsable Qualité</strong><span>Professionnalisme</span></div>
+        </div>
+      </div>
+
+      <!-- Expertise & compétences -->
+      <div class="testi-card">
+        <span class="testi-cat">Expertise &amp; compétences</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Des consultants très compétents, qui maîtrisent parfaitement les normes ISO."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DO</div>
+          <div class="testi-author-text"><strong>Directeur des Opérations</strong><span>Normes ISO</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-cat">Expertise &amp; compétences</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Leur expertise en contrôle de gestion nous a permis d'améliorer significativement notre performance."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DG</div>
+          <div class="testi-author-text"><strong>Directeur Général</strong><span>Contrôle de gestion</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-cat">Expertise &amp; compétences</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Une équipe expérimentée capable de comprendre rapidement les problématiques de l'entreprise."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PDG</div>
+          <div class="testi-author-text"><strong>PDG</strong><span>Compréhension rapide</span></div>
+        </div>
+      </div>
+
+      <!-- Écoute & communication -->
+      <div class="testi-card">
+        <span class="testi-cat">Écoute &amp; communication</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Très bonne écoute et excellente communication tout au long de la mission."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MC</div>
+          <div class="testi-author-text"><strong>Manager Commercial</strong><span>Suivi de mission</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-cat">Écoute &amp; communication</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Un vrai partenaire, toujours disponible et réactif."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">KE</div>
+          <div class="testi-author-text"><strong>Directeur Qualité</strong><span>Disponibilité</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-cat">Écoute &amp; communication</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"L'équipe a su nous accompagner étape par étape avec pédagogie."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DP</div>
+          <div class="testi-author-text"><strong>Directeur de Production</strong><span>Accompagnement progressif</span></div>
+        </div>
+      </div>
+
+      <!-- Impact & résultats -->
+      <div class="testi-card">
+        <span class="testi-cat">Impact &amp; résultats</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Amélioration claire de notre organisation interne et de notre performance."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PD</div>
+          <div class="testi-author-text"><strong>Présidente Directrice</strong><span>Performance opérationnelle</span></div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <span class="testi-cat">Impact &amp; résultats</span>
+        <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="testi-quote">"Des solutions concrètes et innovantes qui ont eu un impact réel sur notre activité."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DC</div>
+          <div class="testi-author-text"><strong>Directeur Commercial</strong><span>Impact opérationnel</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═══════════ CONTACT ═══════════ -->
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="contact-inner">
@@ -1148,14 +1115,12 @@ img { max-width: 100%; display: block; }
             <div class="ci-text"><strong>Horaires</strong><p>Lundi – Vendredi · 09h00 – 18h00</p></div>
           </div>
         </div>
-        <div class="map-embed" style="height:240px; padding:0; background:#eee;">
+        <div class="map-embed">
           <iframe
             src="https://www.google.com/maps?q=Immeuble+403,+R%C3%A9sidence+Assakan+Alanik,+Quartier+Elomariya,+A%C3%AFn+Chock,+Casablanca,+Maroc&output=embed"
-            width="100%"
-            height="100%"
-            style="border:0; display:block; width:100%; height:100%;"
-            allowfullscreen=""
-            loading="lazy"
+            width="100%" height="100%"
+            style="border:0; display:block;"
+            allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="OCG Consulting – Aïn Chock, Casablanca">
           </iframe>
@@ -1200,7 +1165,7 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════ FOOTER ═══════════ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
@@ -1210,13 +1175,13 @@ img { max-width: 100%; display: block; }
         </div>
         <p>Votre partenaire de confiance pour la performance, la conformité internationale et la croissance durable au Maroc.</p>
         <div class="footer-socials">
-          <a href="https://www.instagram.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+          <a href="https://www.instagram.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
           </a>
-          <a href="https://www.facebook.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <a href="https://www.facebook.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Facebook">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="mailto:ocgconsultingmaroc@gmail.com" aria-label="Email" title="Email">
+          <a href="mailto:ocgconsultingmaroc@gmail.com" aria-label="Email">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </a>
         </div>
@@ -1263,8 +1228,8 @@ img { max-width: 100%; display: block; }
     <div class="modal-header">
       <button class="modal-close" id="modalClose">✕</button>
       <div class="modal-iso-number" id="modalNumber">ISO 9001</div>
-      <div class="modal-iso-name" id="modalName">Système de management de la qualité</div>
-      <div class="modal-iso-sub" id="modalSub">Certification internationale</div>
+      <div class="modal-iso-name" id="modalName"></div>
+      <div class="modal-iso-sub" id="modalSub"></div>
     </div>
     <div class="modal-body">
       <div class="modal-section">
@@ -1304,9 +1269,7 @@ window.addEventListener('scroll', () => {
 // ── HAMBURGER ──
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('mobile-open');
-});
+hamburger.addEventListener('click', () => navLinks.classList.toggle('mobile-open'));
 navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
 });
@@ -1323,8 +1286,7 @@ revealEls.forEach(el => revealObs.observe(el));
 // ── COUNTER ANIMATION ──
 function animateCount(el, target, suffix) {
   let start = 0;
-  const duration = 1800;
-  const step = target / (duration / 16);
+  const step = target / (1800 / 16);
   const timer = setInterval(() => {
     start = Math.min(start + step, target);
     el.textContent = Math.floor(start).toLocaleString('fr-FR') + (suffix || '');
@@ -1376,21 +1338,21 @@ const isoData = [
   },
   {
     number: 'ISO 13485', name: 'Dispositifs Médicaux', sector: 'Médical',
-    desc: 'L\'ISO 13485 spécifie les exigences relatives aux systèmes de management de la qualité pour les dispositifs médicaux. Elle démontre l\'aptitude à fournir des dispositifs médicaux de qualité.',
+    desc: 'L\'ISO 13485 spécifie les exigences relatives aux systèmes de management de la qualité pour les dispositifs médicaux.',
     advantages: ['Conformité réglementaire médicale', 'Accès aux marchés internationaux', 'Qualité des dispositifs garantie', 'Réduction des risques patients', 'Confiance des autorités sanitaires', 'Avantage concurrentiel'],
     sectors: ['Fabricants de dispositifs médicaux', 'Distributeurs médicaux', 'Fournisseurs de services médicaux', 'Pharmacie'],
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 19H5c-1 0-2-.9-2-2V7c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2h-3"/><polyline points="9 3 9 7 15 7 15 3"/><line x1="12" y1="12" x2="12" y2="18"/><line x1="9" y1="15" x2="15" y2="15"/></svg>`
   },
   {
     number: 'ISO 27001', name: 'Sécurité de l\'Information', sector: 'IT &amp; Data',
-    desc: 'L\'ISO 27001 spécifie les exigences pour établir, mettre en œuvre et améliorer un système de management de la sécurité de l\'information dans le contexte des risques propres à l\'organisme.',
+    desc: 'L\'ISO 27001 spécifie les exigences pour établir, mettre en œuvre et améliorer un système de management de la sécurité de l\'information.',
     advantages: ['Protection des données sensibles', 'Conformité RGPD facilitée', 'Confiance des partenaires', 'Réduction des cyberrisques', 'Avantage concurrentiel IT', 'Gouvernance des données'],
     sectors: ['IT &amp; Logiciels', 'Finance &amp; Banque', 'Assurance', 'Télécommunications', 'Administration publique', 'Santé numérique'],
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`
   },
   {
     number: 'ISO 50001', name: 'Management de l\'Énergie', sector: 'Énergie',
-    desc: 'L\'ISO 50001 aide les organisations à améliorer leur performance énergétique en établissant des systèmes et des processus pour l\'efficacité énergétique, réduisant les coûts et les émissions.',
+    desc: 'L\'ISO 50001 aide les organisations à améliorer leur performance énergétique en établissant des systèmes et des processus pour l\'efficacité énergétique.',
     advantages: ['Réduction de la consommation énergétique', 'Diminution des coûts', 'Empreinte carbone réduite', 'Conformité aux réglementations', 'Image RSE améliorée', 'Accès aux certifications vertes'],
     sectors: ['Industrie lourde', 'Bâtiment', 'Transports', 'Utilities', 'Secteur public', 'Grande distribution'],
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`
@@ -1451,40 +1413,6 @@ function closeModal() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// ── TESTIMONIALS SLIDER ──
-const track = document.getElementById('testiTrack');
-const cards = track.querySelectorAll('.testi-card');
-const dots = document.getElementById('testiDots');
-let current = 0;
-const total = cards.length;
-const isMobile = () => window.innerWidth <= 768;
-const visibleCount = () => isMobile() ? 1 : 2;
-
-for (let i = 0; i < Math.ceil(total / visibleCount()); i++) {
-  const dot = document.createElement('div');
-  dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
-  dot.addEventListener('click', () => goTo(i));
-  dots.appendChild(dot);
-}
-
-function goTo(idx) {
-  const vc = visibleCount();
-  const maxIdx = Math.max(0, Math.ceil(total / vc) - 1);
-  current = Math.max(0, Math.min(idx, maxIdx));
-  const cardWidth = cards[0].getBoundingClientRect().width + 24;
-  track.style.transform = `translateX(-${current * vc * cardWidth}px)`;
-  dots.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === current));
-}
-
-document.getElementById('testiPrev').addEventListener('click', () => goTo(current - 1));
-document.getElementById('testiNext').addEventListener('click', () => goTo(current + 1));
-
-let autoPlay = setInterval(() => goTo(current + 1 <= Math.ceil(total / visibleCount()) - 1 ? current + 1 : 0), 5000);
-track.addEventListener('mouseenter', () => clearInterval(autoPlay));
-track.addEventListener('mouseleave', () => {
-  autoPlay = setInterval(() => goTo(current + 1 <= Math.ceil(total / visibleCount()) - 1 ? current + 1 : 0), 5000);
-});
-
 // ── CONTACT FORM ──
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -1498,37 +1426,34 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
 
 // ── CLIENTS MARQUEE ──
 const clientsData = [
-  { name: 'Colaimo',    sector: 'Agroalimentaire', color: '#02A428', bg: '#E8F0FA', icon: '', logo: 'colaimo_logo.png' },
-  { name: 'Copa maroc', sector: 'Agroalimentaire', color: '#B23B034A', bg: '#E6F4EC', icon: '', logo: 'copamaroc_logo.png' },
-  { name: 'AlHamd Logistique', sector: 'Logistique', color: '#007ABC', bg: '#FDEAEC', icon: '', logo: 'Alhamd_logo.png' },
-  { name: 'Attandence', sector: 'Destination Management', color: '#009751', bg: '#E6EEF8', icon: '', logo: 'attandence_logo.png' },
-  { name: 'MFP', sector: 'Agroalimentaire', color: '#F0FC03', bg: '#FDF0EB', icon: '', logo: 'MFP_LOGO.png' },
-  { name: 'ERI SER', sector: 'Irrigation', color: '#03458F', bg: '#E6F2EC', icon: '', logo: 'ERISER_LOGO.png' },
-  { name: 'FOOD+', sector: 'Assurance', color: '#C4161C', bg: '#FDEAEA', icon: '', logo: 'FOOD+.png' },
-  { name: 'Margafrique', sector: 'Agroalimentaire', color: '#138D00', bg: '#E6EDF8', icon: '🏗️', logo: 'Margafrique.png' },
-  { name: 'Le Palais dAménagement', sector: 'BTP', color: '#CCCC00', bg: '#FDECEA', icon: '🏛️', logo: 'LEPALAIS_LOGO.png' },
-  { name: 'ARWA MEDIC', sector: 'Activité & Produits', color: '#005496', bg: '#E6EEF8', icon: '⛏️', logo: 'ARWAMEDIC_LOGO.png' },
-  { name: 'BIO & ECO SOLUTIONS', sector: 'conception & distribution', color: '#00EF38', bg: '#FEF3E6', icon: '🏪', logo: 'ECO&bio_logo.png' },
-  { name: 'Corderies Koutoubia', sector: 'Fabrication', color: '#003087', bg: '#E6EBF8', icon: '', logo: 'KOUTOUBIA_LOGO.png' },
-  { name: 'Euromedic', sector: 'promotion & distribution', color: '#E31837', bg: '#FDEAEC', icon: '', logo: 'EUROMEDIC_LOGO.png' },
-  { name: 'Germanetti Maroc', sector: 'Transport & Logistique', color: '#005EB8', bg: '#E6EFF8', icon: '', logo: 'ermantti_logo.png' },
-  { name: 'Medic Pro', sector: 'Appareillage orthopédique', color: '#63CC00', bg: '#E6F4FA', icon: '💧', logo: 'MEDICPRO_LOGO.png' },
-  { name: 'Nakhla Plastique', sector: 'Plastiques', color: '#162D45', bg: '#E6EBF8', icon: '📊', logo: 'NAKHLAPLASTIQUE_LOGO.png' },
-  { name: 'Clean Dyser', sector: 'Banque', color: '#000000', bg: '#FDEAEC', icon: '🏦', logo: 'CLEAN-DYSER_LOGO.png' },
-  { name: 'MNAHEL EL BEKRI', sector: 'Apiculture', color: '#A68A00', bg: '#E6F5EC', icon: '⚡', logo: 'MANAHEL_LBEKRI_LOGO.png' },
-  { name: 'LAgro-pôle Olivier', sector: 'Agroalimentaire', color: '#025200', bg: '#FEF3E6', icon: '🫙', logo: 'AGRO-POLEOLIVIER_LOGO.png' },
-  { name: 'Hygatex', sector: 'Fabrication', color: '#070565', bg: '#F5EDE6', icon: '🏘️', logo: 'HYGATEX_LOGO.png' },
-  { name: 'Dar LGzzar', sector: 'Fabrication', color: '#070565', bg: '#F5EDE6', icon: '🏘️', logo: 'DARELGEZAR_LOGO.jpg' },
-  { name: 'DAMA', sector: 'Recrutement', color: '#570909', bg: '#F5EDE6', icon: '🏘️', logo: 'DAMA_LOGO.jpg' }
+  { name: 'Colaimo',              sector: 'Agroalimentaire',              color: '#02A428', bg: '#E8F0FA', logo: 'colaimo_logo.png' },
+  { name: 'Copa maroc',           sector: 'Agroalimentaire',              color: '#B23B03', bg: '#E6F4EC', logo: 'copamaroc_logo.png' },
+  { name: 'AlHamd Logistique',    sector: 'Logistique',                   color: '#007ABC', bg: '#FDEAEC', logo: 'Alhamd_logo.png' },
+  { name: 'Attandence',           sector: 'Destination Management',       color: '#009751', bg: '#E6EEF8', logo: 'attandence_logo.png' },
+  { name: 'MFP',                  sector: 'Agroalimentaire',              color: '#B8A000', bg: '#FDF0EB', logo: 'MFP_LOGO.png' },
+  { name: 'ERI SER',              sector: 'Irrigation',                   color: '#03458F', bg: '#E6F2EC', logo: 'ERISER_LOGO.png' },
+  { name: 'FOOD+',                sector: 'Agroalimentaire',              color: '#C4161C', bg: '#FDEAEA', logo: 'FOOD+.png' },
+  { name: 'Margafrique',          sector: 'Agroalimentaire',              color: '#138D00', bg: '#E6EDF8', logo: 'Margafrique.png' },
+  { name: 'Le Palais d\'Aménagement', sector: 'BTP',                    color: '#888800', bg: '#FDECEA', logo: 'LEPALAIS_LOGO.png' },
+  { name: 'ARWA MEDIC',           sector: 'Activité & Produits',          color: '#005496', bg: '#E6EEF8', logo: 'ARWAMEDIC_LOGO.png' },
+  { name: 'BIO & ECO SOLUTIONS',  sector: 'Conception & Distribution',    color: '#009820', bg: '#FEF3E6', logo: 'ECO&bio_logo.png' },
+  { name: 'Corderies Koutoubia',  sector: 'Fabrication',                  color: '#003087', bg: '#E6EBF8', logo: 'KOUTOUBIA_LOGO.png' },
+  { name: 'Euromedic',            sector: 'Promotion & Distribution',     color: '#E31837', bg: '#FDEAEC', logo: 'EUROMEDIC_LOGO.png' },
+  { name: 'Germanetti Maroc',     sector: 'Transport & Logistique',       color: '#005EB8', bg: '#E6EFF8', logo: 'ermantti_logo.png' },
+  { name: 'Medic Pro',            sector: 'Appareillage orthopédique',    color: '#3A8800', bg: '#E6F4FA', logo: 'MEDICPRO_LOGO.png' },
+  { name: 'Nakhla Plastique',     sector: 'Plastiques',                   color: '#162D45', bg: '#E6EBF8', logo: 'NAKHLAPLASTIQUE_LOGO.png' },
+  { name: 'Clean Dyser',          sector: 'Services',                     color: '#333333', bg: '#FDEAEC', logo: 'CLEAN-DYSER_LOGO.png' },
+  { name: 'MNAHEL EL BEKRI',      sector: 'Apiculture',                   color: '#A68A00', bg: '#E6F5EC', logo: 'MANAHEL_LBEKRI_LOGO.png' },
+  { name: 'L\'Agro-pôle Olivier', sector: 'Agroalimentaire',              color: '#025200', bg: '#FEF3E6', logo: 'AGRO-POLEOLIVIER_LOGO.png' },
+  { name: 'Hygatex',              sector: 'Fabrication',                  color: '#070565', bg: '#F5EDE6', logo: 'HYGATEX_LOGO.png' },
+  { name: 'Dar LGzzar',           sector: 'Fabrication',                  color: '#3D0909', bg: '#F5EDE6', logo: 'DARELGEZAR_LOGO.jpg' },
+  { name: 'DAMA',                 sector: 'Recrutement',                  color: '#570909', bg: '#F5EDE6', logo: 'DAMA_LOGO.jpg' }
 ];
 
 const row1Data = clientsData.filter((_, i) => i % 2 === 0);
@@ -1538,14 +1463,11 @@ function buildLogoCard(client) {
   const card = document.createElement('div');
   card.className = 'client-logo-card';
   card.setAttribute('aria-label', `${client.name} – ${client.sector}`);
-  const size = client.logoSize || 65;
   const iconContent = client.logo
     ? `<img src="${client.logo}" alt="${client.name}" style="width:100%;height:100%;object-fit:contain;border-radius:4px;" />`
-    : client.icon;
-  const iconBg = client.logo ? '#fff' : client.bg;
+    : client.name.charAt(0);
   card.innerHTML = `
-    <div class="clc-icon" style="background:${iconBg}; color:${client.color}; font-size:1.3rem;
-      width:${size}px; height:${size}px; padding:${client.logo ? '4px' : '0'};">
+    <div class="clc-icon" style="background:${client.logo ? '#fff' : client.bg}; color:${client.color}; padding:${client.logo ? '4px' : '0'};">
       ${iconContent}
     </div>
     <div class="clc-name" style="color:${client.color}">${client.name}</div>
@@ -1557,9 +1479,7 @@ function buildLogoCard(client) {
 function buildMarqueeTrack(data, reverse) {
   const track = document.createElement('div');
   track.className = 'clients-marquee-track' + (reverse ? ' reverse' : '');
-  [...data, ...data, ...data].forEach(client => {
-    track.appendChild(buildLogoCard(client));
-  });
+  [...data, ...data, ...data].forEach(client => track.appendChild(buildLogoCard(client)));
   return track;
 }
 
