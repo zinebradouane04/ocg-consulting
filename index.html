@@ -101,8 +101,8 @@ img { max-width: 100%; display: block; }
 /* ── BUTTONS ── */
 .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(11,31,78,0.25); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(11,31,78,0.35); }
-.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 13px 28px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; }
-.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.8); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 13px 28px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.4); cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.75); }
 .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(200,150,12,0.3); }
 .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,150,12,0.45); }
 .btn-green { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--green), var(--green-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(5,150,105,0.25); }
@@ -130,9 +130,8 @@ img { max-width: 100%; display: block; }
 .rd5 { transition-delay: 0.5s; }
 
 
-
 /* ══════════════════════════════════
-   HERO
+   HERO — REDESIGNED
 ══════════════════════════════════ */
 .hero {
   min-height: 96vh;
@@ -144,6 +143,7 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   padding: 100px 0 80px 0;
 }
+
 .hero-bg-image {
   position: absolute;
   inset: 0;
@@ -154,54 +154,73 @@ img { max-width: 100%; display: block; }
   z-index: 0;
   animation: hero-zoom 14s ease-out forwards;
 }
+
 @keyframes hero-zoom {
   from { transform: scale(1.04); }
   to   { transform: scale(1); }
 }
+
+/* Multi-layer overlay: dark on left, transparent on right */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(8, 18, 55, 0.93) 0%,
+      rgba(11, 31, 78, 0.86) 28%,
+      rgba(11, 31, 78, 0.52) 50%,
+      rgba(11, 31, 78, 0.08) 70%,
+      transparent 85%
+    );
 }
+
 .hero-overlay::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  opacity: 0.35;
-  pointer-events: none;
+  background: radial-gradient(
+    ellipse 65% 110% at 0% 65%,
+    rgba(5, 12, 45, 0.50) 0%,
+    transparent 68%
+  );
 }
+
 .hero-glow-gold {
   position: absolute;
   bottom: -80px;
   left: -80px;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, rgba(200,150,12,0.18) 0%, transparent 65%);
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(200,150,12,0.11) 0%, transparent 65%);
   z-index: 2;
   pointer-events: none;
 }
+
 .hero-glow-blue {
   position: absolute;
   top: -60px;
   right: 5%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(37,99,235,0.14) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 60%);
   z-index: 2;
   pointer-events: none;
 }
+
+/* Gold left accent line */
 .hero-line-left {
   position: absolute;
   left: 0;
-  top: 0;
-  bottom: 0;
+  top: 15%;
+  bottom: 15%;
   width: 3px;
-  background: linear-gradient(180deg, transparent 0%, var(--gold) 30%, var(--gold-lt) 70%, transparent 100%);
-  opacity: 0.6;
+  background: linear-gradient(180deg, transparent 0%, var(--gold) 25%, var(--gold-lt) 75%, transparent 100%);
+  opacity: 0.75;
   z-index: 3;
 }
+
 .hero-content-area {
   position: relative;
   z-index: 4;
@@ -214,120 +233,159 @@ img { max-width: 100%; display: block; }
   padding-left: 64px;
   padding-right: 64px;
 }
+
+/* Glassmorphism text panel */
 .hero-inner {
-  max-width: 600px;
+  max-width: 620px;
   text-align: left;
   margin-left: 0;
   margin-right: auto;
+  background: rgba(8, 20, 60, 0.28);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 24px;
+  padding: 48px 52px;
+  box-shadow:
+    0 8px 48px rgba(5, 12, 45, 0.32),
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.08);
 }
+
+/* Eyebrow badge */
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.18);
-  padding: 9px 20px;
+  border: 1px solid rgba(255,255,255,0.13);
+  padding: 8px 18px;
   border-radius: 50px;
   font-family: var(--font);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.8);
-  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  margin-bottom: 16px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  
+  margin-bottom: 24px;
 }
+
 .hero-eyebrow span {
   width: 7px;
   height: 7px;
   background: var(--gold-lt);
   border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(157, 100, 1, 0.25);
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.22);
   animation: pulse 2s infinite;
   flex-shrink: 0;
 }
+
 @keyframes pulse {
-  0%,100% { box-shadow: 0 0 0 3px rgba(151, 96, 1, 0.25); }
-  50%      { box-shadow: 0 0 0 6px rgba(245,158,11,0.1); }
+  0%,100% { box-shadow: 0 0 0 3px rgba(245,158,11,0.22); }
+  50%      { box-shadow: 0 0 0 6px rgba(245,158,11,0.08); }
 }
+
+/* Main title — white primary, gold only on keywords */
 .hero-title {
   font-family: var(--font);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
   font-weight: 900;
-  line-height: 1.06;
-  letter-spacing: -0.03em;
-  color: #02047e;
-  margin-bottom: 16px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 20px;
   text-align: left;
 }
+
 .hero-title .hl {
   color: var(--gold-lt);
   position: relative;
-  display: inline-block;
+  display: inline;
 }
+
 .hero-title .hl::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -3px;
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, var(--gold), var(--gold-lt), transparent);
   border-radius: 2px;
-  opacity: 0.7;
+  opacity: 0.55;
 }
+
+/* Gold divider accent */
+.hero-title-divider {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+  border-radius: 2px;
+  margin: 0 0 22px 0;
+  opacity: 0.9;
+}
+
+/* Subtitle */
 .hero-subtitle {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: #ffffff;
-  margin-bottom: 38px;
-  max-width: 700px;
-  font-weight: 700;
+  font-size: 0.97rem;
+  line-height: 1.78;
+  color: rgba(255, 255, 255, 0.80);
+  margin-bottom: 36px;
+  max-width: 520px;
+  font-weight: 400;
   text-align: left;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.8);
   letter-spacing: 0.01em;
 }
+
 .hero-ctas {
   display: flex;
   justify-content: flex-start;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
+
+/* Trust stats — glass strip */
 .hero-trust {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  flex-wrap: wrap;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.09);
 }
-.hero-trust-item { text-align: left; }
+
+.hero-trust-item {
+  text-align: center;
+  flex: 1;
+  min-width: 70px;
+  padding: 0 10px;
+}
+
 .hero-trust-num {
   font-family: var(--font);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: #ffffff;
   line-height: 1;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
+
 .hero-trust-lbl {
-  font-size: 0.68rem;
-  color: rgba(255,255,255,0.5);
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.46);
   margin-top: 5px;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   font-weight: 600;
   text-transform: uppercase;
   font-family: var(--font);
 }
+
 .hero-trust-div {
   width: 1px;
-  height: 40px;
-  background: rgba(255,255,255,0.15);
+  height: 32px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
 }
 
 /* ══════════════════════════════════
@@ -489,7 +547,7 @@ img { max-width: 100%; display: block; }
 .stat-lbl { font-family: var(--font); font-size: 0.78rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; transition: color var(--transition); }
 
 /* ══════════════════════════════════
-   TESTIMONIALS — GRILLE RÉELLE
+   TESTIMONIALS
 ══════════════════════════════════ */
 .testimonials-section { padding: 100px 0; background: var(--off-white); }
 .testi-head { text-align: left; max-width: 600px; margin: 0 0 48px; }
@@ -560,6 +618,7 @@ img { max-width: 100%; display: block; }
   .stat-item:nth-child(3) { border-top: 1px solid var(--gray-100); }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
+
 @media (max-width: 768px) {
   .topbar { display: none; }
   .nav-links, .btn-nav-outline { display: none; }
@@ -575,24 +634,289 @@ img { max-width: 100%; display: block; }
   .testi-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .container { padding: 0 20px; }
+  .container { padding: 0 16px; }
   .form-row { grid-template-columns: 1fr; }
   .modal-advantages { grid-template-columns: 1fr; }
   .partner-logos { grid-template-columns: 1fr; }
   .partner-logo-card.main { grid-column: auto; }
-  .hero-content-area { padding-left: 20px; padding-right: 20px; }
-  .hero-inner { max-width: 100%; }
-  .clients-marquee-wrapper::before, .clients-marquee-wrapper::after { width: 60px; }
-  .client-logo-card { min-width: 170px; height: 140px; padding: 12px 14px; }
-  .clc-icon { width: 72px; height: 72px; }
+
+  /* ── HERO MOBILE ── */
+  .hero {
+    min-height: 100svh;
+    max-height: none;
+    padding: 0;
+    justify-content: flex-start;
+  }
+  .hero-bg-image {
+    background-position: center center;
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(5, 12, 40, 0.88) 0%,
+      rgba(8, 20, 60, 0.80) 50%,
+      rgba(8, 20, 60, 0.65) 100%
+    );
+  }
+  .hero-overlay::after {
+    background: none;
+  }
+  .hero-line-left { display: none; }
+  .hero-glow-gold, .hero-glow-blue { display: none; }
+  .hero-content-area {
+    padding: 90px 16px 40px 16px;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .hero-inner {
+    max-width: 100%;
+    width: 100%;
+    padding: 28px 20px 24px 20px;
+    border-radius: 16px;
+    background: rgba(6, 16, 50, 0.60);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .hero-eyebrow {
+    font-size: 0.60rem;
+    padding: 7px 14px;
+    margin-bottom: 16px;
+    white-space: normal;
+    text-align: left;
+  }
+  .hero-title {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+  .hero-title-divider {
+    width: 40px;
+    margin-bottom: 14px;
+  }
+  .hero-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .hero-ctas .btn-gold,
+  .hero-ctas .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+  .hero-trust {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+  .hero-trust-div { display: none; }
+  .hero-trust-item {
+    padding: 12px 8px;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 0;
+    background: rgba(255,255,255,0.05);
+    flex: none;
+    min-width: unset;
+  }
+  .hero-trust-item:nth-child(1) { border-radius: 10px 0 0 0; }
+  .hero-trust-item:nth-child(2) { border-radius: 0 10px 0 0; border-left: none; }
+  .hero-trust-item:nth-child(3) { border-radius: 0 0 0 10px; border-top: none; }
+  .hero-trust-item:nth-child(4) { border-radius: 0 0 10px 0; border-left: none; border-top: none; }
+  .hero-trust-num { font-size: 1.25rem; }
+  .hero-trust-lbl { font-size: 0.58rem; letter-spacing: 0.06em; }
+
+  /* Clients */
+  .clients-marquee-wrapper::before, .clients-marquee-wrapper::after { width: 40px; }
+  .client-logo-card { min-width: 150px; height: 130px; padding: 10px 12px; }
+  .clc-icon { width: 65px; height: 65px; }
   .clients-trust-bar { flex-direction: column; }
   .ctb-item { border-right: none; border-bottom: 1px solid var(--gray-100); width: 100%; }
   .ctb-item:last-child { border-bottom: none; }
 }
-.nav-links.mobile-open { display: flex; flex-direction: column; position: fixed; inset: 0; background: rgba(255,255,255,0.98); align-items: center; justify-content: center; gap: 28px; z-index: 1001; }
-.nav-links.mobile-open a { font-size: 1.4rem; font-family: var(--font); font-weight: 700; color: var(--navy); }
-.mobile-close { display: none; position: fixed; top: 24px; right: 24px; z-index: 1002; background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--navy); }
-.nav-links.mobile-open ~ .mobile-close { display: block; }
+
+/* ── MOBILE MENU OVERLAY ── */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11,31,78,0.55);
+  z-index: 999;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.mobile-menu-overlay.open {
+  display: block;
+  opacity: 1;
+}
+
+/* ── MOBILE MENU PANEL ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 88vw);
+  background: #fff;
+  z-index: 1001;
+  flex-direction: column;
+  padding: 0;
+  box-shadow: -8px 0 40px rgba(11,31,78,0.18);
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+}
+.mobile-menu.open {
+  display: flex;
+  transform: translateX(0);
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-100);
+  background: var(--navy);
+  flex-shrink: 0;
+}
+.mobile-menu-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mobile-menu-logo img {
+  height: 38px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+.mobile-menu-logo span {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.06em;
+}
+.mobile-menu-close {
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.mobile-menu-close:hover { background: rgba(255,255,255,0.22); }
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  flex: 1;
+}
+.mobile-menu-nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 15px 24px;
+  border-bottom: 1px solid var(--gray-50);
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.01em;
+}
+.mobile-menu-nav a:hover {
+  background: var(--gray-50);
+  color: var(--navy);
+}
+.mobile-menu-nav a .mnav-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mobile-menu-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--gray-100);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+  background: var(--gray-50);
+}
+.mobile-menu-footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 13px;
+  border-radius: 10px;
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+.mmf-call {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+.mmf-call:hover { background: var(--navy); color: #fff; }
+.mmf-cta {
+  background: linear-gradient(135deg, var(--navy), var(--navy-lt));
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(11,31,78,0.25);
+}
+.mmf-cta:hover { box-shadow: 0 8px 20px rgba(11,31,78,0.35); }
+
+.mobile-menu-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 4px;
+}
+.mobile-menu-socials a {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-600);
+  transition: var(--transition);
+}
+.mobile-menu-socials a:hover { border-color: var(--navy); color: var(--navy); }
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 </style>
 </head>
 <body>
@@ -649,37 +973,86 @@ img { max-width: 100%; display: block; }
     <div class="nav-actions">
       <a href="tel:+212052252379" class="btn-nav-outline">+212 05 22 52 37 29</a>
       <a href="#contact" class="btn-nav-cta">Demander un devis →</a>
-      <button class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+<!-- MOBILE MENU PANEL -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu de navigation">
+  <div class="mobile-menu-header">
+    <div class="mobile-menu-logo">
+      <img src="ocg_logo.png" alt="OCG Consulting" />
+      <span>OCG</span>
+    </div>
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fermer le menu">✕</button>
+  </div>
+  <nav class="mobile-menu-nav">
+    <a href="#accueil" class="mnav-link"><span class="mnav-dot"></span>Accueil</a>
+    <a href="#about" class="mnav-link"><span class="mnav-dot"></span>À Propos</a>
+    <a href="#iso" class="mnav-link"><span class="mnav-dot"></span>Certifications ISO</a>
+    <a href="#services" class="mnav-link"><span class="mnav-dot"></span>Services</a>
+    <a href="#clients" class="mnav-link"><span class="mnav-dot"></span>Nos Clients</a>
+    <a href="#contact" class="mnav-link"><span class="mnav-dot"></span>Contact</a>
+  </nav>
+  <div class="mobile-menu-footer">
+    <a href="tel:+212052252379" class="mmf-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +212 05 22 52 37 29
+    </a>
+    <a href="#contact" class="mmf-cta">Demander un devis →</a>
+    <div class="mobile-menu-socials">
+      <a href="https://www.instagram.com/ocgconsulting/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+      </a>
+      <a href="https://web.facebook.com/profile.php?id=100066725931263" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="mailto:Ocgconsultingrh@gmail.com" aria-label="Email">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO — REDESIGNED -->
 <section class="hero" id="accueil">
   <div class="hero-bg-image" role="presentation" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-glow-gold" aria-hidden="true"></div>
   <div class="hero-glow-blue" aria-hidden="true"></div>
   <div class="hero-line-left" aria-hidden="true"></div>
+
   <div class="hero-content-area">
     <div class="hero-inner">
+
       <div class="hero-eyebrow reveal">
         <span></span>
         Cabinet de référence · Fondé en 2007
       </div>
+
       <h1 class="hero-title reveal rd1">
         OCG Consulting<br/>
-        <span class="hl">Excellence &amp;<br/>Certification ISO</span>
+        <span class="hl">Excellence</span> &amp;<br/>
+        <span class="hl">Certification ISO</span>
       </h1>
+
+      <div class="hero-title-divider reveal rd1" aria-hidden="true"></div>
+
       <p class="hero-subtitle reveal rd2">
         Nous accompagnons les entreprises vers la performance durable, la conformité internationale et l'excellence opérationnelle depuis plus de 16 ans.
       </p>
+
       <div class="hero-ctas reveal rd3">
         <a href="#contact" class="btn-gold">Demander un devis →</a>
         <a href="#contact" class="btn-secondary">Nous contacter</a>
       </div>
+
       <div class="hero-trust reveal rd4">
         <div class="hero-trust-item">
           <div class="hero-trust-num">+100</div>
@@ -701,6 +1074,7 @@ img { max-width: 100%; display: block; }
           <div class="hero-trust-lbl">Années</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -969,17 +1343,14 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- ═══════════ TESTIMONIALS — VRAIES CITATIONS EN GRILLE ═══════════ -->
+<!-- TESTIMONIALS -->
 <section class="testimonials-section">
   <div class="container">
     <div class="testi-head reveal">
       <div class="section-tag">Témoignages</div>
       <h2 class="section-title">Ce que disent<br/>nos clients</h2>
     </div>
-
     <div class="testi-grid reveal rd1">
-
-      <!-- Qualité de prestation -->
       <div class="testi-card">
         <span class="testi-cat">Qualité de prestation</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -989,7 +1360,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Directeur Général</strong><span>Accompagnement sur mesure</span></div>
         </div>
       </div>
-
       <div class="testi-card">
         <span class="testi-cat">Qualité de prestation</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -999,7 +1369,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Responsable Administratif</strong><span>Résultats concrets</span></div>
         </div>
       </div>
-
       <div class="testi-card">
         <span class="testi-cat">Qualité de prestation</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1009,8 +1378,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Responsable Qualité</strong><span>Professionnalisme</span></div>
         </div>
       </div>
-
-      <!-- Expertise & compétences -->
       <div class="testi-card">
         <span class="testi-cat">Expertise &amp; compétences</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1020,7 +1387,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Directeur des Opérations</strong><span>Normes ISO</span></div>
         </div>
       </div>
-
       <div class="testi-card">
         <span class="testi-cat">Expertise &amp; compétences</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1030,7 +1396,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Directeur Général</strong><span>Contrôle de gestion</span></div>
         </div>
       </div>
-
       <div class="testi-card">
         <span class="testi-cat">Expertise &amp; compétences</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1040,8 +1405,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>PDG</strong><span>Compréhension rapide</span></div>
         </div>
       </div>
-
-      <!-- Écoute & communication -->
       <div class="testi-card">
         <span class="testi-cat">Écoute &amp; communication</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1051,7 +1414,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Manager Commercial</strong><span>Suivi de mission</span></div>
         </div>
       </div>
-
       <div class="testi-card">
         <span class="testi-cat">Écoute &amp; communication</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1061,7 +1423,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Directeur Qualité</strong><span>Disponibilité</span></div>
         </div>
       </div>
-
       <div class="testi-card">
         <span class="testi-cat">Écoute &amp; communication</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1071,8 +1432,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Directeur de Production</strong><span>Accompagnement progressif</span></div>
         </div>
       </div>
-
-      <!-- Impact & résultats -->
       <div class="testi-card">
         <span class="testi-cat">Impact &amp; résultats</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1082,7 +1441,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Présidente Directrice</strong><span>Performance opérationnelle</span></div>
         </div>
       </div>
-
       <div class="testi-card">
         <span class="testi-cat">Impact &amp; résultats</span>
         <div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div>
@@ -1092,7 +1450,6 @@ img { max-width: 100%; display: block; }
           <div class="testi-author-text"><strong>Directeur Commercial</strong><span>Impact opérationnel</span></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1275,12 +1632,35 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 }, { passive: true });
 
-// ── HAMBURGER ──
+// ── HAMBURGER / MOBILE MENU ──
 const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => navLinks.classList.toggle('mobile-open'));
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('mobile-open'));
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileOverlay = document.getElementById('mobileOverlay');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+function openMobileMenu() {
+  hamburger.classList.add('active');
+  mobileMenu.classList.add('open');
+  mobileOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  mobileOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+});
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+mobileOverlay.addEventListener('click', closeMobileMenu);
+document.querySelectorAll('.mnav-link').forEach(a => {
+  a.addEventListener('click', closeMobileMenu);
+});
+document.querySelectorAll('.mmf-cta').forEach(a => {
+  a.addEventListener('click', closeMobileMenu);
 });
 
 // ── REVEAL ON SCROLL ──
@@ -1420,7 +1800,7 @@ function closeModal() {
   modal.classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeMobileMenu(); } });
 
 // ── CONTACT FORM avec EmailJS ──
 (function(){
@@ -1432,16 +1812,13 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-
   const btn = document.getElementById('submitBtn');
   const ok  = document.getElementById('formSuccess');
   const err = document.getElementById('formError');
-
   btn.textContent = 'Envoi en cours...';
   btn.disabled = true;
   ok.classList.remove('show');
   err.style.display = 'none';
-
   const params = {
     prenom:  document.getElementById('f-prenom').value.trim(),
     nom:     document.getElementById('f-nom').value.trim(),
@@ -1450,15 +1827,12 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     service: document.getElementById('f-service').value || 'Non sélectionné',
     message: document.getElementById('f-message').value.trim()
   };
-
   emailjs.send('service_iphea7d', 'template_y3ealbw', params)
     .then(function(res) {
-      console.log('EmailJS succès:', res.status, res.text);
       ok.classList.add('show');
       document.getElementById('contactForm').reset();
     })
     .catch(function(error) {
-      console.error('EmailJS erreur:', error);
       err.style.display = 'block';
       err.textContent = '❌ Erreur ' + (error.status || '') + ' : ' + (error.text || 'Vérifiez votre template sur emailjs.com');
     })
@@ -1486,7 +1860,7 @@ const clientsData = [
   { name: 'ERI SER',              sector: 'Irrigation',                   color: '#03458F', bg: '#E6F2EC', logo: 'ERISER_LOGO.png' },
   { name: 'FOOD+',                sector: 'Agroalimentaire',              color: '#C4161C', bg: '#FDEAEA', logo: 'FOOD+.png' },
   { name: 'Margafrique',          sector: 'Agroalimentaire',              color: '#138D00', bg: '#E6EDF8', logo: 'Margafrique.png' },
-  { name: 'Le Palais d\'Aménagement', sector: 'BTP',                    color: '#888800', bg: '#FDECEA', logo: 'LEPALAIS_LOGO.png' },
+  { name: 'Le Palais d\'Aménagement', sector: 'BTP',                     color: '#888800', bg: '#FDECEA', logo: 'LEPALAIS_LOGO.png' },
   { name: 'ARWA MEDIC',           sector: 'Activité & Produits',          color: '#005496', bg: '#E6EEF8', logo: 'ARWAMEDIC_LOGO.png' },
   { name: 'BIO & ECO SOLUTIONS',  sector: 'Conception & Distribution',    color: '#009820', bg: '#FEF3E6', logo: 'ECO&bio_logo.png' },
   { name: 'Corderies Koutoubia',  sector: 'Fabrication',                  color: '#003087', bg: '#E6EBF8', logo: 'KOUTOUBIA_LOGO.png' },
