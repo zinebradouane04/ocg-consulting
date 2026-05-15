@@ -92,7 +92,8 @@ img { max-width: 100%; display: block; }
 .btn-nav-cta { font-family: var(--font); font-size: 0.8rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); padding: 10px 22px; border-radius: 8px; transition: var(--transition); white-space: nowrap; letter-spacing: 0.02em; box-shadow: 0 4px 12px rgba(11,31,78,0.25); }
 .btn-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(11,31,78,0.35); }
 .lang-toggle { display: flex; align-items: center; gap: 4px; background: var(--gray-50); border: 1.5px solid var(--gray-100); border-radius: 8px; padding: 4px; margin-left: 8px; }
-.lang-btn { font-family: var(--font); font-size: 0.72rem; font-weight: 700; color: var(--gray-400); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; background: transparent; transition: var(--transition); letter-spacing: 0.05em; }
+.lang-btn { display: flex; align-items: center; gap: 6px; font-family: var(--font); font-size: 0.7rem; font-weight: 700; color: var(--gray-400); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; background: transparent; transition: var(--transition); letter-spacing: 0.04em; }
+.lang-btn .flag { width: 20px; height: 14px; border-radius: 2px; overflow: hidden; display: inline-flex; flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,0.1); vertical-align: middle; }
 .lang-btn.active { background: var(--navy); color: #fff; box-shadow: 0 2px 6px rgba(11,31,78,0.2); }
 .lang-btn:hover:not(.active) { color: var(--navy); background: var(--gray-100); }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px 8px; flex-shrink: 0; margin-left: 4px; }
@@ -155,7 +156,7 @@ img { max-width: 100%; display: block; }
 /* ABOUT */
 .about-section { padding: 20px 0 28px; background: var(--off-white); scroll-margin-top: 72px; position: relative; min-height: calc(100vh - 72px); display: flex; flex-direction: column; justify-content: center; }
 .about-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), var(--gold-lt), transparent); opacity: 0.5; }
-.about-inner { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 44px; align-items: center; }
+.about-inner { display: grid; grid-template-columns: 0.55fr 1.45fr; gap: 44px; align-items: center; }
 .about-img-block { position: relative; display: flex; flex-direction: column; justify-content: flex-start; padding-bottom: 26px; }
 .about-img-main { width: 100%; border-radius: 18px; overflow: visible; box-shadow: 0 20px 52px rgba(11,31,78,0.16); position: relative; line-height: 0; }
 .about-img-main img { width: 100%; height: 420px; display: block; border-radius: 18px; object-fit: cover; object-position: center top; }
@@ -164,37 +165,38 @@ img { max-width: 100%; display: block; }
 .about-badge span { font-family: var(--font); font-size: 0.52rem; font-weight: 700; opacity: 0.9; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; text-align: left; }
 .about-text-col { display: flex; flex-direction: column; justify-content: center; }
 .about-text-col > p { color: var(--text-body); line-height: 1.65; margin-bottom: 8px; font-size: 0.85rem; }
-.about-domains-label { font-family: var(--font); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 12px 0 8px; display: flex; align-items: center; gap: 8px; }
+.about-domains-label { font-family: var(--font); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 14px 0 10px; display: flex; align-items: center; gap: 8px; }
 .about-domains-label::before { content: ''; width: 16px; height: 2px; background: var(--gold); border-radius: 2px; }
-.about-domains { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.about-domain { background: #fff; border: 1.5px solid var(--gray-100); border-radius: 9px; padding: 9px 12px; display: flex; align-items: center; gap: 9px; box-shadow: 0 1px 4px rgba(11,31,78,0.05); transition: var(--transition); }
-.about-domain:hover { border-color: var(--gold); box-shadow: 0 4px 12px rgba(200,150,12,0.1); transform: translateY(-1px); }
-.about-domain-num { font-family: var(--font); font-size: 0.74rem; font-weight: 800; color: var(--navy); white-space: nowrap; }
-.about-domain-label { font-size: 0.72rem; color: var(--text-muted); line-height: 1.25; }
+.about-domains { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.about-domain { background: #fff; border: 1.5px solid var(--gray-100); border-radius: 11px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 6px rgba(11,31,78,0.06); transition: var(--transition); }
+.about-domain:hover { border-color: var(--gold); box-shadow: 0 6px 16px rgba(200,150,12,0.12); transform: translateY(-2px); }
+.about-domain-num { font-family: var(--font); font-size: 0.75rem; font-weight: 800; color: var(--navy); white-space: nowrap; }
+.about-domain-label { font-size: 0.76rem; color: var(--text-muted); line-height: 1.3; }
 
 /* ISO */
 .iso-section { padding: 28px 0 36px; background: var(--white); scroll-margin-top: 72px; min-height: calc(100vh - 72px); display: flex; flex-direction: column; justify-content: center; }
-.iso-head { text-align: left; max-width: 100%; margin: 0 0 20px; }
-.iso-head .section-title { font-size: clamp(1.4rem, 2.5vw, 2rem); white-space: nowrap; margin-bottom: 0; }
+.iso-head { text-align: left; max-width: 100%; margin: 0 0 28px; }
+.iso-head .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); white-space: normal; margin-bottom: 8px; letter-spacing: -0.025em; }
+.iso-head .section-sub-iso { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-top: 6px; }
 .iso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.iso-card { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 18px 14px; text-align: center; cursor: pointer; transition: var(--transition); position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+.iso-card { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 14px 12px; text-align: center; cursor: pointer; transition: var(--transition); position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
 .iso-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
-.ic-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; transition: var(--transition); position: relative; z-index: 1; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-.ic-number { font-family: var(--font); font-size: 1.1rem; font-weight: 900; line-height: 1; margin-bottom: 4px; color: var(--gold-lt); position: relative; z-index: 1; }
-.ic-title { font-family: var(--font); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; color: rgba(255,255,255,0.85); position: relative; z-index: 1; }
-.ic-desc { font-size: 0.72rem; line-height: 1.4; margin-bottom: 10px; color: rgba(255,255,255,0.6); position: relative; z-index: 1; }
+.ic-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; margin: 0 auto 7px; transition: var(--transition); position: relative; z-index: 1; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.ic-number { font-family: var(--font); font-size: 0.82rem; font-weight: 900; line-height: 1; margin-bottom: 4px; color: var(--gold-lt); position: relative; z-index: 1; letter-spacing: 0.01em; }
+.ic-title { font-family: var(--font); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; margin-bottom: 5px; color: rgba(255,255,255,0.85); position: relative; z-index: 1; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ic-desc { font-size: 0.68rem; line-height: 1.35; margin-bottom: 8px; color: rgba(255,255,255,0.6); position: relative; z-index: 1; }
 .ic-badge { display: inline-block; font-family: var(--font); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 10px; border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); position: relative; z-index: 1; }
 
 /* SERVICES */
-.services-section { padding: 40px 0; background: var(--white); scroll-margin-top: 72px; min-height: calc(100vh - 72px); display: flex; flex-direction: column; justify-content: center; }
-.services-head { text-align: left; max-width: 600px; margin: 0 0 32px; }
+.services-section { padding: 48px 0 56px; background: var(--white); scroll-margin-top: 72px; display: flex; flex-direction: column; justify-content: center; }
+.services-head { text-align: left; max-width: 100%; margin: 0 0 32px; }
 .srv-grid-new { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.srv-card-new { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 22px 14px; text-align: center; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-md); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px; }
+.srv-card-new { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 32px 18px 28px; text-align: center; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-md); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px; }
 .srv-card-new:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
-.srv-card-new-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: #fff; }
-.srv-card-new-num { font-family: var(--font); font-size: 0.68rem; font-weight: 700; color: var(--gold-lt); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
-.srv-card-new-title { font-family: var(--font); font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.35; flex: 1; display: flex; align-items: center; justify-content: center; }
-.srv-card-new-badge { display: inline-block; font-family: var(--font); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; color: rgba(255,255,255,0.85); flex-shrink: 0; }
+.srv-card-new-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff; }
+.srv-card-new-num { font-family: var(--font); font-size: 0.72rem; font-weight: 700; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.srv-card-new-title { font-family: var(--font); font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: 0; line-height: 1.3; flex: 1; display: flex; align-items: center; justify-content: center; }
+.srv-card-new-badge { display: inline-block; font-family: var(--font); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; color: rgba(255,255,255,0.85); flex-shrink: 0; margin-top: 18px; }
 
 /* SERVICE MODAL */
 .srv-modal-overlay { position: fixed; inset: 0; background: rgba(11,31,78,0.75); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; backdrop-filter: blur(8px); }
@@ -208,10 +210,10 @@ img { max-width: 100%; display: block; }
 .srv-modal-title { font-family: var(--font); font-size: 1.4rem; font-weight: 800; color: #fff; line-height: 1.2; }
 .srv-modal-body { padding: 28px 32px; }
 .srv-modal-body p { font-size: 0.92rem; color: var(--text-body); line-height: 1.8; margin-bottom: 20px; }
-.srv-modal-items { display: flex; flex-direction: column; gap: 10px; }
-.srv-modal-item { display: flex; align-items: flex-start; gap: 12px; background: var(--gray-50); border-radius: 10px; padding: 12px 16px; }
-.srv-modal-item-dot { width: 8px; height: 8px; min-width: 8px; background: var(--gold); border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-.srv-modal-item span { font-size: 0.85rem; color: var(--text-body); line-height: 1.6; }
+.srv-modal-items { display: flex; flex-direction: column; gap: 12px; }
+.srv-modal-item { display: flex; align-items: center; gap: 14px; background: var(--gray-50); border-radius: 12px; padding: 14px 16px; border-left: 3px solid var(--gold); }
+.srv-modal-item-dot { width: 24px; height: 24px; min-width: 24px; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font); font-size: 0.65rem; font-weight: 800; color: var(--gold-lt); flex-shrink: 0; }
+.srv-modal-item span { font-size: 0.85rem; color: var(--text-body); line-height: 1.65; }
 
 /* ISO MODAL */
 .modal-overlay { position: fixed; inset: 0; background: rgba(11,31,78,0.75); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; backdrop-filter: blur(8px); }
@@ -221,8 +223,8 @@ img { max-width: 100%; display: block; }
 .modal-header { background: linear-gradient(135deg, var(--navy), var(--navy-lt)); padding: 32px; border-radius: 24px 24px 0 0; position: relative; }
 .modal-close { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; background: rgba(255,255,255,0.12); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; transition: var(--transition); }
 .modal-close:hover { background: rgba(255,255,255,0.25); }
-.modal-iso-number { font-family: var(--font); font-size: 3rem; font-weight: 900; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 8px; }
-.modal-iso-name { font-family: var(--font); font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.modal-iso-number { font-family: var(--font); font-size: 2.2rem; font-weight: 900; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 8px; }
+.modal-iso-name { font-family: var(--font); font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
 .modal-iso-sub { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
 .modal-body { padding: 32px; }
 .modal-section { margin-bottom: 24px; }
@@ -370,7 +372,7 @@ img { max-width: 100%; display: block; }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .iso-grid { grid-template-columns: repeat(4, 1fr); }
+  .iso-grid { grid-template-columns: repeat(3, 1fr); }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .stats-inner { grid-template-columns: repeat(2, 1fr); }
   .stat-item:nth-child(2) { border-right: none; }
@@ -475,8 +477,8 @@ img { max-width: 100%; display: block; }
     <div class="nav-actions">
       <a href="tel:+212052252379" class="btn-nav-outline">+212 05 22 52 37 29</a>
       <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
-        <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="20" height="14"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> </button>
+        <button class="lang-btn" onclick="setLang('en')" id="btn-en"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10" width="20" height="14"><rect width="19" height="10" fill="#B22234"/><rect y="0.77" width="19" height="0.77" fill="#fff"/><rect y="1.54" width="19" height="0.77" fill="#B22234"/><rect y="2.31" width="19" height="0.77" fill="#fff"/><rect y="3.08" width="19" height="0.77" fill="#B22234"/><rect y="3.85" width="19" height="0.77" fill="#fff"/><rect y="4.62" width="19" height="0.77" fill="#B22234"/><rect y="5.38" width="19" height="0.77" fill="#fff"/><rect y="6.15" width="19" height="0.77" fill="#B22234"/><rect y="6.92" width="19" height="0.77" fill="#fff"/><rect y="7.69" width="19" height="0.77" fill="#B22234"/><rect y="8.46" width="19" height="0.77" fill="#fff"/><rect y="9.23" width="19" height="0.77" fill="#B22234"/><rect width="7.6" height="5.38" fill="#3C3B6E"/></svg></span> </button>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
@@ -569,19 +571,23 @@ img { max-width: 100%; display: block; }
       </div>
       <div class="about-text-col reveal rd2">
         <h2 class="section-title" style="font-size:clamp(1.4rem,2.6vw,2.3rem);margin-bottom:10px;line-height:1.12;letter-spacing:-0.02em;">
-          Un cabinet de référence<br/>au service de votre<br/><span style="color:var(--gold)">excellence.</span>
+          Un cabinet de référence au service de votre<br/><span style="color:var(--gold)">excellence.</span>
         </h2>
         <p>En partenariat avec un organisme de certification accrédité par l'IAF (International Accreditation Forum) et l'UAF (United Accreditation Foundation), OCG Consulting assure des prestations d'audit et de certification reconnues à l'échelle internationale.</p>
         <div class="about-domains-label">Domaines d'intervention</div>
         <div class="about-domains">
-          <div class="about-domain"><span class="about-domain-num">ISO 9001</span><span class="about-domain-label">Management de la qualité</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 14001</span><span class="about-domain-label">Management environnemental</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 22000</span><span class="about-domain-label">Sécurité alimentaire</span></div>
-          <div class="about-domain"><span class="about-domain-num">FSSC 22000</span><span class="about-domain-label">Food Safety Certification</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 45001</span><span class="about-domain-label">Santé &amp; sécurité au travail</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 50001</span><span class="about-domain-label">Management de l'énergie</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 13485</span><span class="about-domain-label">Dispositifs médicaux</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 27001</span><span class="about-domain-label">Sécurité de l'information</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 9001 v2015</span><span class="about-domain-label">Management de la qualité</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 14001 v2015</span><span class="about-domain-label">Management environnemental</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 45001 v2018</span><span class="about-domain-label">Santé &amp; sécurité au travail</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 22000 v2018</span><span class="about-domain-label">Sécurité alimentaire</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO/IEC 27001 v2022</span><span class="about-domain-label">Sécurité de l'information</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 50001 v2018</span><span class="about-domain-label">Management de l'énergie</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 13485 v2016</span><span class="about-domain-label">Dispositifs médicaux</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 37001 v2025</span><span class="about-domain-label">Management anti-corruption</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 28001 v2007</span><span class="about-domain-label">Sûreté chaîne logistique</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO 22301 v2019</span><span class="about-domain-label">Continuité d'activité</span></div>
+          <div class="about-domain"><span class="about-domain-num">ISO/IEC 20000-1 v2018</span><span class="about-domain-label">Management services IT</span></div>
+          <div class="about-domain"><span class="about-domain-num">FSSC 22000 v6</span><span class="about-domain-label">Sécurité alimentaire FSSC</span></div>
         </div>
       </div>
     </div>
@@ -592,7 +598,9 @@ img { max-width: 100%; display: block; }
 <section class="iso-section" id="iso">
   <div class="container">
     <div class="iso-head reveal">
-      <h2 class="section-title">Normes ISO que nous maîtrisons pour vous</h2>
+      
+      <h2 class="section-title">Normes ISO que nous maîtrisons pour votre entreprise</h2>
+      <p class="section-sub-iso">Cliquez sur une norme pour découvrir ses avantages, secteurs concernés et comment nous vous accompagnons.</p>
     </div>
     <div class="iso-grid" id="isoGrid"></div>
   </div>
@@ -602,39 +610,39 @@ img { max-width: 100%; display: block; }
 <section class="services-section" id="services">
   <div class="container">
     <div class="services-head reveal">
-      <div class="section-tag section-tag-blue">Nos Métiers</div>
-      <h2 class="section-title">Des solutions complètes<br/>pour votre entreprise</h2>
+   
+      <h2 class="section-title" style="white-space:nowrap;font-size:clamp(1.6rem,3vw,2.8rem);">Des solutions complètes pour votre entreprise</h2>
       <p class="section-sub">Cliquez sur un métier pour découvrir notre expertise et nos prestations détaillées.</p>
     </div>
     <div class="srv-grid-new">
       <div class="srv-card-new reveal" onclick="openSrvModal(0)">
-        <div class="srv-card-new-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07"/></svg></div>
+        <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07"/></svg></div>
         <div class="srv-card-new-num">01</div>
         <div class="srv-card-new-title">Certification ISO &amp; Audit</div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
       <div class="srv-card-new reveal rd1" onclick="openSrvModal(1)">
-        <div class="srv-card-new-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+        <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
         <div class="srv-card-new-num">02</div>
         <div class="srv-card-new-title">Conseil &amp; Management</div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
       <div class="srv-card-new reveal rd2" onclick="openSrvModal(2)">
-        <div class="srv-card-new-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
         <div class="srv-card-new-num">03</div>
         <div class="srv-card-new-title">Formation Professionnelle</div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
       <div class="srv-card-new reveal rd3" onclick="openSrvModal(3)">
-        <div class="srv-card-new-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
         <div class="srv-card-new-num">04</div>
-        <div class="srv-card-new-title">Élaboration de Business Plans Professionnels</div>
+        <div class="srv-card-new-title"> Business Plans </div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
       <div class="srv-card-new reveal rd4" onclick="openSrvModal(4)">
-        <div class="srv-card-new-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
         <div class="srv-card-new-num">05</div>
-        <div class="srv-card-new-title">Études d'Investissement &amp; Faisabilité Financière</div>
+        <div class="srv-card-new-title">Études d'Investissement </div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
     </div>
@@ -746,7 +754,7 @@ img { max-width: 100%; display: block; }
   <div class="container">
     <div class="testi-head reveal">
       <div class="section-tag">Témoignages</div>
-      <h2 class="section-title">Ce que disent<br/>nos clients</h2>
+      <h2 class="section-title">Ce que disent nos clients</h2>
     </div>
     <div class="testi-grid reveal rd1">
       <div class="testi-card"><span class="testi-cat">Qualité de prestation</span><div class="testi-stars"><span></span><span></span><span></span><span></span><span></span></div><p class="testi-quote">"Une prestation de très haute qualité, parfaitement adaptée à nos besoins spécifiques."</p><div class="testi-author"><div class="testi-avatar">DG</div><div class="testi-author-text"><strong>Directeur Général</strong><span>Accompagnement sur mesure</span></div></div></div>
@@ -810,13 +818,23 @@ img { max-width: 100%; display: block; }
             <label>Service souhaité</label>
             <select id="f-service">
               <option value="">Sélectionner un service</option>
-              <option>Certification ISO 9001</option><option>Certification ISO 14001</option>
-              <option>Certification ISO 22000</option><option>Certification ISO 45001</option>
-              <option>Certification ISO 13485</option><option>Certification ISO 27001</option>
-              <option>Certification ISO 50001</option><option>FSSC 22000</option>
-              <option>Conseil &amp; Management</option><option>Formation Professionnelle</option>
-              <option>Audit &amp; Diagnostic</option><option>Business Plan</option>
-              <option>Étude d'Investissement &amp; Faisabilité Financière</option>
+              <option>Certification ISO 9001 v2015</option>
+              <option>Certification ISO 14001 v2015</option>
+              <option>Certification ISO 45001 v2018</option>
+              <option>Certification ISO 22000 v2018</option>
+              <option>Certification ISO/IEC 27001 v2022</option>
+              <option>Certification ISO 50001 v2018</option>
+              <option>Certification ISO 13485 v2016</option>
+              <option>Certification ISO 37001 v2025</option>
+              <option>Certification ISO 28001 v2007</option>
+              <option>Certification ISO 22301 v2019</option>
+              <option>Certification ISO/IEC 20000-1 v2018</option>
+              <option>Certification FSSC 22000 v6</option>
+              <option>Conseil &amp; Management</option>
+              <option>Formation Professionnelle</option>
+              <option>Audit &amp; Diagnostic</option>
+              <option>Business Plan</option>
+              <option>Étude d'Investissement</option>
             </select>
           </div>
           <div class="fg"><label>Message</label><textarea id="f-message" rows="3" placeholder="Décrivez votre projet ou vos besoins..." required></textarea></div>
@@ -985,9 +1003,9 @@ const translations = {
     'about.title':'Un cabinet de référence<br/>au service de votre<br/><span style="color:var(--gold)">excellence.</span>',
     'about.para':"En partenariat avec un organisme de certification accrédité par l'IAF (International Accreditation Forum) et l'UAF (United Accreditation Foundation), OCG Consulting assure des prestations d'audit et de certification reconnues à l'échelle internationale.",
     'about.domains.label':"Domaines d'intervention",'about.badge.label':'Fondé en',
-    'iso.title':'Normes ISO que nous maîtrisons pour vous','iso.badge':'En savoir plus →',
+    'iso.title':'Normes ISO que nous maîtrisons<br/>pour votre entreprise','iso.badge':'En savoir plus →',
     'iso.modal.desc':'Description','iso.modal.adv':'Avantages pour votre entreprise','iso.modal.sec':'Secteurs concernés','iso.modal.cta':'Demander un accompagnement →',
-    'services.tag':'Nos Métiers','services.title':'Des solutions complètes<br/>pour votre entreprise','services.sub':'Cliquez sur un métier pour découvrir notre expertise et nos prestations détaillées.',
+    'services.tag':'Nos Métiers','services.title':'Des solutions complètes pour votre entreprise','services.sub':'Cliquez sur un métier pour découvrir notre expertise et nos prestations détaillées.',
     'srv.btn':'En savoir plus →',
     'why.tag':'Pourquoi Nous Choisir','why.title':'6 raisons de nous faire confiance','why.sub':"Notre expertise, notre réseau et notre engagement font d'OCG Consulting votre partenaire idéal.",
     'clients.tag':'Références Clients','clients.title':'Ils nous font confiance','clients.sub':"Des entreprises de référence nous ont confié leurs projets de certification, d'audit et d'amélioration continue. Plus de <strong>100 entreprises</strong> nous ont déjà accordé leur confiance au Maroc.",
@@ -1003,9 +1021,9 @@ const translations = {
     'footer.tagline':"Votre partenaire de confiance pour la performance, la conformité internationale et la croissance durable au Maroc.",
     'footer.col1.title':'Partenariat','footer.col1.l1':'Qui Sommes-Nous','footer.col1.l2':'Notre Histoire','footer.col1.l3':'Nos Valeurs','footer.col1.l4':'Notre Équipe',
     'footer.col2.title':'Nos Métiers','footer.col2.l1':'Certifications ISO','footer.col2.l2':'Conseil & Management','footer.col2.l3':'Formation Pro','footer.col2.l4':'Audit & Diagnostic','footer.col2.l5':'Business Plans',
-    'footer.col3.title':'Contact','footer.hours':'Lun–Ven · 09h–18h',
+    'footer.col3.title':'Contact','footer.hours':'Lun–Ven · 08:30h–17h',
     'footer.copy':'© 2026 Tous droits réservés — <strong>OCG Consulting</strong>',
-    'topbar.city':'Casablanca, Maroc','topbar.hours':'Lun–Ven · 09h00–18h00',
+    'topbar.city':'Casablanca, Maroc','topbar.hours':'Lun–Ven · 08h30–17h00',
     'mob.clients':'Nos Clients','mob.quote':'Demander un devis →',
   },
   en: {
@@ -1018,9 +1036,9 @@ const translations = {
     'about.title':'A reference firm<br/>at the service of your<br/><span style="color:var(--gold)">excellence.</span>',
     'about.para':'In partnership with a certification body accredited by IAF (International Accreditation Forum) and UAF (United Accreditation Foundation), OCG Consulting delivers internationally recognized audit and certification services.',
     'about.domains.label':'Areas of Expertise','about.badge.label':'Founded in',
-    'iso.title':'ISO Standards We Master for You','iso.badge':'Learn more →',
+    'iso.title':'ISO Standards We Master<br/>for Your Business','iso.badge':'Learn more →',
     'iso.modal.desc':'Description','iso.modal.adv':'Benefits for your company','iso.modal.sec':'Relevant sectors','iso.modal.cta':'Request support →',
-    'services.tag':'Our Services','services.title':'Comprehensive solutions<br/>for your business','services.sub':'Click on a service to discover our expertise and detailed offerings.',
+    'services.tag':'Our Services','services.title':'Comprehensive solutions for your business','services.sub':'Click on a service to discover our expertise and detailed offerings.',
     'srv.btn':'Learn more →',
     'why.tag':'Why Choose Us','why.title':'6 reasons to trust us','why.sub':'Our expertise, network and commitment make OCG Consulting your ideal partner.',
     'clients.tag':'Client References','clients.title':'They trust us','clients.sub':'Leading companies have entrusted us with their certification, audit and continuous improvement projects. Over <strong>100 companies</strong> have already placed their trust in us in Morocco.',
@@ -1036,50 +1054,177 @@ const translations = {
     'footer.tagline':'Your trusted partner for performance, international compliance and sustainable growth in Morocco.',
     'footer.col1.title':'Partnership','footer.col1.l1':'Who We Are','footer.col1.l2':'Our History','footer.col1.l3':'Our Values','footer.col1.l4':'Our Team',
     'footer.col2.title':'Our Services','footer.col2.l1':'ISO Certifications','footer.col2.l2':'Consulting & Management','footer.col2.l3':'Professional Training','footer.col2.l4':'Audit & Diagnostics','footer.col2.l5':'Business Plans',
-    'footer.col3.title':'Contact','footer.hours':'Mon–Fri · 09h–18h',
+    'footer.col3.title':'Contact','footer.hours':'Mon–Fri · 08:30h–17h',
     'footer.copy':'© 2026 All rights reserved — <strong>OCG Consulting</strong>',
     'topbar.city':'Casablanca, Morocco','topbar.hours':'Mon–Fri · 08:30–17:00',
     'mob.clients':'Our Clients','mob.quote':'Request a Quote →',
   }
 };
 
+// ════════════════════════════════════════
+//  ISO DATA
+// ════════════════════════════════════════
 const isoDataI18n = {
   fr: [
-    { number:'ISO 9001', name:'Management de la Qualité', sector:'Tous secteurs', desc:"La norme ISO 9001 définit les critères applicables à un système de management de la qualité. Elle peut être utilisée par toute organisation, grande ou petite, quel que soit son domaine d'activité.", advantages:['Amélioration de la satisfaction client','Optimisation des processus internes','Réduction des non-conformités','Reconnaissance internationale','Avantage concurrentiel','Amélioration continue'], sectors:['Industrie','Services','Commerce','Santé','Éducation','Agroalimentaire','BTP','IT'] },
-    { number:'ISO 14001', name:'Management Environnemental', sector:'Environnement', desc:"L'ISO 14001 spécifie les exigences relatives à un système de management environnemental. Elle aide les organisations à gérer leurs responsabilités environnementales de façon systématique.", advantages:["Réduction de l'empreinte écologique",'Conformité réglementaire','Réduction des coûts énergétiques','Image verte et responsable','Gestion des risques environnementaux','Accès aux marchés verts'], sectors:['Industrie','Chimie','Construction','Extraction','Agriculture','Énergie'] },
-    { number:'ISO 22000', name:'Sécurité Alimentaire', sector:'Agroalimentaire', desc:"L'ISO 22000 est une norme internationale pour les systèmes de management de la sécurité des denrées alimentaires. Elle combine des éléments reconnus comme essentiels pour assurer la sécurité des aliments.", advantages:['Garantie de la sécurité alimentaire','Confiance des consommateurs','Maîtrise de la chaîne HACCP','Export facilité','Réduction des rappels produits','Conformité réglementaire'], sectors:['Agroalimentaire','Restauration','Distribution alimentaire','Agriculture','Logistique alimentaire'] },
-    { number:'ISO 45001', name:'Santé &amp; Sécurité au Travail', sector:'SST', desc:"L'ISO 45001 spécifie les exigences d'un système de management de la santé et de la sécurité au travail. Elle vise à réduire les risques professionnels et à améliorer les conditions de travail.", advantages:['Réduction des accidents du travail','Amélioration du bien-être des employés','Conformité légale',"Réduction des coûts d'assurance",'Amélioration de la productivité','Réputation employeur'], sectors:['BTP','Industrie','Mining','Pétrole & Gaz','Santé','Logistique'] },
-    { number:'ISO 13485', name:'Dispositifs Médicaux', sector:'Médical', desc:"L'ISO 13485 spécifie les exigences relatives aux systèmes de management de la qualité pour les dispositifs médicaux.", advantages:['Conformité réglementaire médicale','Accès aux marchés internationaux','Qualité des dispositifs garantie','Réduction des risques patients','Confiance des autorités sanitaires','Avantage concurrentiel'], sectors:['Fabricants de dispositifs médicaux','Distributeurs médicaux','Fournisseurs de services médicaux','Pharmacie'] },
-    { number:'ISO 27001', name:"Sécurité de l'Information", sector:'IT & Data', desc:"L'ISO 27001 spécifie les exigences pour établir, mettre en œuvre et améliorer un système de management de la sécurité de l'information.", advantages:['Protection des données sensibles','Conformité RGPD facilitée','Confiance des partenaires','Réduction des cyberrisques','Avantage concurrentiel IT','Gouvernance des données'], sectors:['IT & Logiciels','Finance & Banque','Assurance','Télécommunications','Administration publique','Santé numérique'] },
-    { number:'ISO 50001', name:"Management de l'Énergie", sector:'Énergie', desc:"L'ISO 50001 aide les organisations à améliorer leur performance énergétique en établissant des systèmes et des processus pour l'efficacité énergétique.", advantages:['Réduction de la consommation énergétique','Diminution des coûts','Empreinte carbone réduite','Conformité aux réglementations','Image RSE améliorée','Accès aux certifications vertes'], sectors:['Industrie lourde','Bâtiment','Transports','Utilities','Secteur public','Grande distribution'] },
-    { number:'FSSC 22000', name:'Food Safety System Certification', sector:'Alimentaire', desc:"Le FSSC 22000 est un système complet de certification de la sécurité alimentaire pour les fabricants d'aliments et d'ingrédients. Il est reconnu par la GFSI et requis par de nombreux grands distributeurs.", advantages:['Reconnaissance GFSI mondiale','Accès aux grandes enseignes','Sécurité alimentaire renforcée','Export facilité','Confiance des consommateurs','Complémentaire à ISO 22000'], sectors:['Fabricants alimentaires','Emballages alimentaires','Ingrédients alimentaires','Production primaire','Transport alimentaire'] }
+    { number:'ISO 9001 v2015', name:'Système de Management de la Qualité', sector:'Tous secteurs', desc:"La norme ISO 9001 v2015 définit les critères applicables à un système de management de la qualité. Elle peut être utilisée par toute organisation, grande ou petite, quel que soit son domaine d'activité.", advantages:['Amélioration de la satisfaction client','Optimisation des processus internes','Réduction des non-conformités','Reconnaissance internationale','Avantage concurrentiel','Amélioration continue'], sectors:['Industrie','Services','Commerce','Santé','Éducation','Agroalimentaire','BTP','IT'] },
+    { number:'ISO 14001 v2015', name:'Système de Management Environnemental', sector:'Environnement', desc:"L'ISO 14001 v2015 spécifie les exigences relatives à un système de management environnemental. Elle aide les organisations à gérer leurs responsabilités environnementales de façon systématique.", advantages:["Réduction de l'empreinte écologique",'Conformité réglementaire','Réduction des coûts énergétiques','Image verte et responsable','Gestion des risques environnementaux','Accès aux marchés verts'], sectors:['Industrie','Chimie','Construction','Extraction','Agriculture','Énergie'] },
+    { number:'ISO 45001 v2018', name:'Santé et Sécurité au Travail', sector:'SST', desc:"L'ISO 45001 v2018 spécifie les exigences d'un système de management de la santé et de la sécurité au travail. Elle vise à réduire les risques professionnels et à améliorer les conditions de travail.", advantages:['Réduction des accidents du travail','Amélioration du bien-être des employés','Conformité légale',"Réduction des coûts d'assurance",'Amélioration de la productivité','Réputation employeur'], sectors:['BTP','Industrie','Mining','Pétrole & Gaz','Santé','Logistique'] },
+    { number:'ISO 22000 v2018', name:'Management de la Sécurité des Denrées Alimentaires', sector:'Agroalimentaire', desc:"L'ISO 22000 v2018 est une norme internationale pour les systèmes de management de la sécurité des denrées alimentaires. Elle combine des éléments essentiels pour assurer la sécurité des aliments tout au long de la chaîne.", advantages:['Garantie de la sécurité alimentaire','Confiance des consommateurs','Maîtrise de la chaîne HACCP','Export facilité','Réduction des rappels produits','Conformité réglementaire'], sectors:['Agroalimentaire','Restauration','Distribution alimentaire','Agriculture','Logistique alimentaire'] },
+    { number:'ISO/IEC 27001 v2022', name:"Système de Management de la Sécurité de l'Information", sector:'IT & Data', desc:"L'ISO/IEC 27001 v2022 spécifie les exigences pour établir, mettre en œuvre, maintenir et améliorer un système de management de la sécurité de l'information. Version la plus récente et complète.", advantages:['Protection des données sensibles','Conformité RGPD facilitée','Confiance des partenaires','Réduction des cyberrisques','Avantage concurrentiel IT','Gouvernance des données'], sectors:['IT & Logiciels','Finance & Banque','Assurance','Télécommunications','Administration publique','Santé numérique'] },
+    { number:'ISO 50001 v2018', name:"Système de Management de l'Énergie", sector:'Énergie', desc:"L'ISO 50001 v2018 aide les organisations à améliorer leur performance énergétique en établissant des systèmes et des processus pour l'efficacité énergétique, favorisant la réduction des émissions de CO₂.", advantages:['Réduction de la consommation énergétique','Diminution des coûts','Empreinte carbone réduite','Conformité aux réglementations','Image RSE améliorée','Accès aux certifications vertes'], sectors:['Industrie lourde','Bâtiment','Transports','Utilities','Secteur public','Grande distribution'] },
+    { number:'ISO 13485 v2016', name:'Dispositifs Médicaux – Système de Management de la Qualité', sector:'Médical', desc:"L'ISO 13485 v2016 spécifie les exigences relatives aux systèmes de management de la qualité pour les dispositifs médicaux et les services associés.", advantages:['Conformité réglementaire médicale','Accès aux marchés internationaux','Qualité des dispositifs garantie','Réduction des risques patients','Confiance des autorités sanitaires','Avantage concurrentiel'], sectors:['Fabricants de dispositifs médicaux','Distributeurs médicaux','Fournisseurs de services médicaux','Pharmacie'] },
+    { number:'ISO 37001 v2025', name:'Système de Management Anti-Corruption', sector:'Gouvernance', desc:"L'ISO 37001 v2025 spécifie les exigences pour établir, mettre en œuvre, maintenir et améliorer un système de management anti-corruption. Version 2025, la plus récente.", advantages:['Prévention de la corruption','Conformité légale renforcée','Confiance des parties prenantes','Réduction des risques juridiques','Réputation institutionnelle','Gouvernance éthique'], sectors:['Administration publique','Finance & Banque','Industrie','Construction','Multinationales','ONG'] },
+    { number:'ISO 28001 v2007', name:'Systèmes de Management de la Sûreté de la Chaîne Logistique', sector:'Logistique & Supply Chain', desc:"L'ISO 28001 v2007 aide les organisations à établir des systèmes et des processus pour la sûreté de la chaîne logistique internationale, protégeant les marchandises et les informations.", advantages:['Sécurisation de la chaîne logistique','Conformité douanière internationale','Réduction des risques de contrebande','Accès aux programmes douaniers',"Image d'opérateur fiable",'Optimisation des contrôles'], sectors:['Transport & Logistique','Import/Export','Douanes','E-commerce','Distribution','Entreposage'] },
+    { number:'ISO 22301 v2019', name:"Management de la Continuité d'Activité", sector:'Résilience organisationnelle', desc:"L'ISO 22301 v2019 spécifie les exigences pour planifier, établir, mettre en œuvre et améliorer un système de management de la continuité d'activité afin d'assurer la résilience de l'organisation.", advantages:['Résilience organisationnelle','Continuité des opérations critiques','Confiance des clients et partenaires','Réduction des pertes financières','Conformité réglementaire','Plan de reprise structuré'], sectors:['Finance & Banque','IT & Télécoms','Santé','Industrie','Secteur public','Énergie'] },
+    { number:'ISO/IEC 20000-1 v2018', name:'Système de Management des Services Informatiques', sector:'IT & Services', desc:"L'ISO/IEC 20000-1 v2018 spécifie les exigences pour qu'une organisation établisse, mette en œuvre, maintienne et améliore en continu un système de management des services informatiques.", advantages:['Qualité des services IT garantie','Alignement IT/métier','Satisfaction des utilisateurs','Réduction des incidents IT','Conformité aux meilleures pratiques ITIL','Optimisation des coûts IT'], sectors:['Prestataires IT','Banque & Finance','Télécommunications','Administration','Industrie','Services partagés'] },
+    { number:'FSSC 22000 v6', name:'Certification Sécurité Alimentaire FSSC', sector:'Agroalimentaire & GFSI', desc:"Le FSSC 22000 v6 est un référentiel de certification reconnu par le GFSI (Global Food Safety Initiative) qui intègre les exigences de l'ISO 22000 v2018 et des programmes prérequis sectoriels (PRPs). La version 6 apporte des exigences renforcées en matière de culture alimentaire, de gestion des allergènes et de durabilité environnementale.", advantages:['Reconnaissance GFSI mondiale','Accès aux grands distributeurs internationaux','Intégration ISO 22000 + PRPs sectoriels','Renforcement de la culture sécurité alimentaire','Maîtrise renforcée des allergènes','Conformité aux exigences des donneurs d\'ordre'], sectors:['Fabricants agroalimentaires','Emballage alimentaire','Ingrédients & additifs','Restauration collective','Distribution alimentaire','Agriculture & productions primaires'] }
   ],
   en: [
-    { number:'ISO 9001', name:'Quality Management', sector:'All sectors', desc:"ISO 9001 sets out the criteria for a quality management system. It can be used by any organization, large or small, regardless of its field of activity.", advantages:['Improved customer satisfaction','Optimized internal processes','Reduced non-conformities','International recognition','Competitive advantage','Continuous improvement'], sectors:['Industry','Services','Trade','Healthcare','Education','Food','Construction','IT'] },
-    { number:'ISO 14001', name:'Environmental Management', sector:'Environment', desc:"ISO 14001 specifies the requirements for an environmental management system. It helps organizations manage their environmental responsibilities in a systematic manner.", advantages:['Reduced ecological footprint','Regulatory compliance','Lower energy costs','Green & responsible image','Environmental risk management','Access to green markets'], sectors:['Industry','Chemistry','Construction','Extraction','Agriculture','Energy'] },
-    { number:'ISO 22000', name:'Food Safety', sector:'Food & Beverage', desc:"ISO 22000 is an international standard for food safety management systems. It combines elements recognized as essential for ensuring food safety throughout the supply chain.", advantages:['Food safety guarantee','Consumer confidence','HACCP chain control','Easier exports','Fewer product recalls','Regulatory compliance'], sectors:['Food manufacturing','Catering','Food distribution','Agriculture','Food logistics'] },
-    { number:'ISO 45001', name:'Health &amp; Safety at Work', sector:'OHS', desc:"ISO 45001 specifies the requirements for an occupational health and safety management system. It aims to reduce occupational risks and improve working conditions.", advantages:['Fewer workplace accidents','Improved employee wellbeing','Legal compliance','Reduced insurance costs','Improved productivity','Employer reputation'], sectors:['Construction','Industry','Mining','Oil & Gas','Healthcare','Logistics'] },
-    { number:'ISO 13485', name:'Medical Devices', sector:'Medical', desc:"ISO 13485 specifies requirements for a quality management system for medical devices and related services.", advantages:['Medical regulatory compliance','Access to international markets','Guaranteed device quality','Reduced patient risk','Regulatory authority confidence','Competitive advantage'], sectors:['Medical device manufacturers','Medical distributors','Medical service providers','Pharmacy'] },
-    { number:'ISO 27001', name:'Information Security', sector:'IT & Data', desc:"ISO 27001 specifies the requirements for establishing, implementing and improving an information security management system.", advantages:['Sensitive data protection','Easier GDPR compliance','Partner confidence','Reduced cyber risks','IT competitive advantage','Data governance'], sectors:['IT & Software','Finance & Banking','Insurance','Telecommunications','Public administration','Digital health'] },
-    { number:'ISO 50001', name:'Energy Management', sector:'Energy', desc:"ISO 50001 helps organizations improve their energy performance by establishing systems and processes for energy efficiency.", advantages:['Reduced energy consumption','Lower costs','Reduced carbon footprint','Regulatory compliance','Improved CSR image','Access to green certifications'], sectors:['Heavy industry','Buildings','Transport','Utilities','Public sector','Retail'] },
-    { number:'FSSC 22000', name:'Food Safety System Certification', sector:'Food', desc:"FSSC 22000 is a comprehensive food safety certification scheme for food and ingredient manufacturers. It is GFSI-recognized and required by many major retailers.", advantages:['Global GFSI recognition','Access to major retailers','Enhanced food safety','Easier exports','Consumer confidence','Complements ISO 22000'], sectors:['Food manufacturers','Food packaging','Food ingredients','Primary production','Food transport'] }
+    { number:'ISO 9001 v2015', name:'Quality Management System', sector:'All sectors', desc:"ISO 9001 v2015 sets out the criteria for a quality management system. It can be used by any organization, large or small, regardless of its field of activity.", advantages:['Improved customer satisfaction','Optimized internal processes','Reduced non-conformities','International recognition','Competitive advantage','Continuous improvement'], sectors:['Industry','Services','Trade','Healthcare','Education','Food','Construction','IT'] },
+    { number:'ISO 14001 v2015', name:'Environmental Management System', sector:'Environment', desc:"ISO 14001 v2015 specifies the requirements for an environmental management system. It helps organizations manage their environmental responsibilities in a systematic manner.", advantages:['Reduced ecological footprint','Regulatory compliance','Lower energy costs','Green & responsible image','Environmental risk management','Access to green markets'], sectors:['Industry','Chemistry','Construction','Extraction','Agriculture','Energy'] },
+    { number:'ISO 45001 v2018', name:'Occupational Health and Safety', sector:'OHS', desc:"ISO 45001 v2018 specifies the requirements for an occupational health and safety management system. It aims to reduce occupational risks and improve working conditions.", advantages:['Fewer workplace accidents','Improved employee wellbeing','Legal compliance','Reduced insurance costs','Improved productivity','Employer reputation'], sectors:['Construction','Industry','Mining','Oil & Gas','Healthcare','Logistics'] },
+    { number:'ISO 22000 v2018', name:'Food Safety Management', sector:'Food & Beverage', desc:"ISO 22000 v2018 is an international standard for food safety management systems. It combines elements recognized as essential for ensuring food safety throughout the supply chain.", advantages:['Food safety guarantee','Consumer confidence','HACCP chain control','Easier exports','Fewer product recalls','Regulatory compliance'], sectors:['Food manufacturing','Catering','Food distribution','Agriculture','Food logistics'] },
+    { number:'ISO/IEC 27001 v2022', name:'Information Security Management System', sector:'IT & Data', desc:"ISO/IEC 27001 v2022 specifies the requirements for establishing, implementing, maintaining and continually improving an information security management system. This is the latest and most comprehensive version.", advantages:['Sensitive data protection','Easier GDPR compliance','Partner confidence','Reduced cyber risks','IT competitive advantage','Data governance'], sectors:['IT & Software','Finance & Banking','Insurance','Telecommunications','Public administration','Digital health'] },
+    { number:'ISO 50001 v2018', name:'Energy Management System', sector:'Energy', desc:"ISO 50001 v2018 helps organizations improve their energy performance by establishing systems and processes for energy efficiency, supporting CO₂ emissions reduction.", advantages:['Reduced energy consumption','Lower costs','Reduced carbon footprint','Regulatory compliance','Improved CSR image','Access to green certifications'], sectors:['Heavy industry','Buildings','Transport','Utilities','Public sector','Retail'] },
+    { number:'ISO 13485 v2016', name:'Medical Devices – Quality Management System', sector:'Medical', desc:"ISO 13485 v2016 specifies requirements for a quality management system for medical devices and related services.", advantages:['Medical regulatory compliance','Access to international markets','Guaranteed device quality','Reduced patient risk','Regulatory authority confidence','Competitive advantage'], sectors:['Medical device manufacturers','Medical distributors','Medical service providers','Pharmacy'] },
+    { number:'ISO 37001 v2025', name:'Anti-Bribery Management System', sector:'Governance', desc:"ISO 37001 v2025 specifies requirements and provides guidance for establishing, implementing, maintaining and improving an anti-bribery management system. Latest 2025 version.", advantages:['Bribery prevention','Enhanced legal compliance','Stakeholder confidence','Reduced legal risks','Institutional reputation','Ethical governance'], sectors:['Public administration','Finance & Banking','Industry','Construction','Multinationals','NGOs'] },
+    { number:'ISO 28001 v2007', name:'Supply Chain Security Management System', sector:'Logistics & Supply Chain', desc:"ISO 28001 v2007 helps organizations establish systems and processes for the security of the international supply chain, protecting goods and information.", advantages:['Supply chain security','International customs compliance','Reduced smuggling risk','Access to customs programs','Trusted operator image','Optimized controls'], sectors:['Transport & Logistics','Import/Export','Customs','E-commerce','Distribution','Warehousing'] },
+    { number:'ISO 22301 v2019', name:'Business Continuity Management', sector:'Organizational Resilience', desc:"ISO 22301 v2019 specifies the requirements for planning, establishing, implementing, operating, monitoring, reviewing, maintaining and continually improving a business continuity management system.", advantages:['Organizational resilience','Critical operations continuity','Client and partner confidence','Reduced financial losses','Regulatory compliance','Structured recovery plan'], sectors:['Finance & Banking','IT & Telecoms','Healthcare','Industry','Public sector','Energy'] },
+    { number:'ISO/IEC 20000-1 v2018', name:'IT Service Management System', sector:'IT & Services', desc:"ISO/IEC 20000-1 v2018 specifies the requirements for an organization to establish, implement, maintain and continually improve a service management system for IT services.", advantages:['Guaranteed IT service quality','IT/business alignment','User satisfaction','Reduced IT incidents','ITIL best practices compliance','IT cost optimization'], sectors:['IT providers','Banking & Finance','Telecommunications','Administration','Industry','Shared services'] },
+    { number:'FSSC 22000 v6', name:'FSSC Food Safety Certification', sector:'Food & Beverage / GFSI', desc:"FSSC 22000 v6 is a GFSI-recognized certification scheme that combines ISO 22000 v2018 requirements with sector-specific prerequisite programmes (PRPs). Version 6 introduces strengthened requirements on food safety culture, allergen management and environmental sustainability.", advantages:['Global GFSI recognition','Access to major international retailers','ISO 22000 + sector PRPs integrated','Stronger food safety culture','Enhanced allergen management','Compliance with customer requirements'], sectors:['Food manufacturers','Food packaging','Ingredients & additives','Catering & foodservice','Food distribution','Agriculture & primary production'] }
   ]
 };
 
+// ── ISO ICONS ──
+const isoIcons = [
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07 10 10 0 0 0 19.07 4.93z"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 19H5c-1 0-2-.9-2-2V7c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2h-3"/><polyline points="9 3 9 7 15 7 15 3"/><line x1="12" y1="12" x2="12" y2="18"/><line x1="9" y1="15" x2="15" y2="15"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><path d="M4.5 9C4.5 5.96 8 3 12 3s7.5 2.96 7.5 6"/><path d="M4.5 15C4.5 18.04 8 21 12 21s7.5-3.04 7.5-6"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l3 3 5-5"/></svg>`
+];
+
 const srvDataI18n = {
   fr: [
-    { tag:'Métier 01', title:'Certification ISO & Audit', desc:"Accompagnement complet vers la certification internationale et l'excellence opérationnelle. Nous guidons votre entreprise à chaque étape du processus de certification.", items:["Diagnostic initial et analyse des écarts par rapport aux exigences normatives","Élaboration et mise en place du Système de Management adapté","Formation et sensibilisation des équipes aux exigences ISO","Audit interne et préparation à l'audit de certification","Accompagnement lors de l'audit de certification par l'organisme accrédité","Suivi post-certification et amélioration continue"] },
-    { tag:'Métier 02', title:'Conseil & Management', desc:"Stratégies de performance, contrôle de gestion et pilotage organisationnel pour optimiser votre entreprise et atteindre vos objectifs de croissance.", items:["Contrôle de gestion agricole et sociale","Élaboration de tableaux de bord et d'indicateurs KPI","Optimisation des processus organisationnels et opérationnels","Conseil en réorganisation et restructuration","Diagnostic stratégique et plan d'action","Accompagnement au changement et conduite de projets"] },
-    { tag:'Métier 03', title:'Formation Professionnelle', desc:"Programmes de formation sur mesure pour développer les compétences de vos équipes et renforcer la culture qualité au sein de votre organisation.", items:["Formations certifiantes ISO (9001, 14001, 22000, 45001…)","Management de la qualité et amélioration continue","Leadership, management d'équipe et gestion du changement","Sensibilisation aux normes et réglementations sectorielles","Coaching individuel et accompagnement managérial","Formations intra-entreprise adaptées à vos besoins spécifiques"] },
-    { tag:'Métier 04', title:'Élaboration de Business Plans Professionnels', desc:"Accompagnement des entreprises et porteurs de projets dans la préparation de business plans stratégiques et financiers.", items:["Étude de marché et analyse concurrentielle","Prévisions financières et plan de trésorerie","Analyse de rentabilité et seuil de rentabilité","Stratégie de développement et plan marketing","Évaluation des besoins en financement","Préparation des dossiers pour investisseurs et organismes financiers"] },
-    { tag:'Métier 05', title:"Études d'Investissement & Faisabilité Financière", desc:"Réalisation d'études d'investissement permettant d'évaluer la viabilité économique, technique et financière des projets.", items:["Analyse de la viabilité économique et technique du projet","Évaluation des coûts d'investissement et d'exploitation","Calcul du retour sur investissement (ROI)","Analyse des risques et plan de mitigation","Évaluation des besoins en ressources humaines et matérielles","Perspectives de croissance et recommandations stratégiques"] }
+    {
+      tag:'Métier 01',
+      title:'Certification ISO & Audit',
+      desc:"Nous guidons votre entreprise à travers un processus structuré en 4 étapes pour obtenir et maintenir votre certification ISO reconnue à l'international.",
+      items:[
+        "Diagnostic & Analyse de l'Existant — Évaluation complète de votre organisation par rapport aux exigences de la norme ISO visée, identification des forces et des axes d'amélioration.",
+        "Audit de Conformité ISO sur Site — Réalisation d'un audit terrain rigoureux par nos experts certifiés pour vérifier la conformité de vos processus, documents et pratiques.",
+        "Identification des Écarts & Actions Correctives — Analyse détaillée des non-conformités détectées, élaboration d'un plan d'actions correctives et accompagnement à leur mise en œuvre.",
+        "Délivrance de la Certification ISO — Coordination avec l'organisme certificateur accrédité UAF/IAF pour l'audit de certification final et obtention de votre certificat ISO reconnu internationalement."
+      ]
+    },
+    {
+      tag:'Métier 02',
+      title:'Conseil & Management',
+      desc:"Un accompagnement stratégique et opérationnel en 4 phases pour transformer votre organisation et améliorer durablement votre performance.",
+      items:[
+        "Diagnostic Organisationnel & Stratégique — Analyse approfondie de votre structure, de vos processus et de votre positionnement pour identifier les leviers de performance et les opportunités de croissance.",
+        "Optimisation des Processus & de la Performance — Refonte et amélioration de vos processus clés, mise en place d'indicateurs KPI, tableaux de bord et systèmes de pilotage de la performance.",
+        "Conduite du Changement & Gouvernance — Accompagnement humain et managérial du changement, renforcement de la gouvernance et alignement des équipes autour des objectifs stratégiques.",
+        "Pilotage & Suivi des Recommandations — Mise en œuvre des plans d'action, suivi des résultats, ajustements continus et reporting régulier pour garantir l'atteinte des objectifs fixés."
+      ]
+    },
+    {
+      tag:'Métier 03',
+      title:'Formation Professionnelle',
+      desc:"Des programmes de formation conçus sur mesure en 4 étapes pour développer les compétences de vos équipes et garantir un impact mesurable.",
+      items:[
+        "Analyse des Besoins & Ingénierie de Formation — Identification des besoins en compétences, analyse des écarts et conception d'un plan de formation adapté aux enjeux métiers et aux profils des apprenants.",
+        "Conception & Développement des Programmes — Élaboration des contenus pédagogiques, supports de formation, cas pratiques et outils d'évaluation alignés sur vos objectifs opérationnels.",
+        "Déploiement & Animation des Sessions de Formation — Animation des sessions en présentiel ou à distance par nos formateurs experts, avec des méthodes actives et participatives pour maximiser l'engagement.",
+        "Évaluation des Acquis & Mesure de l'Impact — Évaluation des connaissances et compétences acquises, mesure de l'impact sur la performance, remise des attestations et recommandations pour la suite."
+      ]
+    },
+    {
+      tag:'Métier 04',
+      title:'Business Plans ',
+      desc:"Un accompagnement complet en 4 étapes pour structurer votre projet d'entreprise et convaincre vos partenaires financiers.",
+      items:[
+        "Analyse du Marché & de l'Environnement Concurrentiel — Étude approfondie du marché cible, analyse de la concurrence, identification des opportunités et des risques pour fonder votre stratégie sur des données solides.",
+        "Modélisation Financière & Prévisions de Rentabilité — Élaboration des projections financières (compte de résultat, bilan, trésorerie), calcul du seuil de rentabilité et évaluation du retour sur investissement.",
+        "Définition de la Stratégie & du Modèle Économique — Formalisation de votre proposition de valeur, choix du modèle économique, définition des axes stratégiques et du plan marketing et commercial.",
+        "Structuration & Rédaction du Business Plan — Rédaction professionnelle du document final, structuré et argumenté, prêt à être présenté aux investisseurs, banques et organismes de financement."
+      ]
+    },
+    {
+      tag:'Métier 05',
+      title:"Études d'Investissement ",
+      desc:"Une analyse rigoureuse en 4 étapes pour évaluer la viabilité de vos projets d'investissement et sécuriser vos décisions stratégiques.",
+      items:[
+        "Analyse de la Faisabilité & de l'Opportunité d'Investissement — Évaluation de la viabilité technique, économique et réglementaire du projet, analyse du contexte marché et identification des facteurs clés de succès.",
+        "Évaluation des Risques & des Rendements Attendus — Identification et quantification des risques (financiers, opérationnels, marché), analyse de sensibilité et estimation des rendements prévisionnels.",
+        "Modélisation Financière & Plan de Financement — Construction d'un modèle financier complet (VAN, TRI, délai de récupération), structuration du plan de financement et identification des sources de capital.",
+        "Recommandations Stratégiques & Aide à la Décision — Synthèse des analyses, formulation de recommandations claires et argumentées, présentation des scénarios et aide à la prise de décision d'investissement."
+      ]
+    }
   ],
   en: [
-    { tag:'Service 01', title:'ISO Certification & Audit', desc:"Complete support towards international certification and operational excellence. We guide your company through every step of the certification process.", items:["Initial diagnostic and gap analysis against normative requirements","Development and implementation of a tailored Management System","Training and awareness of teams on ISO requirements","Internal audit and preparation for the certification audit","Support during the certification audit by the accredited body","Post-certification follow-up and continuous improvement"] },
-    { tag:'Service 02', title:'Consulting & Management', desc:"Performance strategies, management control and organisational steering to optimise your business and achieve your growth objectives.", items:["Agricultural and social management control","Development of dashboards and KPI indicators","Optimisation of organisational and operational processes","Reorganisation and restructuring advisory","Strategic diagnostics and action plan","Change management and project management"] },
-    { tag:'Service 03', title:'Professional Training', desc:"Tailored training programmes to develop your teams' skills and strengthen the quality culture within your organisation.", items:["ISO certification training (9001, 14001, 22000, 45001…)","Quality management and continuous improvement","Leadership, team management and change management","Awareness of sectoral standards and regulations","Individual coaching and managerial support","In-company training tailored to your specific needs"] },
-    { tag:'Service 04', title:'Professional Business Plan Development', desc:"Supporting companies and project owners in preparing strategic and financial business plans integrating market research, financial forecasts and financing needs.", items:["Market research and competitive analysis","Financial forecasts and cash flow plan","Profitability analysis and break-even point","Development strategy and marketing plan","Assessment of financing needs","Preparation of dossiers for investors and financial institutions"] },
-    { tag:'Service 05', title:'Investment & Financial Feasibility Studies', desc:"Carrying out investment studies to assess the economic, technical and financial viability of projects through cost, risk, ROI and growth prospect analysis.", items:["Economic and technical viability analysis","Assessment of investment and operating costs","Return on investment (ROI) calculation","Risk analysis and mitigation plan","Assessment of human and material resource needs","Growth prospects and strategic recommendations"] }
+    {
+      tag:'Service 01',
+      title:'ISO Certification & Audit',
+      desc:"We guide your company through a structured 4-step process to obtain and maintain your internationally recognized ISO certification.",
+      items:[
+        "Diagnostic & Existing Situation Analysis — Comprehensive assessment of your organization against the requirements of the targeted ISO standard, identifying strengths and areas for improvement.",
+        "On-Site ISO Compliance Audit — Rigorous on-site audit conducted by our certified experts to verify the compliance of your processes, documents and practices.",
+        "Gap Identification & Corrective Actions — Detailed analysis of detected non-conformities, development of a corrective action plan and support for its implementation.",
+        "ISO Certification Delivery — Coordination with the UAF/IAF accredited certification body for the final certification audit and obtaining your internationally recognized ISO certificate."
+      ]
+    },
+    {
+      tag:'Service 02',
+      title:'Consulting & Management',
+      desc:"Strategic and operational support in 4 phases to transform your organization and sustainably improve your performance.",
+      items:[
+        "Organizational & Strategic Diagnostic — In-depth analysis of your structure, processes and positioning to identify performance levers and growth opportunities.",
+        "Process & Performance Optimization — Redesign and improvement of your key processes, implementation of KPI indicators, dashboards and performance management systems.",
+        "Change Management & Governance — Human and managerial support for change, strengthening governance and aligning teams around strategic objectives.",
+        "Monitoring & Follow-up of Recommendations — Implementation of action plans, results monitoring, continuous adjustments and regular reporting to ensure achievement of set objectives."
+      ]
+    },
+    {
+      tag:'Service 03',
+      title:'Professional Training',
+      desc:"Tailor-made training programmes designed in 4 steps to develop your teams' skills and ensure measurable impact.",
+      items:[
+        "Needs Analysis & Training Engineering — Identification of skill needs, gap analysis and design of a training plan adapted to business challenges and learner profiles.",
+        "Programme Design & Development — Development of pedagogical content, training materials, case studies and assessment tools aligned with your operational objectives.",
+        "Session Deployment & Facilitation — Facilitation of in-person or remote sessions by our expert trainers, using active and participatory methods to maximize engagement.",
+        "Assessment of Learning & Impact Measurement — Evaluation of acquired knowledge and skills, measurement of impact on performance, issuance of certificates and recommendations for follow-up."
+      ]
+    },
+    {
+      tag:'Service 04',
+      title:'Business Plan',
+      desc:"Comprehensive support in 4 steps to structure your business project and convince your financial partners.",
+      items:[
+        "Market Analysis & Competitive Environment — In-depth study of the target market, competitive analysis, identification of opportunities and risks to base your strategy on solid data.",
+        "Financial Modelling & Profitability Forecasts — Development of financial projections (income statement, balance sheet, cash flow), break-even calculation and ROI assessment.",
+        "Strategy & Business Model Definition — Formalization of your value proposition, business model selection, strategic axis definition and marketing and commercial plan.",
+        "Business Plan Structuring & Writing — Professional writing of the final document, structured and substantiated, ready to be presented to investors, banks and financing bodies."
+      ]
+    },
+    {
+      tag:'Service 05',
+      title:'Investment & Financial Feasibility Studies',
+      desc:"Rigorous analysis in 4 steps to assess the viability of your investment projects and secure your strategic decisions.",
+      items:[
+        "Feasibility & Investment Opportunity Analysis — Assessment of the technical, economic and regulatory viability of the project, market context analysis and identification of key success factors.",
+        "Risk Assessment & Expected Returns — Identification and quantification of risks (financial, operational, market), sensitivity analysis and estimation of projected returns.",
+        "Financial Modelling & Financing Plan — Construction of a complete financial model (NPV, IRR, payback period), structuring of the financing plan and identification of capital sources.",
+        "Strategic Recommendations & Decision Support — Synthesis of analyses, formulation of clear and substantiated recommendations, presentation of scenarios and investment decision support."
+      ]
+    }
   ]
 };
 
@@ -1105,53 +1250,18 @@ const whyCardsI18n = {
 const testiI18n = {
   fr: {
     cats: { quality:'Qualité de prestation', expertise:'Expertise & compétences', listen:'Écoute & communication', impact:'Impact & résultats' },
-    quotes: [
-      '"Une prestation de très haute qualité, parfaitement adaptée à nos besoins spécifiques."',
-      '"OCG Consulting nous a fourni un accompagnement sur mesure avec des résultats concrets."',
-      '"Le cabinet se distingue par son professionnalisme et la qualité de ses livrables."',
-      '"Des consultants très compétents, qui maîtrisent parfaitement les normes ISO."',
-      '"Leur expertise en contrôle de gestion nous a permis d\'améliorer significativement notre performance."',
-      '"Une équipe expérimentée capable de comprendre rapidement les problématiques de l\'entreprise."',
-      '"Très bonne écoute et excellente communication tout au long de la mission."',
-      '"Un vrai partenaire, toujours disponible et réactif."',
-      '"L\'équipe a su nous accompagner étape par étape avec pédagogie."',
-      '"Amélioration claire de notre organisation interne et de notre performance."',
-      '"Des solutions concrètes et innovantes qui ont eu un impact réel sur notre activité."'
-    ],
+    quotes: ['"Une prestation de très haute qualité, parfaitement adaptée à nos besoins spécifiques."','"OCG Consulting nous a fourni un accompagnement sur mesure avec des résultats concrets."','"Le cabinet se distingue par son professionnalisme et la qualité de ses livrables."','"Des consultants très compétents, qui maîtrisent parfaitement les normes ISO."','"Leur expertise en contrôle de gestion nous a permis d\'améliorer significativement notre performance."','"Une équipe expérimentée capable de comprendre rapidement les problématiques de l\'entreprise."','"Très bonne écoute et excellente communication tout au long de la mission."','"Un vrai partenaire, toujours disponible et réactif."','"L\'équipe a su nous accompagner étape par étape avec pédagogie."','"Amélioration claire de notre organisation interne et de notre performance."','"Des solutions concrètes et innovantes qui ont eu un impact réel sur notre activité."'],
     roles: ['Directeur Général','Responsable Administratif','Responsable Qualité','Directeur des Opérations','Directeur Général','PDG','Manager Commercial','Directeur Qualité','Directeur de Production','Présidente Directrice','Directeur Commercial'],
     subs: ['Accompagnement sur mesure','Résultats concrets','Professionnalisme','Normes ISO','Contrôle de gestion','Compréhension rapide','Suivi de mission','Disponibilité','Accompagnement progressif','Performance opérationnelle','Impact opérationnel']
   },
   en: {
     cats: { quality:'Service Quality', expertise:'Expertise & Skills', listen:'Listening & Communication', impact:'Impact & Results' },
-    quotes: [
-      '"A very high-quality service, perfectly tailored to our specific needs."',
-      '"OCG Consulting provided us with tailor-made support with concrete results."',
-      '"The firm stands out for its professionalism and the quality of its deliverables."',
-      '"Very competent consultants who have a perfect command of ISO standards."',
-      '"Their management control expertise allowed us to significantly improve our performance."',
-      '"An experienced team capable of quickly understanding the company\'s challenges."',
-      '"Very good listening and excellent communication throughout the assignment."',
-      '"A true partner, always available and responsive."',
-      '"The team guided us step by step with great pedagogical skill."',
-      '"Clear improvement in our internal organisation and performance."',
-      '"Concrete and innovative solutions that had a real impact on our business."'
-    ],
+    quotes: ['"A very high-quality service, perfectly tailored to our specific needs."','"OCG Consulting provided us with tailor-made support with concrete results."','"The firm stands out for its professionalism and the quality of its deliverables."','"Very competent consultants who have a perfect command of ISO standards."','"Their management control expertise allowed us to significantly improve our performance."','"An experienced team capable of quickly understanding the company\'s challenges."','"Very good listening and excellent communication throughout the assignment."','"A true partner, always available and responsive."','"The team guided us step by step with great pedagogical skill."','"Clear improvement in our internal organisation and performance."','"Concrete and innovative solutions that had a real impact on our business."'],
     roles: ['General Manager','Administrative Manager','Quality Manager','Operations Director','General Manager','CEO','Sales Manager','Quality Director','Production Director','Managing Director','Commercial Director'],
     subs: ['Tailored support','Concrete results','Professionalism','ISO Standards','Management control','Quick understanding','Mission follow-up','Availability','Step-by-step guidance','Operational performance','Operational impact']
   }
 };
 const testiCatKeys = ['quality','quality','quality','expertise','expertise','expertise','listen','listen','listen','impact','impact'];
-
-const isoIcons = [
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07 10 10 0 0 0 19.07 4.93z"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 19H5c-1 0-2-.9-2-2V7c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2h-3"/><polyline points="9 3 9 7 15 7 15 3"/><line x1="12" y1="12" x2="12" y2="18"/><line x1="9" y1="15" x2="15" y2="15"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M12 8v4l3 3"/></svg>`
-];
 
 const srvCardTitles = {
   fr: ['Certification ISO & Audit','Conseil & Management','Formation Professionnelle','Élaboration de Business Plans Professionnels',"Études d'Investissement & Faisabilité Financière"],
@@ -1201,15 +1311,23 @@ const srvModal = document.getElementById('srvModal');
 document.getElementById('srvModalClose').addEventListener('click', closeSrvModal);
 srvModal.addEventListener('click', e => { if (e.target === srvModal) closeSrvModal(); });
 
+// ════════════════════════════════════════
+//  MODIFICATION ICI : titres seulement, sans descriptions
+// ════════════════════════════════════════
 function openSrvModal(i) {
   const d = srvDataI18n[currentLang][i];
   document.getElementById('srvModalTag').textContent = d.tag;
   document.getElementById('srvModalTitle').textContent = d.title;
   document.getElementById('srvModalDesc').textContent = d.desc;
-  document.getElementById('srvModalItems').innerHTML = d.items.map(item => `<div class="srv-modal-item"><div class="srv-modal-item-dot"></div><span>${item}</span></div>`).join('');
+  document.getElementById('srvModalItems').innerHTML = d.items.map((item, idx) => {
+    const dashIdx = item.indexOf(' — ');
+    const titlePart = dashIdx !== -1 ? item.substring(0, dashIdx) : item;
+    return `<div class="srv-modal-item"><div class="srv-modal-item-dot">${idx + 1}</div><div style="flex:1"><strong style="font-family:var(--font);font-size:0.88rem;color:var(--navy);font-weight:800;">${titlePart}</strong></div></div>`;
+  }).join('');
   srvModal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
 function closeSrvModal() { srvModal.classList.remove('open'); document.body.style.overflow = ''; }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeSrvModal(); closeMobileMenu(); } });
 
@@ -1220,15 +1338,12 @@ function setLang(lang) {
   document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-  // Topbar
   const tbSpans = document.querySelectorAll('.topbar-left span');
   if (tbSpans[0]) { const svg = tbSpans[0].querySelector('svg'); tbSpans[0].textContent = ''; tbSpans[0].appendChild(svg); tbSpans[0].appendChild(document.createTextNode(' ' + t['topbar.city'])); }
   if (tbSpans[1]) { const svg = tbSpans[1].querySelector('svg'); tbSpans[1].textContent = ''; tbSpans[1].appendChild(svg); tbSpans[1].appendChild(document.createTextNode(' ' + t['topbar.hours'])); }
 
-  // Nav
   document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (t[k]) el.innerHTML = t[k]; });
 
-  // Hero
   const eyebrow = document.querySelector('.hero-eyebrow');
   if (eyebrow) { const dot = eyebrow.querySelector('span'); eyebrow.innerHTML = ''; eyebrow.appendChild(dot); eyebrow.appendChild(document.createTextNode(' ' + t['hero.eyebrow'])); }
   const heroTitle = document.querySelector('.hero-title'); if (heroTitle) heroTitle.innerHTML = t['hero.title'];
@@ -1237,26 +1352,22 @@ function setLang(lang) {
   const trustLbls = document.querySelectorAll('.hero-trust-lbl');
   ['companies','trainings','satisfaction','years'].forEach((k,i) => { if (trustLbls[i]) trustLbls[i].textContent = t['hero.trust.'+k]; });
 
-  // About
   const aboutTitle = document.querySelector('.about-text-col .section-title'); if (aboutTitle) aboutTitle.innerHTML = t['about.title'];
   const aboutPara = document.querySelector('.about-text-col > p'); if (aboutPara) aboutPara.textContent = t['about.para'];
   const aboutDom = document.querySelector('.about-domains-label'); if (aboutDom) aboutDom.textContent = t['about.domains.label'];
   const aboutBadge = document.querySelector('.about-badge span'); if (aboutBadge) aboutBadge.textContent = t['about.badge.label'];
 
-  // ISO
-  const isoTitle = document.querySelector('.iso-head .section-title'); if (isoTitle) isoTitle.textContent = t['iso.title'];
+  const isoTitle = document.querySelector('.iso-head .section-title'); if (isoTitle) isoTitle.innerHTML = t['iso.title'];
   buildIsoGrid(lang);
 
-  // Services
   const sTag = document.querySelector('.services-head .section-tag'); if (sTag) sTag.textContent = t['services.tag'];
-  const sTitle = document.querySelector('.services-head .section-title'); if (sTitle) sTitle.innerHTML = t['services.title'];
+  const sTitle = document.querySelector('.services-head .section-title'); if (sTitle) sTitle.textContent = t['services.title'];
   const sSub = document.querySelector('.services-head .section-sub'); if (sSub) sSub.textContent = t['services.sub'];
   document.querySelectorAll('.srv-card-new').forEach((card, i) => {
     const titleEl = card.querySelector('.srv-card-new-title'); if (titleEl) titleEl.textContent = srvCardTitles[lang][i];
     const badgeEl = card.querySelector('.srv-card-new-badge'); if (badgeEl) badgeEl.textContent = t['srv.btn'];
   });
 
-  // Why
   const wTag = document.querySelector('.why-head .section-tag'); if (wTag) wTag.textContent = t['why.tag'];
   const wTitle = document.querySelector('.why-head .section-title'); if (wTitle) wTitle.textContent = t['why.title'];
   const wSub = document.querySelector('.why-head .section-sub'); if (wSub) wSub.textContent = t['why.sub'];
@@ -1266,15 +1377,12 @@ function setLang(lang) {
     const p = card.querySelector('p'); if (p) p.textContent = w.desc;
   });
 
-  // Clients
   const cTag = document.querySelector('.clients-head .section-tag'); if (cTag) cTag.textContent = t['clients.tag'];
   const cTitle = document.querySelector('.clients-head .section-title'); if (cTitle) cTitle.textContent = t['clients.title'];
   const cSub = document.querySelector('.clients-head .section-sub'); if (cSub) cSub.innerHTML = t['clients.sub'];
 
-  // Stats
   document.querySelectorAll('.stat-lbl').forEach((el, i) => { if (t['stat.'+i]) el.textContent = t['stat.'+i]; });
 
-  // Testimonials
   const tTag = document.querySelector('.testi-head .section-tag'); if (tTag) tTag.textContent = t['testi.tag'];
   const tTitle = document.querySelector('.testi-head .section-title'); if (tTitle) tTitle.innerHTML = t['testi.title'];
   const td = testiI18n[lang];
@@ -1285,7 +1393,6 @@ function setLang(lang) {
     const sub = card.querySelector('.testi-author-text span'); if (sub) sub.textContent = td.subs[i];
   });
 
-  // Contact
   const coTag = document.querySelector('.contact-section .section-tag'); if (coTag) coTag.textContent = t['contact.tag'];
   const coTitle = document.querySelector('.contact-section .section-title'); if (coTitle) coTitle.innerHTML = t['contact.title'];
   const coSub = document.querySelector('.contact-section .section-sub'); if (coSub) coSub.textContent = t['contact.sub'];
@@ -1301,7 +1408,6 @@ function setLang(lang) {
   const btn = document.getElementById('submitBtn'); if (btn && !btn.disabled) btn.textContent = t['contact.form.send'];
   const fs = document.getElementById('formSuccess'); if (fs) fs.textContent = t['contact.form.success'];
 
-  // Footer
   const fBrand = document.querySelector('.footer-brand p'); if (fBrand) fBrand.textContent = t['footer.tagline'];
   const fCols = document.querySelectorAll('.footer-col h5');
   if (fCols[0]) fCols[0].textContent = t['footer.col1.title'];
@@ -1315,7 +1421,6 @@ function setLang(lang) {
   if (fc3li[3]) fc3li[3].textContent = t['footer.hours'];
   const fCopy = document.querySelector('.footer-bottom p:first-child'); if (fCopy) fCopy.innerHTML = t['footer.copy'];
 
-  // Mobile menu
   const mLinks = document.querySelectorAll('.mobile-menu-nav .mnav-link');
   const mKeys = ['nav.home','nav.partnership','nav.iso','nav.services',null,'nav.contact'];
   mLinks.forEach((a, i) => {
@@ -1403,7 +1508,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     ok.textContent = t['contact.form.success'];
     ok.classList.add('show');
     document.getElementById('contactForm').reset();
-  }).catch(error => {
+  }).catch(() => {
     err.style.display = 'block';
   }).finally(() => {
     btn.textContent = t['contact.form.send'];
