@@ -189,9 +189,9 @@ img { max-width: 100%; display: block; }
 
 /* SERVICES */
 .services-section { padding: 48px 0 56px; background: var(--white); scroll-margin-top: 72px; display: flex; flex-direction: column; justify-content: center; }
-.services-head { text-align: left; max-width: 100%; margin: 0 0 32px; }
+.services-head { text-align: left; max-width: 100%; margin: 0 0 32px; user-select: none;  }
 .srv-grid-new { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.srv-card-new { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 32px 18px 28px; text-align: center; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-md); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px; }
+.srv-card-new { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 32px 18px 28px; text-align: center; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-md); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px;  user-select: none; }
 .srv-card-new:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
 .srv-card-new-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff; }
 .srv-card-new-num { font-family: var(--font); font-size: 0.72rem; font-weight: 700; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
@@ -1216,7 +1216,7 @@ const srvDataI18n = {
     },
     {
       tag:'Service 05',
-      title:'Investment & Financial Feasibility Studies',
+      title:'Investment Studies',
       desc:"Rigorous analysis in 4 steps to assess the viability of your investment projects and secure your strategic decisions.",
       items:[
         "Feasibility & Investment Opportunity Analysis — Assessment of the technical, economic and regulatory viability of the project, market context analysis and identification of key success factors.",
@@ -1264,8 +1264,8 @@ const testiI18n = {
 const testiCatKeys = ['quality','quality','quality','expertise','expertise','expertise','listen','listen','listen','impact','impact'];
 
 const srvCardTitles = {
-  fr: ['Certification ISO & Audit','Conseil & Management','Formation Professionnelle','Élaboration de Business Plans Professionnels',"Études d'Investissement & Faisabilité Financière"],
-  en: ['ISO Certification & Audit','Consulting & Management','Professional Training','Professional Business Plan Development','Investment & Financial Feasibility Studies']
+  fr: ['Certification ISO & Audit','Conseil & Management','Formation Professionnelle',' Business Plans ',"Études d'Investissement"],
+  en: ['ISO Certification & Audit','Consulting & Management','Professional Training',' Business Plan ','Investment  Studies']
 };
 
 // ── BUILD ISO GRID ──
