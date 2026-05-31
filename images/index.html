@@ -190,7 +190,7 @@ img { max-width: 100%; display: block; }
 
 /* HERO */
 .hero { min-height: 96vh; max-height: 96vh; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 100px 0 80px 0; }
-.hero-bg-image { position: absolute; inset: 0; background-image: url('images/hero-bg.png'); background-size: cover; background-position: right center; background-repeat: no-repeat; z-index: 0; animation: hero-zoom 14s ease-out forwards; }
+.hero-bg-image { position: absolute; inset: 0; background-image: url('hero-bg.png'); background-size: cover; background-position: right center; background-repeat: no-repeat; z-index: 0; animation: hero-zoom 14s ease-out forwards; }
 @keyframes hero-zoom { from { transform: scale(1.04); } to { transform: scale(1); } }
 .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(105deg, rgba(8,18,55,0.86) 0%, rgba(11,31,78,0.76) 28%, rgba(11,31,78,0.42) 50%, rgba(11,31,78,0.06) 70%, transparent 85%); }
 .hero-overlay::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 110% at 0% 65%, rgba(5,12,45,0.38) 0%, transparent 68%); }
@@ -527,7 +527,7 @@ img { max-width: 100%; display: block; }
 <nav class="navbar" id="navbar">
   <div class="nav-inner container">
     <a href="#accueil" class="nav-logo">
-      <img src="images/ocg_logo.png" alt="OCG Consulting" class="nav-logo-mark"/>
+      <img src="ocg_logo.png" alt="OCG Consulting" class="nav-logo-mark"/>
       <div class="nav-logo-text"></div>
     </a>
     <ul class="nav-links" id="navLinks">
@@ -557,7 +557,7 @@ img { max-width: 100%; display: block; }
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
   <div class="mobile-menu-header">
     <div class="mobile-menu-logo">
-      <img src="images/ocg_logo.png" alt="OCG Consulting"/>
+      <img src="ocg_logo.png" alt="OCG Consulting"/>
       <span>OCG</span>
     </div>
     <button class="mobile-menu-close" id="mobileMenuClose">✕</button>
@@ -625,7 +625,7 @@ img { max-width: 100%; display: block; }
     <div class="about-inner">
       <div class="about-img-block reveal">
         <div class="about-img-main">
-          <img src="images/cabinet-ocg.jpg" alt="Cabinet OCG Consulting"/>
+          <img src="cabinet-ocg.jpg" alt="Cabinet OCG Consulting"/>
           <div class="about-badge">
             <strong>2007</strong>
             <span>Fondé en</span>
@@ -934,7 +934,7 @@ img { max-width: 100%; display: block; }
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo-mark">
-          <img src="images/ocg_logo.png" alt="OCG Consulting" style="height:52px;width:auto;filter:brightness(0) invert(1);"/>
+          <img src="ocg_logo.png" alt="OCG Consulting" style="height:52px;width:auto;filter:brightness(0) invert(1);"/>
         </div>
         <p>Votre partenaire de confiance pour la performance, la conformité internationale et la croissance durable au Maroc.</p>
         <div class="footer-socials">
@@ -1423,28 +1423,28 @@ buildIsoGrid('fr');
 
 // ── CLIENTS MARQUEE ──
 const clientsData = [
-  { name:'Colaimo', sector:'Agroalimentaire', color:'#02A428', logo:'images/colaimo_logo.png' },
-  { name:'Copa maroc', sector:'Agroalimentaire', color:'#B23B03', logo:'images/copamaroc_logo.png' },
-  { name:'AlHamd Logistique', sector:'Logistique', color:'#007ABC', logo:'images/Alhamd_logo.png' },
-  { name:'Attandence', sector:'Destination Management', color:'#009751', logo:'images/attandence_logo.png' },
-  { name:'MFP', sector:'Agroalimentaire', color:'#B8A000', logo:'images/MFP_LOGO.png' },
-  { name:'ERI SER', sector:'Irrigation', color:'#03458F', logo:'images/ERISER_LOGO.png' },
-  { name:'FOOD+', sector:'Agroalimentaire', color:'#C4161C', logo:'images/FOOD+.png' },
-  { name:'Margafrique', sector:'Agroalimentaire', color:'#138D00', logo:'images/Margafrique.png' },
-  { name:"Le Palais d'Aménagement", sector:'BTP', color:'#888800', logo:'images/LEPALAIS_LOGO.png' },
-  { name:'ARWA MEDIC', sector:'Activité & Produits', color:'#005496', logo:'images/ARWAMEDIC_LOGO.png' },
-  { name:'BIO & ECO SOLUTIONS', sector:'Conception & Distribution', color:'#009820', logo:'images/ECO&bio_logo.png' },
-  { name:'Corderies Koutoubia', sector:'Fabrication', color:'#003087', logo:'images/KOUTOUBIA_LOGO.png' },
-  { name:'Euromedic', sector:'Promotion & Distribution', color:'#E31837', logo:'images/EUROMEDIC_LOGO.png' },
-  { name:'Germanetti Maroc', sector:'Transport & Logistique', color:'#005EB8', logo:'images/ermantti_logo.png' },
-  { name:'Medic Pro', sector:'Appareillage orthopédique', color:'#3A8800', logo:'images/MEDICPRO_LOGO.png' },
-  { name:'Nakhla Plastique', sector:'Plastiques', color:'#162D45', logo:'images/NAKHLAPLASTIQUE_LOGO.png' },
-  { name:'Clean Dyser', sector:'Services', color:'#333333', logo:'images/CLEAN-DYSER_LOGO.png' },
-  { name:'MNAHEL EL BEKRI', sector:'Apiculture', color:'#A68A00', logo:'images/MANAHEL_LBEKRI_LOGO.png' },
-  { name:"L'Agro-pôle Olivier", sector:'Agroalimentaire', color:'#025200', logo:'images/AGRO-POLEOLIVIER_LOGO.png' },
-  { name:'Hygatex', sector:'Fabrication', color:'#070565', logo:'images/HYGATEX_LOGO.png' },
-  { name:'Dar LGzzar', sector:'Fabrication', color:'#3D0909', logo:'images/DARELGEZAR_LOGO.jpg' },
-  { name:'DAMA', sector:'Recrutement', color:'#570909', logo:'images/DAMA_LOGO.jpg' }
+  { name:'Colaimo', sector:'Agroalimentaire', color:'#02A428', logo:'colaimo_logo.png' },
+  { name:'Copa maroc', sector:'Agroalimentaire', color:'#B23B03', logo:'copamaroc_logo.png' },
+  { name:'AlHamd Logistique', sector:'Logistique', color:'#007ABC', logo:'Alhamd_logo.png' },
+  { name:'Attandence', sector:'Destination Management', color:'#009751', logo:'attandence_logo.png' },
+  { name:'MFP', sector:'Agroalimentaire', color:'#B8A000', logo:'MFP_LOGO.png' },
+  { name:'ERI SER', sector:'Irrigation', color:'#03458F', logo:'ERISER_LOGO.png' },
+  { name:'FOOD+', sector:'Agroalimentaire', color:'#C4161C', logo:'FOOD+.png' },
+  { name:'Margafrique', sector:'Agroalimentaire', color:'#138D00', logo:'Margafrique.png' },
+  { name:"Le Palais d'Aménagement", sector:'BTP', color:'#888800', logo:'LEPALAIS_LOGO.png' },
+  { name:'ARWA MEDIC', sector:'Activité & Produits', color:'#005496', logo:'ARWAMEDIC_LOGO.png' },
+  { name:'BIO & ECO SOLUTIONS', sector:'Conception & Distribution', color:'#009820', logo:'ECO&bio_logo.png' },
+  { name:'Corderies Koutoubia', sector:'Fabrication', color:'#003087', logo:'KOUTOUBIA_LOGO.png' },
+  { name:'Euromedic', sector:'Promotion & Distribution', color:'#E31837', logo:'EUROMEDIC_LOGO.png' },
+  { name:'Germanetti Maroc', sector:'Transport & Logistique', color:'#005EB8', logo:'ermantti_logo.png' },
+  { name:'Medic Pro', sector:'Appareillage orthopédique', color:'#3A8800', logo:'MEDICPRO_LOGO.png' },
+  { name:'Nakhla Plastique', sector:'Plastiques', color:'#162D45', logo:'NAKHLAPLASTIQUE_LOGO.png' },
+  { name:'Clean Dyser', sector:'Services', color:'#333333', logo:'CLEAN-DYSER_LOGO.png' },
+  { name:'MNAHEL EL BEKRI', sector:'Apiculture', color:'#A68A00', logo:'MANAHEL_LBEKRI_LOGO.png' },
+  { name:"L'Agro-pôle Olivier", sector:'Agroalimentaire', color:'#025200', logo:'AGRO-POLEOLIVIER_LOGO.png' },
+  { name:'Hygatex', sector:'Fabrication', color:'#070565', logo:'HYGATEX_LOGO.png' },
+  { name:'Dar LGzzar', sector:'Fabrication', color:'#3D0909', logo:'DARELGEZAR_LOGO.jpg' },
+  { name:'DAMA', sector:'Recrutement', color:'#570909', logo:'DAMA_LOGO.jpg' }
 ];
 
 function buildLogoCard(c) {
