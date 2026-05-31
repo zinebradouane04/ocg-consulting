@@ -46,7 +46,68 @@
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* ── FIX CURSOR: empêche le curseur texte partout sauf dans les champs ── */
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Autoriser la sélection et le curseur texte uniquement dans les champs de formulaire */
+input, textarea, select {
+  cursor: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+/* Curseur pointer sur tous les éléments cliquables */
+a, button, .iso-card, .about-domain, .srv-card-new, .client-logo-card,
+.why-card, .stat-item, .lang-btn, .hamburger,
+.iso-modal-close, .srv-modal-close, .mobile-menu-close,
+.iso-modal-cta, .btn-primary, .btn-secondary, .btn-gold, .btn-green,
+.btn-nav-outline, .btn-nav-cta, .mmf-call, .mmf-cta,
+[onclick], label[for] {
+  cursor: pointer !important;
+}
+
+/* Empêche la sélection de texte sur les éléments interactifs non-formulaire */
+a, button, .iso-card, .about-domain, .srv-card-new,
+.why-card, .stat-item, .lang-btn, .hamburger,
+.iso-modal-close, .srv-modal-close, .mobile-menu-close,
+.nav-links a, .footer-col a, .topbar-right a,
+.mobile-menu-nav a, .section-tag, .section-title,
+.hero-eyebrow, .hero-title, .hero-subtitle,
+.hero-trust, .hero-trust-item, .hero-trust-num, .hero-trust-lbl,
+.ic-number, .ic-title, .ic-desc, .ic-badge,
+.srv-card-new-num, .srv-card-new-title, .srv-card-new-badge,
+.why-card h4, .why-card p,
+.stat-num, .stat-lbl,
+.about-badge, .about-domain-num, .about-domain-label,
+.clc-name, .clc-sector,
+.testi-cat, .testi-quote,
+.ci-text strong, .ci-text p,
+.footer-brand p, .footer-col h5, .footer-col li,
+.footer-bottom p {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* Autoriser la sélection de texte dans les zones de contenu lisibles */
+.iso-modal-desc, .iso-modal-name, .iso-modal-number,
+.iso-modal-adv span, .srv-modal-body p,
+.testi-card, .contact-info-items,
+.about-text-col > p {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  cursor: default !important;
+}
+
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
@@ -92,20 +153,20 @@ img { max-width: 100%; display: block; }
 .btn-nav-cta { font-family: var(--font); font-size: 0.8rem; font-weight: 700; color: #fff; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); padding: 10px 22px; border-radius: 8px; transition: var(--transition); white-space: nowrap; letter-spacing: 0.02em; box-shadow: 0 4px 12px rgba(11,31,78,0.25); }
 .btn-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(11,31,78,0.35); }
 .lang-toggle { display: flex; align-items: center; gap: 4px; background: var(--gray-50); border: 1.5px solid var(--gray-100); border-radius: 8px; padding: 4px; margin-left: 8px; }
-.lang-btn { display: flex; align-items: center; gap: 6px; font-family: var(--font); font-size: 0.7rem; font-weight: 700; color: var(--gray-400); padding: 5px 10px; border-radius: 5px; cursor: pointer; border: none; background: transparent; transition: var(--transition); letter-spacing: 0.04em; }
+.lang-btn { display: flex; align-items: center; gap: 6px; font-family: var(--font); font-size: 0.7rem; font-weight: 700; color: var(--gray-400); padding: 5px 10px; border-radius: 5px; cursor: pointer !important; border: none; background: transparent; transition: var(--transition); letter-spacing: 0.04em; }
 .lang-btn .flag { width: 20px; height: 14px; border-radius: 2px; overflow: hidden; display: inline-flex; flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,0.1); vertical-align: middle; }
 .lang-btn.active { background: var(--navy); color: #fff; box-shadow: 0 2px 6px rgba(11,31,78,0.2); }
 .lang-btn:hover:not(.active) { color: var(--navy); background: var(--gray-100); }
-.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px 8px; flex-shrink: 0; margin-left: 4px; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer !important; padding: 10px 8px; flex-shrink: 0; margin-left: 4px; }
 .hamburger span { display: block; width: 22px; height: 2.5px; background: var(--navy); border-radius: 2px; transition: var(--transition); }
 
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(11,31,78,0.25); }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer !important; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(11,31,78,0.25); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(11,31,78,0.35); }
-.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 13px 28px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.4); cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 13px 28px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.4); cursor: pointer !important; transition: var(--transition); letter-spacing: 0.03em; }
 .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.75); }
-.btn-gold { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(200,150,12,0.3); }
+.btn-gold { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer !important; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(200,150,12,0.3); }
 .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,150,12,0.45); }
-.btn-green { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--green), var(--green-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(5,150,105,0.25); }
+.btn-green { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--green), var(--green-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer !important; transition: var(--transition); letter-spacing: 0.03em; box-shadow: 0 4px 16px rgba(5,150,105,0.25); }
 .btn-green:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(5,150,105,0.4); }
 
 .section-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
@@ -164,14 +225,38 @@ img { max-width: 100%; display: block; }
 .about-badge strong { font-family: var(--font); font-size: 1.15rem; font-weight: 900; line-height: 1; }
 .about-badge span { font-family: var(--font); font-size: 0.52rem; font-weight: 700; opacity: 0.9; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; text-align: left; }
 .about-text-col { display: flex; flex-direction: column; justify-content: center; }
-.about-text-col > p { color: var(--text-body); line-height: 1.65; margin-bottom: 8px; font-size: 0.85rem; }
+.about-text-col > p { color: var(--text-body); line-height: 1.65; margin-bottom: 8px; font-size: 0.85rem; user-select: text !important; -webkit-user-select: text !important; cursor: default !important; }
 .about-domains-label { font-family: var(--font); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 14px 0 10px; display: flex; align-items: center; gap: 8px; }
 .about-domains-label::before { content: ''; width: 16px; height: 2px; background: var(--gold); border-radius: 2px; }
 .about-domains { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.about-domain { background: #fff; border: 1.5px solid var(--gray-100); border-radius: 11px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 6px rgba(11,31,78,0.06); transition: var(--transition); }
+.about-domain { background: #fff; border: 1.5px solid var(--gray-100); border-radius: 11px; padding: 11px 14px; display: flex; align-items: center; gap: 10px; box-shadow: 0 2px 6px rgba(11,31,78,0.06); transition: var(--transition); cursor: pointer !important; position: relative; }
 .about-domain:hover { border-color: var(--gold); box-shadow: 0 6px 16px rgba(200,150,12,0.12); transform: translateY(-2px); }
+.about-domain.active-card { border-color: var(--gold-lt); background: #fffbf0; box-shadow: 0 6px 16px rgba(200,150,12,0.15); }
 .about-domain-num { font-family: var(--font); font-size: 0.75rem; font-weight: 800; color: var(--navy); white-space: nowrap; }
 .about-domain-label { font-size: 0.76rem; color: var(--text-muted); line-height: 1.3; }
+
+/* ISO MODAL */
+.iso-modal-overlay { position: fixed; inset: 0; background: rgba(11,31,78,0.75); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; backdrop-filter: blur(8px); }
+.iso-modal-overlay.open { opacity: 1; visibility: visible; }
+.iso-modal { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border-radius: 24px; max-width: 720px; width: 100%; max-height: 88vh; overflow-y: auto; box-shadow: 0 40px 80px rgba(11,31,78,0.4); color: #fff; position: relative; transform: translateY(20px) scale(0.98); transition: transform 0.3s ease; }
+.iso-modal-overlay.open .iso-modal { transform: none; }
+.iso-modal-close { position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; background: rgba(255,255,255,0.12); border: none; border-radius: 50%; cursor: pointer !important; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; transition: var(--transition); z-index: 2; }
+.iso-modal-close:hover { background: rgba(255,255,255,0.25); }
+.iso-modal-body { padding: 40px 44px; }
+.iso-modal-number { font-family: var(--font); font-size: 2.2rem; font-weight: 900; color: rgba(255,255,255,0.12); line-height: 1; margin-bottom: 6px; }
+.iso-modal-name { font-family: var(--font); font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 4px; line-height: 1.2; }
+.iso-modal-sector { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-bottom: 28px; }
+.iso-modal-label { font-family: var(--font); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 12px; }
+.iso-modal-desc { font-size: 0.92rem; color: rgba(255,255,255,0.85); line-height: 1.78; margin-bottom: 28px; user-select: text !important; -webkit-user-select: text !important; cursor: default !important; }
+.iso-modal-advantages { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+.iso-modal-adv { display: flex; align-items: flex-start; gap: 10px; background: rgba(255,255,255,0.07); border-radius: 10px; padding: 12px 14px; border: 1px solid rgba(255,255,255,0.1); }
+.iso-modal-adv-icon { width: 22px; height: 22px; min-width: 22px; background: linear-gradient(135deg, var(--green), var(--green-lt)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; font-size: 0.68rem; font-weight: 700; }
+.iso-modal-adv span { font-size: 0.82rem; color: rgba(255,255,255,0.9); line-height: 1.45; }
+.iso-modal-sectors { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.iso-modal-sector-tag { font-family: var(--font); font-size: 0.72rem; font-weight: 600; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 5px 14px; border-radius: 20px; }
+.iso-modal-cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--green), var(--green-lt)); color: #fff; font-family: var(--font); font-weight: 700; font-size: 0.88rem; padding: 14px 28px; border-radius: 10px; border: none; cursor: pointer !important; text-decoration: none; box-shadow: 0 4px 16px rgba(5,150,105,0.3); transition: var(--transition); }
+.iso-modal-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(5,150,105,0.45); }
+@media(max-width:768px){ .iso-modal-body { padding: 28px 20px; } .iso-modal-advantages { grid-template-columns: 1fr; } }
 
 /* ISO */
 .iso-section { padding: 28px 0 36px; background: var(--white); scroll-margin-top: 72px; min-height: calc(100vh - 72px); display: flex; flex-direction: column; justify-content: center; }
@@ -179,8 +264,9 @@ img { max-width: 100%; display: block; }
 .iso-head .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); white-space: normal; margin-bottom: 8px; letter-spacing: -0.025em; }
 .iso-head .section-sub-iso { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-top: 6px; }
 .iso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.iso-card { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 14px 12px; text-align: center; cursor: pointer; transition: var(--transition); position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
+.iso-card { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 14px 12px; text-align: center; cursor: pointer !important; transition: var(--transition); position: relative; overflow: hidden; box-shadow: var(--shadow-md); }
 .iso-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+.iso-card.active-card { border-color: var(--gold-lt); box-shadow: 0 0 0 2px var(--gold-lt), var(--shadow-lg); }
 .ic-icon { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; margin: 0 auto 7px; transition: var(--transition); position: relative; z-index: 1; background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
 .ic-number { font-family: var(--font); font-size: 0.82rem; font-weight: 900; line-height: 1; margin-bottom: 4px; color: var(--gold-lt); position: relative; z-index: 1; letter-spacing: 0.01em; }
 .ic-title { font-family: var(--font); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.02em; text-transform: none; margin-bottom: 5px; color: rgba(255,255,255,0.85); position: relative; z-index: 1; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -189,9 +275,9 @@ img { max-width: 100%; display: block; }
 
 /* SERVICES */
 .services-section { padding: 48px 0 56px; background: var(--white); scroll-margin-top: 72px; display: flex; flex-direction: column; justify-content: center; }
-.services-head { text-align: left; max-width: 100%; margin: 0 0 32px; user-select: none;  }
+.services-head { text-align: left; max-width: 100%; margin: 0 0 32px; }
 .srv-grid-new { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.srv-card-new { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 32px 18px 28px; text-align: center; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-md); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px;  user-select: none; }
+.srv-card-new { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%); border: 1.5px solid var(--navy-lt); border-radius: var(--radius-lg); padding: 32px 18px 28px; text-align: center; cursor: pointer !important; transition: var(--transition); box-shadow: var(--shadow-md); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 240px; }
 .srv-card-new:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
 .srv-card-new-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff; }
 .srv-card-new-num { font-family: var(--font); font-size: 0.72rem; font-weight: 700; color: var(--gold-lt); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
@@ -204,39 +290,16 @@ img { max-width: 100%; display: block; }
 .srv-modal { background: var(--white); border-radius: 24px; max-width: 680px; width: 100%; max-height: 88vh; overflow-y: auto; box-shadow: 0 40px 80px rgba(11,31,78,0.3); transform: translateY(20px) scale(0.98); transition: transform 0.3s ease; }
 .srv-modal-overlay.open .srv-modal { transform: none; }
 .srv-modal-header { background: linear-gradient(135deg, var(--navy), var(--navy-lt)); padding: 28px 32px; border-radius: 24px 24px 0 0; position: relative; }
-.srv-modal-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; background: rgba(255,255,255,0.12); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; transition: var(--transition); }
+.srv-modal-close { position: absolute; top: 18px; right: 18px; width: 36px; height: 36px; background: rgba(255,255,255,0.12); border: none; border-radius: 50%; cursor: pointer !important; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; transition: var(--transition); }
 .srv-modal-close:hover { background: rgba(255,255,255,0.25); }
 .srv-modal-tag { font-family: var(--font); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 8px; }
 .srv-modal-title { font-family: var(--font); font-size: 1.4rem; font-weight: 800; color: #fff; line-height: 1.2; }
 .srv-modal-body { padding: 28px 32px; }
-.srv-modal-body p { font-size: 0.92rem; color: var(--text-body); line-height: 1.8; margin-bottom: 20px; }
+.srv-modal-body p { font-size: 0.92rem; color: var(--text-body); line-height: 1.8; margin-bottom: 20px; user-select: text !important; -webkit-user-select: text !important; cursor: default !important; }
 .srv-modal-items { display: flex; flex-direction: column; gap: 12px; }
 .srv-modal-item { display: flex; align-items: center; gap: 14px; background: var(--gray-50); border-radius: 12px; padding: 14px 16px; border-left: 3px solid var(--gold); }
 .srv-modal-item-dot { width: 24px; height: 24px; min-width: 24px; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font); font-size: 0.65rem; font-weight: 800; color: var(--gold-lt); flex-shrink: 0; }
 .srv-modal-item span { font-size: 0.85rem; color: var(--text-body); line-height: 1.65; }
-
-/* ISO MODAL */
-.modal-overlay { position: fixed; inset: 0; background: rgba(11,31,78,0.75); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; backdrop-filter: blur(8px); }
-.modal-overlay.open { opacity: 1; visibility: visible; }
-.modal { background: var(--white); border-radius: 24px; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 40px 80px rgba(11,31,78,0.3); transform: translateY(20px) scale(0.98); transition: transform 0.3s ease; }
-.modal-overlay.open .modal { transform: none; }
-.modal-header { background: linear-gradient(135deg, var(--navy), var(--navy-lt)); padding: 32px; border-radius: 24px 24px 0 0; position: relative; }
-.modal-close { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; background: rgba(255,255,255,0.12); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; transition: var(--transition); }
-.modal-close:hover { background: rgba(255,255,255,0.25); }
-.modal-iso-number { font-family: var(--font); font-size: 2.2rem; font-weight: 900; color: rgba(255,255,255,0.15); line-height: 1; margin-bottom: 8px; }
-.modal-iso-name { font-family: var(--font); font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
-.modal-iso-sub { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
-.modal-body { padding: 32px; }
-.modal-section { margin-bottom: 24px; }
-.modal-section h4 { font-family: var(--font); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.modal-section p { font-size: 0.9rem; color: var(--text-body); line-height: 1.75; }
-.modal-advantages { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.modal-adv { display: flex; align-items: flex-start; gap: 10px; background: var(--gray-50); border-radius: 10px; padding: 12px; }
-.modal-adv-icon { width: 24px; height: 24px; background: linear-gradient(135deg, var(--green), var(--green-lt)); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #fff; font-size: 0.7rem; font-weight: 700; }
-.modal-adv span { font-size: 0.82rem; color: var(--text-body); font-weight: 500; line-height: 1.4; }
-.modal-sectors { display: flex; gap: 8px; flex-wrap: wrap; }
-.modal-sector { font-family: var(--font); font-size: 0.72rem; font-weight: 600; color: var(--navy); background: rgba(11,31,78,0.06); border: 1px solid rgba(11,31,78,0.12); padding: 5px 14px; border-radius: 20px; }
-.modal-footer { padding: 0 32px 32px; }
 
 /* WHY */
 .why-section { padding: 60px 0; background: var(--off-white); }
@@ -267,7 +330,7 @@ img { max-width: 100%; display: block; }
 .clients-marquee-track.reverse { animation: marquee-scroll-reverse 42s linear infinite; }
 .clients-marquee-track.reverse:hover { animation-play-state: paused; }
 @keyframes marquee-scroll-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-.client-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-width: 200px; height: 160px; background: #fff; border: 1.5px solid var(--gray-100); border-radius: 16px; padding: 16px 20px; cursor: default; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease; box-shadow: var(--shadow-sm); user-select: none; }
+.client-logo-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-width: 200px; height: 160px; background: #fff; border: 1.5px solid var(--gray-100); border-radius: 16px; padding: 16px 20px; cursor: default !important; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1), border-color 0.35s ease; box-shadow: var(--shadow-sm); }
 .client-logo-card:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 14px 40px rgba(11,31,78,0.15); border-color: rgba(200,150,12,0.5); }
 .clc-icon { width: 90px; height: 90px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .clc-name { font-family: var(--font); font-size: 0.72rem; font-weight: 800; color: var(--text); letter-spacing: 0.04em; text-transform: uppercase; text-align: center; line-height: 1.2; white-space: nowrap; }
@@ -295,7 +358,7 @@ img { max-width: 100%; display: block; }
 .testi-cat { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); background: var(--gray-50); padding: 3px 10px; border-radius: 20px; display: inline-block; }
 .testi-stars { display: flex; gap: 3px; }
 .testi-stars span { width: 12px; height: 12px; background: var(--gold-lt); border-radius: 3px; display: block; }
-.testi-quote { font-size: 0.85rem; color: var(--text-body); line-height: 1.7; font-style: italic; flex: 1; }
+.testi-quote { font-size: 0.85rem; color: var(--text-body); line-height: 1.7; font-style: italic; flex: 1; user-select: text !important; -webkit-user-select: text !important; cursor: default !important; }
 .testi-author { display: flex; align-items: center; gap: 10px; padding-top: 12px; border-top: 1px solid var(--gray-100); }
 .testi-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--blue-lt)); display: flex; align-items: center; justify-content: center; font-family: var(--font); font-weight: 800; color: #fff; font-size: 0.7rem; flex-shrink: 0; }
 .testi-author-text strong { display: block; font-family: var(--font); font-size: 0.82rem; font-weight: 700; color: var(--text); }
@@ -308,16 +371,17 @@ img { max-width: 100%; display: block; }
 .ci-item { display: flex; gap: 14px; align-items: flex-start; }
 .ci-icon { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, rgba(11,31,78,0.06), rgba(37,99,235,0.08)); border: 1.5px solid rgba(37,99,235,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--navy); }
 .ci-text strong { display: block; font-family: var(--font); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
-.ci-text p { font-size: 0.85rem; color: var(--text-body); line-height: 1.5; }
+.ci-text p { font-size: 0.85rem; color: var(--text-body); line-height: 1.5; user-select: text !important; -webkit-user-select: text !important; cursor: default !important; }
+.ci-text a { cursor: pointer !important; }
 .map-embed { margin-top: 18px; border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid var(--gray-100); box-shadow: var(--shadow-sm); height: 160px; }
 .contact-form { background: var(--off-white); border: 1.5px solid var(--gray-100); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow); }
 .contact-form h3 { font-family: var(--font); font-size: 1.2rem; font-weight: 800; color: var(--text); margin-bottom: 4px; letter-spacing: -0.01em; }
 .contact-form > p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 18px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .fg { display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px; }
-.fg label { font-family: var(--font); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-body); }
-.fg input, .fg textarea, .fg select { background: #fff; border: 1.5px solid var(--gray-200); border-radius: 8px; padding: 9px 13px; font-family: var(--font-body); font-size: 0.85rem; color: var(--text); outline: none; transition: var(--transition); resize: none; }
-.fg select { cursor: pointer; }
+.fg label { font-family: var(--font); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-body); cursor: default !important; user-select: none !important; }
+.fg input, .fg textarea, .fg select { background: #fff; border: 1.5px solid var(--gray-200); border-radius: 8px; padding: 9px 13px; font-family: var(--font-body); font-size: 0.85rem; color: var(--text); outline: none; transition: var(--transition); resize: none; cursor: text !important; user-select: text !important; -webkit-user-select: text !important; }
+.fg select { cursor: pointer !important; }
 .fg input::placeholder, .fg textarea::placeholder { color: var(--gray-400); }
 .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(11,31,78,0.06); }
 .form-success { display: none; text-align: center; padding: 16px; background: rgba(5,150,105,0.08); border: 1px solid rgba(5,150,105,0.25); border-radius: 10px; color: var(--green); font-size: 0.88rem; font-weight: 600; margin-top: 12px; }
@@ -351,7 +415,7 @@ img { max-width: 100%; display: block; }
 .mobile-menu-logo { display: flex; align-items: center; gap: 10px; }
 .mobile-menu-logo img { height: 38px; width: auto; filter: brightness(0) invert(1); }
 .mobile-menu-logo span { font-family: var(--font); font-weight: 800; font-size: 1rem; color: #fff; letter-spacing: 0.06em; }
-.mobile-menu-close { width: 38px; height: 38px; background: rgba(255,255,255,0.12); border: none; border-radius: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; transition: background 0.2s; flex-shrink: 0; }
+.mobile-menu-close { width: 38px; height: 38px; background: rgba(255,255,255,0.12); border: none; border-radius: 10px; cursor: pointer !important; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; transition: background 0.2s; flex-shrink: 0; }
 .mobile-menu-close:hover { background: rgba(255,255,255,0.22); }
 .mobile-menu-nav { display: flex; flex-direction: column; padding: 16px 0; flex: 1; }
 .mobile-menu-nav a { display: flex; align-items: center; gap: 14px; font-family: var(--font); font-size: 0.95rem; font-weight: 600; color: var(--text); padding: 15px 24px; border-bottom: 1px solid var(--gray-50); transition: background 0.2s, color 0.2s; }
@@ -399,7 +463,6 @@ img { max-width: 100%; display: block; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .container { padding: 0 16px; }
   .form-row { grid-template-columns: 1fr; }
-  .modal-advantages { grid-template-columns: 1fr; }
   .hero { min-height: 100svh; max-height: none; padding: 0; justify-content: flex-start; }
   .hero-bg-image { background-position: center center; }
   .hero-overlay { background: linear-gradient(180deg, rgba(5,12,40,0.72) 0%, rgba(8,20,60,0.60) 55%, rgba(8,20,60,0.40) 100%); }
@@ -443,7 +506,7 @@ img { max-width: 100%; display: block; }
       </span>
       <span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Lun–Ven · 08h30–17h00
+        Lun–Ven · 08h30 – 17h00
       </span>
     </div>
     <div class="topbar-right">
@@ -477,8 +540,8 @@ img { max-width: 100%; display: block; }
     <div class="nav-actions">
       <a href="tel:+212052252379" class="btn-nav-outline">+212 05 22 52 37 29</a>
       <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="20" height="14"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> </button>
-        <button class="lang-btn" onclick="setLang('en')" id="btn-en"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10" width="20" height="14"><rect width="19" height="10" fill="#B22234"/><rect y="0.77" width="19" height="0.77" fill="#fff"/><rect y="1.54" width="19" height="0.77" fill="#B22234"/><rect y="2.31" width="19" height="0.77" fill="#fff"/><rect y="3.08" width="19" height="0.77" fill="#B22234"/><rect y="3.85" width="19" height="0.77" fill="#fff"/><rect y="4.62" width="19" height="0.77" fill="#B22234"/><rect y="5.38" width="19" height="0.77" fill="#fff"/><rect y="6.15" width="19" height="0.77" fill="#B22234"/><rect y="6.92" width="19" height="0.77" fill="#fff"/><rect y="7.69" width="19" height="0.77" fill="#B22234"/><rect y="8.46" width="19" height="0.77" fill="#fff"/><rect y="9.23" width="19" height="0.77" fill="#B22234"/><rect width="7.6" height="5.38" fill="#3C3B6E"/></svg></span> </button>
+        <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="20" height="14"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span></button>
+        <button class="lang-btn" onclick="setLang('en')" id="btn-en"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10" width="20" height="14"><rect width="19" height="10" fill="#B22234"/><rect y="0.77" width="19" height="0.77" fill="#fff"/><rect y="1.54" width="19" height="0.77" fill="#B22234"/><rect y="2.31" width="19" height="0.77" fill="#fff"/><rect y="3.08" width="19" height="0.77" fill="#B22234"/><rect y="3.85" width="19" height="0.77" fill="#fff"/><rect y="4.62" width="19" height="0.77" fill="#B22234"/><rect y="5.38" width="19" height="0.77" fill="#fff"/><rect y="6.15" width="19" height="0.77" fill="#B22234"/><rect y="6.92" width="19" height="0.77" fill="#fff"/><rect y="7.69" width="19" height="0.77" fill="#B22234"/><rect y="8.46" width="19" height="0.77" fill="#fff"/><rect y="9.23" width="19" height="0.77" fill="#B22234"/><rect width="7.6" height="5.38" fill="#3C3B6E"/></svg></span></button>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
         <span></span><span></span><span></span>
@@ -573,21 +636,21 @@ img { max-width: 100%; display: block; }
         <h2 class="section-title" style="font-size:clamp(1.4rem,2.6vw,2.3rem);margin-bottom:10px;line-height:1.12;letter-spacing:-0.02em;">
           Un cabinet de référence au service de votre<br/><span style="color:var(--gold)">excellence.</span>
         </h2>
-        <p>En partenariat avec un organisme de certification accrédité par l'IAF (International Accreditation Forum) et l'UAF (United Accreditation Foundation), OCG Consulting assure des prestations d'audit et de certification reconnues à l'échelle internationale.</p>
+        <p>En partenariat avec des organismes de certification accrédité par l'IAF (International Accreditation Forum) et l'UAF (United Accreditation Foundation), OCG Consulting assure des prestations d'audit et de certification reconnues à l'échelle internationale.</p>
         <div class="about-domains-label">Domaines d'intervention</div>
-        <div class="about-domains">
-          <div class="about-domain"><span class="about-domain-num">ISO 9001 v2015</span><span class="about-domain-label">Management de la qualité</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 14001 v2015</span><span class="about-domain-label">Management environnemental</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 45001 v2018</span><span class="about-domain-label">Santé &amp; sécurité au travail</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 22000 v2018</span><span class="about-domain-label">Sécurité alimentaire</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO/IEC 27001 v2022</span><span class="about-domain-label">Sécurité de l'information</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 50001 v2018</span><span class="about-domain-label">Management de l'énergie</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 13485 v2016</span><span class="about-domain-label">Dispositifs médicaux</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 37001 v2025</span><span class="about-domain-label">Management anti-corruption</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 28001 v2007</span><span class="about-domain-label">Sûreté chaîne logistique</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO 22301 v2019</span><span class="about-domain-label">Continuité d'activité</span></div>
-          <div class="about-domain"><span class="about-domain-num">ISO/IEC 20000-1 v2018</span><span class="about-domain-label">Management services IT</span></div>
-          <div class="about-domain"><span class="about-domain-num">FSSC 22000 v6</span><span class="about-domain-label">Sécurité alimentaire FSSC</span></div>
+        <div class="about-domains" id="aboutDomains">
+          <div class="about-domain" data-iso-index="0"><span class="about-domain-num">ISO 9001 v2015</span><span class="about-domain-label">Management de la qualité</span></div>
+          <div class="about-domain" data-iso-index="1"><span class="about-domain-num">ISO 14001 v2015</span><span class="about-domain-label">Management environnemental</span></div>
+          <div class="about-domain" data-iso-index="2"><span class="about-domain-num">ISO 45001 v2018</span><span class="about-domain-label">Santé &amp; sécurité au travail</span></div>
+          <div class="about-domain" data-iso-index="3"><span class="about-domain-num">ISO 22000 v2018</span><span class="about-domain-label">Sécurité alimentaire</span></div>
+          <div class="about-domain" data-iso-index="4"><span class="about-domain-num">ISO/IEC 27001 v2022</span><span class="about-domain-label">Sécurité de l'information</span></div>
+          <div class="about-domain" data-iso-index="5"><span class="about-domain-num">ISO 50001 v2018</span><span class="about-domain-label">Management de l'énergie</span></div>
+          <div class="about-domain" data-iso-index="6"><span class="about-domain-num">ISO 13485 v2016</span><span class="about-domain-label">Dispositifs médicaux</span></div>
+          <div class="about-domain" data-iso-index="7"><span class="about-domain-num">ISO 37001 v2025</span><span class="about-domain-label">Management anti-corruption</span></div>
+          <div class="about-domain" data-iso-index="8"><span class="about-domain-num">ISO 28001 v2007</span><span class="about-domain-label">Sûreté chaîne logistique</span></div>
+          <div class="about-domain" data-iso-index="9"><span class="about-domain-num">ISO 22301 v2019</span><span class="about-domain-label">Continuité d'activité</span></div>
+          <div class="about-domain" data-iso-index="10"><span class="about-domain-num">ISO/IEC 20000-1 v2018</span><span class="about-domain-label">Management services IT</span></div>
+          <div class="about-domain" data-iso-index="11"><span class="about-domain-num">FSSC 22000 v6</span><span class="about-domain-label">Sécurité alimentaire FSSC</span></div>
         </div>
       </div>
     </div>
@@ -598,10 +661,29 @@ img { max-width: 100%; display: block; }
 <section class="iso-section" id="iso">
   <div class="container">
     <div class="iso-head reveal">
-      
       <h2 class="section-title">Normes ISO que nous maîtrisons pour votre entreprise</h2>
       <p class="section-sub-iso">Cliquez sur une norme pour découvrir ses avantages, secteurs concernés et comment nous vous accompagnons.</p>
     </div>
+
+    <!-- ISO MODAL -->
+    <div class="iso-modal-overlay" id="isoModal">
+      <div class="iso-modal">
+        <button class="iso-modal-close" id="isoModalClose">✕</button>
+        <div class="iso-modal-body">
+          <div class="iso-modal-number" id="isoModalNumber"></div>
+          <div class="iso-modal-name" id="isoModalName"></div>
+          <div class="iso-modal-sector" id="isoModalSector"></div>
+          <div class="iso-modal-label" id="isoModalDescLabel">Description</div>
+          <p class="iso-modal-desc" id="isoModalDesc"></p>
+          <div class="iso-modal-label" id="isoModalAdvLabel">Avantages pour votre entreprise</div>
+          <div class="iso-modal-advantages" id="isoModalAdvantages"></div>
+          <div class="iso-modal-label" id="isoModalSecLabel">Secteurs concernés</div>
+          <div class="iso-modal-sectors" id="isoModalSectors"></div>
+          <a href="#contact" class="iso-modal-cta" id="isoModalCta">Demander un audit de Certification →</a>
+        </div>
+      </div>
+    </div>
+
     <div class="iso-grid" id="isoGrid"></div>
   </div>
 </section>
@@ -610,7 +692,6 @@ img { max-width: 100%; display: block; }
 <section class="services-section" id="services">
   <div class="container">
     <div class="services-head reveal">
-   
       <h2 class="section-title" style="white-space:nowrap;font-size:clamp(1.6rem,3vw,2.8rem);">Des solutions complètes pour votre entreprise</h2>
       <p class="section-sub">Cliquez sur un métier pour découvrir notre expertise et nos prestations détaillées.</p>
     </div>
@@ -618,7 +699,7 @@ img { max-width: 100%; display: block; }
       <div class="srv-card-new reveal" onclick="openSrvModal(0)">
         <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07"/></svg></div>
         <div class="srv-card-new-num">01</div>
-        <div class="srv-card-new-title">Certification ISO &amp; Audit</div>
+        <div class="srv-card-new-title">Audit Certification ISO</div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
       <div class="srv-card-new reveal rd1" onclick="openSrvModal(1)">
@@ -636,13 +717,13 @@ img { max-width: 100%; display: block; }
       <div class="srv-card-new reveal rd3" onclick="openSrvModal(3)">
         <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
         <div class="srv-card-new-num">04</div>
-        <div class="srv-card-new-title"> Business Plans </div>
+        <div class="srv-card-new-title">Business Plans</div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
       <div class="srv-card-new reveal rd4" onclick="openSrvModal(4)">
         <div class="srv-card-new-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
         <div class="srv-card-new-num">05</div>
-        <div class="srv-card-new-title">Études d'Investissement </div>
+        <div class="srv-card-new-title">Études d'Investissement</div>
         <span class="srv-card-new-badge">En savoir plus →</span>
       </div>
     </div>
@@ -795,7 +876,7 @@ img { max-width: 100%; display: block; }
           </div>
           <div class="ci-item">
             <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-            <div class="ci-text"><strong>Horaires</strong><p>Lundi – Vendredi · 09h00 – 18h00</p></div>
+            <div class="ci-text"><strong>Horaires</strong><p>Lundi – Vendredi · 08h30 – 17h00</p></div>
           </div>
         </div>
         <div class="map-embed">
@@ -887,7 +968,7 @@ img { max-width: 100%; display: block; }
           <li><a href="tel:+212052252379">+212 05 22 52 37 29</a></li>
           <li><a href="mailto:Ocgconsultingrh@gmail.com">Ocgconsultingrh@gmail.com</a></li>
           <li>Aïn Chock, Casablanca</li>
-          <li>Lun–Ven · 08:30h–17h</li>
+          <li>Lun–Ven · 08h30–17h00</li>
         </ul>
       </div>
     </div>
@@ -897,26 +978,6 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </footer>
-
-<!-- ISO MODAL -->
-<div class="modal-overlay" id="isoModal">
-  <div class="modal">
-    <div class="modal-header">
-      <button class="modal-close" id="modalClose">✕</button>
-      <div class="modal-iso-number" id="modalNumber"></div>
-      <div class="modal-iso-name" id="modalName"></div>
-      <div class="modal-iso-sub" id="modalSub"></div>
-    </div>
-    <div class="modal-body">
-      <div class="modal-section"><h4 id="modalDescLabel">Description</h4><p id="modalDesc"></p></div>
-      <div class="modal-section"><h4 id="modalAdvLabel">Avantages pour votre entreprise</h4><div class="modal-advantages" id="modalAdvantages"></div></div>
-      <div class="modal-section"><h4 id="modalSecLabel">Secteurs concernés</h4><div class="modal-sectors" id="modalSectors"></div></div>
-    </div>
-    <div class="modal-footer">
-      <a href="#contact" class="btn-green" id="isoModalCta" onclick="document.getElementById('isoModal').classList.remove('open')" style="width:100%;justify-content:center">Demander un accompagnement →</a>
-    </div>
-  </div>
-</div>
 
 <script>
 // ── LOADER ──
@@ -1004,24 +1065,25 @@ const translations = {
     'about.para':"En partenariat avec un organisme de certification accrédité par l'IAF (International Accreditation Forum) et l'UAF (United Accreditation Foundation), OCG Consulting assure des prestations d'audit et de certification reconnues à l'échelle internationale.",
     'about.domains.label':"Domaines d'intervention",'about.badge.label':'Fondé en',
     'iso.title':'Normes ISO que nous maîtrisons<br/>pour votre entreprise','iso.badge':'En savoir plus →',
-    'iso.modal.desc':'Description','iso.modal.adv':'Avantages pour votre entreprise','iso.modal.sec':'Secteurs concernés','iso.modal.cta':'Demander un accompagnement →',
+    'iso.modal.desc':'Description','iso.modal.adv':'Avantages pour votre entreprise','iso.modal.sec':'Secteurs concernés',
+    'iso.modal.cta':'Demander un audit de Certification →',
     'services.tag':'Nos Métiers','services.title':'Des solutions complètes pour votre entreprise','services.sub':'Cliquez sur un métier pour découvrir notre expertise et nos prestations détaillées.',
     'srv.btn':'En savoir plus →',
     'why.tag':'Pourquoi Nous Choisir','why.title':'6 raisons de nous faire confiance','why.sub':"Notre expertise, notre réseau et notre engagement font d'OCG Consulting votre partenaire idéal.",
     'clients.tag':'Références Clients','clients.title':'Ils nous font confiance','clients.sub':"Des entreprises de référence nous ont confié leurs projets de certification, d'audit et d'amélioration continue. Plus de <strong>100 entreprises</strong> nous ont déjà accordé leur confiance au Maroc.",
     'stat.0':'Entreprises Accompagnées','stat.1':'Formations Réalisées','stat.2':'% Satisfaction Clients','stat.3':"Années d'Expérience",
-    'testi.tag':'Témoignages','testi.title':'Ce que disent<br/>nos clients',
+    'testi.tag':'Témoignages','testi.title':'Ce que disent nos clients',
     'contact.tag':'Contactez-nous','contact.title':'Démarrons votre<br/>projet ensemble','contact.sub':"Notre équipe est à votre disposition pour répondre à toutes vos questions et vous proposer un accompagnement sur mesure.",
     'contact.addr.label':'Adresse','contact.addr.value':'Immeuble 403, Résidence Assakan Alanik,<br/>Quartier Elomariya, Aïn Chock, Casablanca',
     'contact.phone.label':'Téléphone','contact.email.label':'Email',
-    'contact.hours.label':'Horaires','contact.hours.value':'Lundi – Vendredi · 09h00 – 18h00',
+    'contact.hours.label':'Horaires','contact.hours.value':'Lundi – Vendredi · 08h30–17h00',
     'contact.form.title':'Demander un devis','contact.form.sub':'Remplissez le formulaire et nous vous répondrons sous 24h.',
     'contact.form.prenom':'Prénom','contact.form.nom':'Nom','contact.form.email':'Email','contact.form.tel':'Téléphone','contact.form.service':'Service souhaité','contact.form.message':'Message',
     'contact.form.send':'Envoyer ma demande →','contact.form.success':'✅ Votre demande a bien été envoyée ! Nous vous contacterons sous 24h.',
     'footer.tagline':"Votre partenaire de confiance pour la performance, la conformité internationale et la croissance durable au Maroc.",
     'footer.col1.title':'Partenariat','footer.col1.l1':'Qui Sommes-Nous','footer.col1.l2':'Notre Histoire','footer.col1.l3':'Nos Valeurs','footer.col1.l4':'Notre Équipe',
     'footer.col2.title':'Nos Métiers','footer.col2.l1':'Certifications ISO','footer.col2.l2':'Conseil & Management','footer.col2.l3':'Formation Pro','footer.col2.l4':'Audit & Diagnostic','footer.col2.l5':'Business Plans',
-    'footer.col3.title':'Contact','footer.hours':'Lun–Ven · 08:30h–17h',
+    'footer.col3.title':'Contact','footer.hours':'Lun–Ven · 08h30–17h00',
     'footer.copy':'© 2026 Tous droits réservés — <strong>OCG Consulting</strong>',
     'topbar.city':'Casablanca, Maroc','topbar.hours':'Lun–Ven · 08h30–17h00',
     'mob.clients':'Nos Clients','mob.quote':'Demander un devis →',
@@ -1037,26 +1099,27 @@ const translations = {
     'about.para':'In partnership with a certification body accredited by IAF (International Accreditation Forum) and UAF (United Accreditation Foundation), OCG Consulting delivers internationally recognized audit and certification services.',
     'about.domains.label':'Areas of Expertise','about.badge.label':'Founded in',
     'iso.title':'ISO Standards We Master<br/>for Your Business','iso.badge':'Learn more →',
-    'iso.modal.desc':'Description','iso.modal.adv':'Benefits for your company','iso.modal.sec':'Relevant sectors','iso.modal.cta':'Request support →',
+    'iso.modal.desc':'Description','iso.modal.adv':'Benefits for your company','iso.modal.sec':'Relevant sectors',
+    'iso.modal.cta':'Request a Certification Audit →',
     'services.tag':'Our Services','services.title':'Comprehensive solutions for your business','services.sub':'Click on a service to discover our expertise and detailed offerings.',
     'srv.btn':'Learn more →',
     'why.tag':'Why Choose Us','why.title':'6 reasons to trust us','why.sub':'Our expertise, network and commitment make OCG Consulting your ideal partner.',
     'clients.tag':'Client References','clients.title':'They trust us','clients.sub':'Leading companies have entrusted us with their certification, audit and continuous improvement projects. Over <strong>100 companies</strong> have already placed their trust in us in Morocco.',
     'stat.0':'Companies Supported','stat.1':'Trainings Delivered','stat.2':'% Client Satisfaction','stat.3':'Years of Experience',
-    'testi.tag':'Testimonials','testi.title':'What our clients<br/>say about us',
+    'testi.tag':'Testimonials','testi.title':'What our clients say about us',
     'contact.tag':'Contact Us','contact.title':"Let's start your<br/>project together",'contact.sub':'Our team is available to answer all your questions and offer tailored support.',
     'contact.addr.label':'Address','contact.addr.value':'Building 403, Résidence Assakan Alanik,<br/>Elomariya District, Aïn Chock, Casablanca',
     'contact.phone.label':'Phone','contact.email.label':'Email',
-    'contact.hours.label':'Opening Hours','contact.hours.value':'Monday – Friday · 09:00 – 18:00',
+    'contact.hours.label':'Opening Hours','contact.hours.value':'Monday – Friday · 08h30–17h00',
     'contact.form.title':'Request a Quote','contact.form.sub':'Fill in the form and we will get back to you within 24 hours.',
     'contact.form.prenom':'First Name','contact.form.nom':'Last Name','contact.form.email':'Email','contact.form.tel':'Phone','contact.form.service':'Desired Service','contact.form.message':'Message',
     'contact.form.send':'Send my request →','contact.form.success':'✅ Your request has been sent! We will contact you within 24 hours.',
     'footer.tagline':'Your trusted partner for performance, international compliance and sustainable growth in Morocco.',
     'footer.col1.title':'Partnership','footer.col1.l1':'Who We Are','footer.col1.l2':'Our History','footer.col1.l3':'Our Values','footer.col1.l4':'Our Team',
     'footer.col2.title':'Our Services','footer.col2.l1':'ISO Certifications','footer.col2.l2':'Consulting & Management','footer.col2.l3':'Professional Training','footer.col2.l4':'Audit & Diagnostics','footer.col2.l5':'Business Plans',
-    'footer.col3.title':'Contact','footer.hours':'Mon–Fri · 08:30h–17h',
+    'footer.col3.title':'Contact','footer.hours':'Mon–Fri · 08h30–17h00',
     'footer.copy':'© 2026 All rights reserved — <strong>OCG Consulting</strong>',
-    'topbar.city':'Casablanca, Morocco','topbar.hours':'Mon–Fri · 08:30–17:00',
+    'topbar.city':'Casablanca, Morocco','topbar.hours':'Mon–Fri · 08h30–17h00',
     'mob.clients':'Our Clients','mob.quote':'Request a Quote →',
   }
 };
@@ -1077,7 +1140,7 @@ const isoDataI18n = {
     { number:'ISO 28001 v2007', name:'Systèmes de Management de la Sûreté de la Chaîne Logistique', sector:'Logistique & Supply Chain', desc:"L'ISO 28001 v2007 aide les organisations à établir des systèmes et des processus pour la sûreté de la chaîne logistique internationale, protégeant les marchandises et les informations.", advantages:['Sécurisation de la chaîne logistique','Conformité douanière internationale','Réduction des risques de contrebande','Accès aux programmes douaniers',"Image d'opérateur fiable",'Optimisation des contrôles'], sectors:['Transport & Logistique','Import/Export','Douanes','E-commerce','Distribution','Entreposage'] },
     { number:'ISO 22301 v2019', name:"Management de la Continuité d'Activité", sector:'Résilience organisationnelle', desc:"L'ISO 22301 v2019 spécifie les exigences pour planifier, établir, mettre en œuvre et améliorer un système de management de la continuité d'activité afin d'assurer la résilience de l'organisation.", advantages:['Résilience organisationnelle','Continuité des opérations critiques','Confiance des clients et partenaires','Réduction des pertes financières','Conformité réglementaire','Plan de reprise structuré'], sectors:['Finance & Banque','IT & Télécoms','Santé','Industrie','Secteur public','Énergie'] },
     { number:'ISO/IEC 20000-1 v2018', name:'Système de Management des Services Informatiques', sector:'IT & Services', desc:"L'ISO/IEC 20000-1 v2018 spécifie les exigences pour qu'une organisation établisse, mette en œuvre, maintienne et améliore en continu un système de management des services informatiques.", advantages:['Qualité des services IT garantie','Alignement IT/métier','Satisfaction des utilisateurs','Réduction des incidents IT','Conformité aux meilleures pratiques ITIL','Optimisation des coûts IT'], sectors:['Prestataires IT','Banque & Finance','Télécommunications','Administration','Industrie','Services partagés'] },
-    { number:'FSSC 22000 v6', name:'Certification Sécurité Alimentaire FSSC', sector:'Agroalimentaire & GFSI', desc:"Le FSSC 22000 v6 est un référentiel de certification reconnu par le GFSI (Global Food Safety Initiative) qui intègre les exigences de l'ISO 22000 v2018 et des programmes prérequis sectoriels (PRPs). La version 6 apporte des exigences renforcées en matière de culture alimentaire, de gestion des allergènes et de durabilité environnementale.", advantages:['Reconnaissance GFSI mondiale','Accès aux grands distributeurs internationaux','Intégration ISO 22000 + PRPs sectoriels','Renforcement de la culture sécurité alimentaire','Maîtrise renforcée des allergènes','Conformité aux exigences des donneurs d\'ordre'], sectors:['Fabricants agroalimentaires','Emballage alimentaire','Ingrédients & additifs','Restauration collective','Distribution alimentaire','Agriculture & productions primaires'] }
+    { number:'FSSC 22000 v6', name:'Certification Sécurité Alimentaire FSSC', sector:'Agroalimentaire & GFSI', desc:"Le FSSC 22000 v6 est un référentiel de certification reconnu par le GFSI (Global Food Safety Initiative) qui intègre les exigences de l'ISO 22000 v2018 et des programmes prérequis sectoriels (PRPs). La version 6 apporte des exigences renforcées en matière de culture alimentaire, de gestion des allergènes et de durabilité environnementale.", advantages:['Reconnaissance GFSI mondiale','Accès aux grands distributeurs internationaux','Intégration ISO 22000 + PRPs sectoriels','Renforcement de la culture sécurité alimentaire','Maîtrise renforcée des allergènes',"Conformité aux exigences des donneurs d'ordre"], sectors:['Fabricants agroalimentaires','Emballage alimentaire','Ingrédients & additifs','Restauration collective','Distribution alimentaire','Agriculture & productions primaires'] }
   ],
   en: [
     { number:'ISO 9001 v2015', name:'Quality Management System', sector:'All sectors', desc:"ISO 9001 v2015 sets out the criteria for a quality management system. It can be used by any organization, large or small, regardless of its field of activity.", advantages:['Improved customer satisfaction','Optimized internal processes','Reduced non-conformities','International recognition','Competitive advantage','Continuous improvement'], sectors:['Industry','Services','Trade','Healthcare','Education','Food','Construction','IT'] },
@@ -1113,118 +1176,18 @@ const isoIcons = [
 
 const srvDataI18n = {
   fr: [
-    {
-      tag:'Métier 01',
-      title:'Certification ISO & Audit',
-      desc:"Nous guidons votre entreprise à travers un processus structuré en 4 étapes pour obtenir et maintenir votre certification ISO reconnue à l'international.",
-      items:[
-        "Diagnostic & Analyse de l'Existant — Évaluation complète de votre organisation par rapport aux exigences de la norme ISO visée, identification des forces et des axes d'amélioration.",
-        "Audit de Conformité ISO sur Site — Réalisation d'un audit terrain rigoureux par nos experts certifiés pour vérifier la conformité de vos processus, documents et pratiques.",
-        "Identification des Écarts & Actions Correctives — Analyse détaillée des non-conformités détectées, élaboration d'un plan d'actions correctives et accompagnement à leur mise en œuvre.",
-        "Délivrance de la Certification ISO — Coordination avec l'organisme certificateur accrédité UAF/IAF pour l'audit de certification final et obtention de votre certificat ISO reconnu internationalement."
-      ]
-    },
-    {
-      tag:'Métier 02',
-      title:'Conseil & Management',
-      desc:"Un accompagnement stratégique et opérationnel en 4 phases pour transformer votre organisation et améliorer durablement votre performance.",
-      items:[
-        "Diagnostic Organisationnel & Stratégique — Analyse approfondie de votre structure, de vos processus et de votre positionnement pour identifier les leviers de performance et les opportunités de croissance.",
-        "Optimisation des Processus & de la Performance — Refonte et amélioration de vos processus clés, mise en place d'indicateurs KPI, tableaux de bord et systèmes de pilotage de la performance.",
-        "Conduite du Changement & Gouvernance — Accompagnement humain et managérial du changement, renforcement de la gouvernance et alignement des équipes autour des objectifs stratégiques.",
-        "Pilotage & Suivi des Recommandations — Mise en œuvre des plans d'action, suivi des résultats, ajustements continus et reporting régulier pour garantir l'atteinte des objectifs fixés."
-      ]
-    },
-    {
-      tag:'Métier 03',
-      title:'Formation Professionnelle',
-      desc:"Des programmes de formation conçus sur mesure en 4 étapes pour développer les compétences de vos équipes et garantir un impact mesurable.",
-      items:[
-        "Analyse des Besoins & Ingénierie de Formation — Identification des besoins en compétences, analyse des écarts et conception d'un plan de formation adapté aux enjeux métiers et aux profils des apprenants.",
-        "Conception & Développement des Programmes — Élaboration des contenus pédagogiques, supports de formation, cas pratiques et outils d'évaluation alignés sur vos objectifs opérationnels.",
-        "Déploiement & Animation des Sessions de Formation — Animation des sessions en présentiel ou à distance par nos formateurs experts, avec des méthodes actives et participatives pour maximiser l'engagement.",
-        "Évaluation des Acquis & Mesure de l'Impact — Évaluation des connaissances et compétences acquises, mesure de l'impact sur la performance, remise des attestations et recommandations pour la suite."
-      ]
-    },
-    {
-      tag:'Métier 04',
-      title:'Business Plans ',
-      desc:"Un accompagnement complet en 4 étapes pour structurer votre projet d'entreprise et convaincre vos partenaires financiers.",
-      items:[
-        "Analyse du Marché & de l'Environnement Concurrentiel — Étude approfondie du marché cible, analyse de la concurrence, identification des opportunités et des risques pour fonder votre stratégie sur des données solides.",
-        "Modélisation Financière & Prévisions de Rentabilité — Élaboration des projections financières (compte de résultat, bilan, trésorerie), calcul du seuil de rentabilité et évaluation du retour sur investissement.",
-        "Définition de la Stratégie & du Modèle Économique — Formalisation de votre proposition de valeur, choix du modèle économique, définition des axes stratégiques et du plan marketing et commercial.",
-        "Structuration & Rédaction du Business Plan — Rédaction professionnelle du document final, structuré et argumenté, prêt à être présenté aux investisseurs, banques et organismes de financement."
-      ]
-    },
-    {
-      tag:'Métier 05',
-      title:"Études d'Investissement ",
-      desc:"Une analyse rigoureuse en 4 étapes pour évaluer la viabilité de vos projets d'investissement et sécuriser vos décisions stratégiques.",
-      items:[
-        "Analyse de la Faisabilité & de l'Opportunité d'Investissement — Évaluation de la viabilité technique, économique et réglementaire du projet, analyse du contexte marché et identification des facteurs clés de succès.",
-        "Évaluation des Risques & des Rendements Attendus — Identification et quantification des risques (financiers, opérationnels, marché), analyse de sensibilité et estimation des rendements prévisionnels.",
-        "Modélisation Financière & Plan de Financement — Construction d'un modèle financier complet (VAN, TRI, délai de récupération), structuration du plan de financement et identification des sources de capital.",
-        "Recommandations Stratégiques & Aide à la Décision — Synthèse des analyses, formulation de recommandations claires et argumentées, présentation des scénarios et aide à la prise de décision d'investissement."
-      ]
-    }
+    { tag:'Métier 01', title:'Audit Certification ISO', desc:"Nous guidons votre entreprise à travers un processus structuré en 4 étapes pour obtenir et maintenir votre certification ISO reconnue à l'international.", items:["Diagnostic & Analyse de l'Existant — Évaluation complète de votre organisation par rapport aux exigences de la norme ISO visée, identification des forces et des axes d'amélioration.","Audit de Conformité ISO sur Site — Réalisation d'un audit terrain rigoureux par nos experts certifiés pour vérifier la conformité de vos processus, documents et pratiques.","Identification des Écarts & Actions Correctives — Analyse détaillée des non-conformités détectées, élaboration d'un plan d'actions correctives et accompagnement à leur mise en œuvre.","Délivrance de la Certification ISO — Coordination avec l'organisme certificateur accrédité UAF/IAF pour l'audit de certification final et obtention de votre certificat ISO reconnu internationalement."] },
+    { tag:'Métier 02', title:'Conseil & Management', desc:"Un accompagnement stratégique et opérationnel en 4 phases pour transformer votre organisation et améliorer durablement votre performance.", items:["Diagnostic Organisationnel & Stratégique — Analyse approfondie de votre structure, de vos processus et de votre positionnement pour identifier les leviers de performance et les opportunités de croissance.","Optimisation des Processus & de la Performance — Refonte et amélioration de vos processus clés, mise en place d'indicateurs KPI, tableaux de bord et systèmes de pilotage de la performance.","Conduite du Changement & Gouvernance — Accompagnement humain et managérial du changement, renforcement de la gouvernance et alignement des équipes autour des objectifs stratégiques.","Pilotage & Suivi des Recommandations — Mise en œuvre des plans d'action, suivi des résultats, ajustements continus et reporting régulier pour garantir l'atteinte des objectifs fixés."] },
+    { tag:'Métier 03', title:'Formation Professionnelle', desc:"Des programmes de formation conçus sur mesure en 4 étapes pour développer les compétences de vos équipes et garantir un impact mesurable.", items:["Analyse des Besoins & Ingénierie de Formation — Identification des besoins en compétences, analyse des écarts et conception d'un plan de formation adapté aux enjeux métiers et aux profils des apprenants.","Conception & Développement des Programmes — Élaboration des contenus pédagogiques, supports de formation, cas pratiques et outils d'évaluation alignés sur vos objectifs opérationnels.","Déploiement & Animation des Sessions de Formation — Animation des sessions en présentiel ou à distance par nos formateurs experts, avec des méthodes actives et participatives pour maximiser l'engagement.","Évaluation des Acquis & Mesure de l'Impact — Évaluation des connaissances et compétences acquises, mesure de l'impact sur la performance, remise des attestations et recommandations pour la suite."] },
+    { tag:'Métier 04', title:'Business Plans', desc:"Un accompagnement complet en 4 étapes pour structurer votre projet d'entreprise et convaincre vos partenaires financiers.", items:["Analyse du Marché & de l'Environnement Concurrentiel — Étude approfondie du marché cible, analyse de la concurrence, identification des opportunités et des risques pour fonder votre stratégie sur des données solides.","Modélisation Financière & Prévisions de Rentabilité — Élaboration des projections financières (compte de résultat, bilan, trésorerie), calcul du seuil de rentabilité et évaluation du retour sur investissement.","Définition de la Stratégie & du Modèle Économique — Formalisation de votre proposition de valeur, choix du modèle économique, définition des axes stratégiques et du plan marketing et commercial.","Structuration & Rédaction du Business Plan — Rédaction professionnelle du document final, structuré et argumenté, prêt à être présenté aux investisseurs, banques et organismes de financement."] },
+    { tag:'Métier 05', title:"Études d'Investissement", desc:"Une analyse rigoureuse en 4 étapes pour évaluer la viabilité de vos projets d'investissement et sécuriser vos décisions stratégiques.", items:["Analyse de la Faisabilité & de l'Opportunité d'Investissement — Évaluation de la viabilité technique, économique et réglementaire du projet, analyse du contexte marché et identification des facteurs clés de succès.","Évaluation des Risques & des Rendements Attendus — Identification et quantification des risques (financiers, opérationnels, marché), analyse de sensibilité et estimation des rendements prévisionnels.","Modélisation Financière & Plan de Financement — Construction d'un modèle financier complet (VAN, TRI, délai de récupération), structuration du plan de financement et identification des sources de capital.","Recommandations Stratégiques & Aide à la Décision — Synthèse des analyses, formulation de recommandations claires et argumentées, présentation des scénarios et aide à la prise de décision d'investissement."] }
   ],
   en: [
-    {
-      tag:'Service 01',
-      title:'ISO Certification & Audit',
-      desc:"We guide your company through a structured 4-step process to obtain and maintain your internationally recognized ISO certification.",
-      items:[
-        "Diagnostic & Existing Situation Analysis — Comprehensive assessment of your organization against the requirements of the targeted ISO standard, identifying strengths and areas for improvement.",
-        "On-Site ISO Compliance Audit — Rigorous on-site audit conducted by our certified experts to verify the compliance of your processes, documents and practices.",
-        "Gap Identification & Corrective Actions — Detailed analysis of detected non-conformities, development of a corrective action plan and support for its implementation.",
-        "ISO Certification Delivery — Coordination with the UAF/IAF accredited certification body for the final certification audit and obtaining your internationally recognized ISO certificate."
-      ]
-    },
-    {
-      tag:'Service 02',
-      title:'Consulting & Management',
-      desc:"Strategic and operational support in 4 phases to transform your organization and sustainably improve your performance.",
-      items:[
-        "Organizational & Strategic Diagnostic — In-depth analysis of your structure, processes and positioning to identify performance levers and growth opportunities.",
-        "Process & Performance Optimization — Redesign and improvement of your key processes, implementation of KPI indicators, dashboards and performance management systems.",
-        "Change Management & Governance — Human and managerial support for change, strengthening governance and aligning teams around strategic objectives.",
-        "Monitoring & Follow-up of Recommendations — Implementation of action plans, results monitoring, continuous adjustments and regular reporting to ensure achievement of set objectives."
-      ]
-    },
-    {
-      tag:'Service 03',
-      title:'Professional Training',
-      desc:"Tailor-made training programmes designed in 4 steps to develop your teams' skills and ensure measurable impact.",
-      items:[
-        "Needs Analysis & Training Engineering — Identification of skill needs, gap analysis and design of a training plan adapted to business challenges and learner profiles.",
-        "Programme Design & Development — Development of pedagogical content, training materials, case studies and assessment tools aligned with your operational objectives.",
-        "Session Deployment & Facilitation — Facilitation of in-person or remote sessions by our expert trainers, using active and participatory methods to maximize engagement.",
-        "Assessment of Learning & Impact Measurement — Evaluation of acquired knowledge and skills, measurement of impact on performance, issuance of certificates and recommendations for follow-up."
-      ]
-    },
-    {
-      tag:'Service 04',
-      title:'Business Plan',
-      desc:"Comprehensive support in 4 steps to structure your business project and convince your financial partners.",
-      items:[
-        "Market Analysis & Competitive Environment — In-depth study of the target market, competitive analysis, identification of opportunities and risks to base your strategy on solid data.",
-        "Financial Modelling & Profitability Forecasts — Development of financial projections (income statement, balance sheet, cash flow), break-even calculation and ROI assessment.",
-        "Strategy & Business Model Definition — Formalization of your value proposition, business model selection, strategic axis definition and marketing and commercial plan.",
-        "Business Plan Structuring & Writing — Professional writing of the final document, structured and substantiated, ready to be presented to investors, banks and financing bodies."
-      ]
-    },
-    {
-      tag:'Service 05',
-      title:'Investment Studies',
-      desc:"Rigorous analysis in 4 steps to assess the viability of your investment projects and secure your strategic decisions.",
-      items:[
-        "Feasibility & Investment Opportunity Analysis — Assessment of the technical, economic and regulatory viability of the project, market context analysis and identification of key success factors.",
-        "Risk Assessment & Expected Returns — Identification and quantification of risks (financial, operational, market), sensitivity analysis and estimation of projected returns.",
-        "Financial Modelling & Financing Plan — Construction of a complete financial model (NPV, IRR, payback period), structuring of the financing plan and identification of capital sources.",
-        "Strategic Recommendations & Decision Support — Synthesis of analyses, formulation of clear and substantiated recommendations, presentation of scenarios and investment decision support."
-      ]
-    }
+    { tag:'Service 01', title:'Audit Certification ISO', desc:"We guide your company through a structured 4-step process to obtain and maintain your internationally recognized ISO certification.", items:["Diagnostic & Existing Situation Analysis — Comprehensive assessment of your organization against the requirements of the targeted ISO standard, identifying strengths and areas for improvement.","On-Site ISO Compliance Audit — Rigorous on-site audit conducted by our certified experts to verify the compliance of your processes, documents and practices.","Gap Identification & Corrective Actions — Detailed analysis of detected non-conformities, development of a corrective action plan and support for its implementation.","ISO Certification Delivery — Coordination with the UAF/IAF accredited certification body for the final certification audit and obtaining your internationally recognized ISO certificate."] },
+    { tag:'Service 02', title:'Consulting & Management', desc:"Strategic and operational support in 4 phases to transform your organization and sustainably improve your performance.", items:["Organizational & Strategic Diagnostic — In-depth analysis of your structure, processes and positioning to identify performance levers and growth opportunities.","Process & Performance Optimization — Redesign and improvement of your key processes, implementation of KPI indicators, dashboards and performance management systems.","Change Management & Governance — Human and managerial support for change, strengthening governance and aligning teams around strategic objectives.","Monitoring & Follow-up of Recommendations — Implementation of action plans, results monitoring, continuous adjustments and regular reporting to ensure achievement of set objectives."] },
+    { tag:'Service 03', title:'Professional Training', desc:"Tailor-made training programmes designed in 4 steps to develop your teams' skills and ensure measurable impact.", items:["Needs Analysis & Training Engineering — Identification of skill needs, gap analysis and design of a training plan adapted to business challenges and learner profiles.","Programme Design & Development — Development of pedagogical content, training materials, case studies and assessment tools aligned with your operational objectives.","Session Deployment & Facilitation — Facilitation of in-person or remote sessions by our expert trainers, using active and participatory methods to maximize engagement.","Assessment of Learning & Impact Measurement — Evaluation of acquired knowledge and skills, measurement of impact on performance, issuance of certificates and recommendations for follow-up."] },
+    { tag:'Service 04', title:'Business Plan', desc:"Comprehensive support in 4 steps to structure your business project and convince your financial partners.", items:["Market Analysis & Competitive Environment — In-depth study of the target market, competitive analysis, identification of opportunities and risks to base your strategy on solid data.","Financial Modelling & Profitability Forecasts — Development of financial projections (income statement, balance sheet, cash flow), break-even calculation and ROI assessment.","Strategy & Business Model Definition — Formalization of your value proposition, business model selection, strategic axis definition and marketing and commercial plan.","Business Plan Structuring & Writing — Professional writing of the final document, structured and substantiated, ready to be presented to investors, banks and financing bodies."] },
+    { tag:'Service 05', title:'Investment Studies', desc:"Rigorous analysis in 4 steps to assess the viability of your investment projects and secure your strategic decisions.", items:["Feasibility & Investment Opportunity Analysis — Assessment of the technical, economic and regulatory viability of the project, market context analysis and identification of key success factors.","Risk Assessment & Expected Returns — Identification and quantification of risks (financial, operational, market), sensitivity analysis and estimation of projected returns.","Financial Modelling & Financing Plan — Construction of a complete financial model (NPV, IRR, payback period), structuring of the financing plan and identification of capital sources.","Strategic Recommendations & Decision Support — Synthesis of analyses, formulation of clear and substantiated recommendations, presentation of scenarios and investment decision support."] }
   ]
 };
 
@@ -1264,13 +1227,47 @@ const testiI18n = {
 const testiCatKeys = ['quality','quality','quality','expertise','expertise','expertise','listen','listen','listen','impact','impact'];
 
 const srvCardTitles = {
-  fr: ['Certification ISO & Audit','Conseil & Management','Formation Professionnelle',' Business Plans ',"Études d'Investissement"],
-  en: ['ISO Certification & Audit','Consulting & Management','Professional Training',' Business Plan ','Investment  Studies']
+  fr: ['Audit Certification ISO','Conseil & Management','Formation Professionnelle','Business Plans',"Études d'Investissement"],
+  en: ['Audit Certification ISO','Consulting & Management','Professional Training','Business Plan','Investment Studies']
 };
 
-// ── BUILD ISO GRID ──
+// ════════════════════════════════════════
+//  ISO MODAL UNIFIÉ
+// ════════════════════════════════════════
 let currentLang = 'fr';
 
+function openIsoModal(iso, lang) {
+  const t = translations[lang];
+  document.getElementById('isoModalNumber').textContent = iso.number;
+  document.getElementById('isoModalName').textContent = iso.name;
+  document.getElementById('isoModalSector').textContent = iso.sector;
+  document.getElementById('isoModalDescLabel').textContent = t['iso.modal.desc'];
+  document.getElementById('isoModalAdvLabel').textContent = t['iso.modal.adv'];
+  document.getElementById('isoModalSecLabel').textContent = t['iso.modal.sec'];
+  document.getElementById('isoModalDesc').textContent = iso.desc;
+  document.getElementById('isoModalCta').textContent = t['iso.modal.cta'];
+  document.getElementById('isoModalAdvantages').innerHTML = iso.advantages.map(a =>
+    `<div class="iso-modal-adv"><div class="iso-modal-adv-icon">✓</div><span>${a}</span></div>`
+  ).join('');
+  document.getElementById('isoModalSectors').innerHTML = iso.sectors.map(s =>
+    `<span class="iso-modal-sector-tag">${s}</span>`
+  ).join('');
+  const overlay = document.getElementById('isoModal');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeIsoModal() {
+  document.getElementById('isoModal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.iso-card, .about-domain').forEach(c => c.classList.remove('active-card'));
+}
+
+document.getElementById('isoModalClose').addEventListener('click', closeIsoModal);
+document.getElementById('isoModal').addEventListener('click', e => { if (e.target === document.getElementById('isoModal')) closeIsoModal(); });
+document.getElementById('isoModalCta').addEventListener('click', closeIsoModal);
+
+// ── BUILD ISO GRID ──
 function buildIsoGrid(lang) {
   const grid = document.getElementById('isoGrid');
   const t = translations[lang];
@@ -1279,41 +1276,27 @@ function buildIsoGrid(lang) {
     const card = document.createElement('div');
     card.className = 'iso-card reveal visible' + (i % 4 !== 0 ? ' rd' + (i % 4) : '');
     card.innerHTML = `<div class="ic-icon">${isoIcons[i]}</div><div class="ic-number">${iso.number}</div><div class="ic-title">${iso.name}</div><div class="ic-desc">${iso.sector}</div><span class="ic-badge">${t['iso.badge']}</span>`;
-    card.addEventListener('click', () => openModal(iso, lang));
+    card.addEventListener('click', () => { openIsoModal(iso, lang); card.classList.add('active-card'); });
     grid.appendChild(card);
   });
-}
 
-// ── ISO MODAL ──
-const modal = document.getElementById('isoModal');
-document.getElementById('modalClose').addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-
-function openModal(iso, lang) {
-  const t = translations[lang];
-  document.getElementById('modalNumber').textContent = iso.number;
-  document.getElementById('modalName').innerHTML = iso.name;
-  document.getElementById('modalSub').textContent = iso.sector;
-  document.getElementById('modalDescLabel').textContent = t['iso.modal.desc'];
-  document.getElementById('modalAdvLabel').textContent = t['iso.modal.adv'];
-  document.getElementById('modalSecLabel').textContent = t['iso.modal.sec'];
-  document.getElementById('modalDesc').textContent = iso.desc;
-  document.getElementById('isoModalCta').textContent = t['iso.modal.cta'];
-  document.getElementById('modalAdvantages').innerHTML = iso.advantages.map(a => `<div class="modal-adv"><div class="modal-adv-icon">✓</div><span>${a}</span></div>`).join('');
-  document.getElementById('modalSectors').innerHTML = iso.sectors.map(s => `<span class="modal-sector">${s}</span>`).join('');
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  // Partenariat → même modal
+  document.querySelectorAll('.about-domain').forEach(el => {
+    const idx = parseInt(el.getAttribute('data-iso-index'));
+    el.onclick = (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.about-domain').forEach(d => d.classList.remove('active-card'));
+      el.classList.add('active-card');
+      openIsoModal(isoDataI18n[currentLang][idx], currentLang);
+    };
+  });
 }
-function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
 
 // ── SERVICE MODAL ──
 const srvModal = document.getElementById('srvModal');
 document.getElementById('srvModalClose').addEventListener('click', closeSrvModal);
 srvModal.addEventListener('click', e => { if (e.target === srvModal) closeSrvModal(); });
 
-// ════════════════════════════════════════
-//  MODIFICATION ICI : titres seulement, sans descriptions
-// ════════════════════════════════════════
 function openSrvModal(i) {
   const d = srvDataI18n[currentLang][i];
   document.getElementById('srvModalTag').textContent = d.tag;
@@ -1329,7 +1312,7 @@ function openSrvModal(i) {
 }
 
 function closeSrvModal() { srvModal.classList.remove('open'); document.body.style.overflow = ''; }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeModal(); closeSrvModal(); closeMobileMenu(); } });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeIsoModal(); closeSrvModal(); closeMobileMenu(); } });
 
 // ── SETLANG ──
 function setLang(lang) {
@@ -1358,6 +1341,8 @@ function setLang(lang) {
   const aboutBadge = document.querySelector('.about-badge span'); if (aboutBadge) aboutBadge.textContent = t['about.badge.label'];
 
   const isoTitle = document.querySelector('.iso-head .section-title'); if (isoTitle) isoTitle.innerHTML = t['iso.title'];
+
+  closeIsoModal();
   buildIsoGrid(lang);
 
   const sTag = document.querySelector('.services-head .section-tag'); if (sTag) sTag.textContent = t['services.tag'];
@@ -1431,7 +1416,6 @@ function setLang(lang) {
     a.appendChild(document.createTextNode(label));
   });
   const mmfCta = document.querySelector('.mmf-cta'); if (mmfCta) mmfCta.textContent = t['mob.quote'];
-  const isoCtaBtn = document.getElementById('isoModalCta'); if (isoCtaBtn) isoCtaBtn.textContent = t['iso.modal.cta'];
 }
 
 // ── BUILD ISO GRID ON LOAD ──
